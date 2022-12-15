@@ -1,0 +1,9 @@
+{
+    "projectTemplates": {
+        "renative-template-hello-world": {},
+        "renative-template-blank": {},
+        "renative-template-kitchen-sink": {},
+        "@reactseals/renative-template-chat": {},
+        "@reactseals/renative-template-uber": {}
+    }
+}
