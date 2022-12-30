@@ -1,4 +1,4 @@
-var _interopRequireWildcard=require("@babel/runtime/helpers/interopRequireWildcard");var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports._spawnCommand=exports._startBuilder=exports.SKIP_APP_CONFIG_CHECK=exports.NO_OP_COMMANDS=exports.rnvHelp=void 0;var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvHelp=exports.default=exports._startBuilder=exports._spawnCommand=exports.SKIP_APP_CONFIG_CHECK=exports.NO_OP_COMMANDS=void 0;var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
 var _logger=require("../systemTools/logger");
 var _workspace=require("../projectTools/workspace");
 var _projectGenerator=require("../projectTools/projectGenerator");
@@ -25,7 +25,7 @@ var _configParser=require("../configTools/configParser");
 
 var _projectParser=require("../projectTools/projectParser");
 var _publish=_interopRequireDefault(require("../projectTools/publish"));
-var _package=_interopRequireDefault(require("../projectTools/package"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _package=_interopRequireDefault(require("../projectTools/package"));function _getRequireWildcardCache(nodeInterop){if(typeof WeakMap!=="function")return null;var cacheBabelInterop=new WeakMap();var cacheNodeInterop=new WeakMap();return(_getRequireWildcardCache=function _getRequireWildcardCache(nodeInterop){return nodeInterop?cacheNodeInterop:cacheBabelInterop;})(nodeInterop);}function _interopRequireWildcard(obj,nodeInterop){if(!nodeInterop&&obj&&obj.__esModule){return obj;}if(obj===null||typeof obj!=="object"&&typeof obj!=="function"){return{default:obj};}var cache=_getRequireWildcardCache(nodeInterop);if(cache&&cache.has(obj)){return cache.get(obj);}var newObj={};var hasPropertyDescriptor=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var key in obj){if(key!=="default"&&Object.prototype.hasOwnProperty.call(obj,key)){var desc=hasPropertyDescriptor?Object.getOwnPropertyDescriptor(obj,key):null;if(desc&&(desc.get||desc.set)){Object.defineProperty(newObj,key,desc);}else{newObj[key]=obj[key];}}}newObj.default=obj;if(cache){cache.set(obj,newObj);}return newObj;}function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var rnvHelp=function rnvHelp(){
 var cmdsString='';
@@ -265,18 +265,18 @@ fn:_package.default}};
 var NO_OP_COMMANDS=['fix','clean','tool','status','log','new','target','help','config'];exports.NO_OP_COMMANDS=NO_OP_COMMANDS;
 var SKIP_APP_CONFIG_CHECK=['crypto','config'];exports.SKIP_APP_CONFIG_CHECK=SKIP_APP_CONFIG_CHECK;
 
-var _handleUnknownPlatform=function _handleUnknownPlatform(c,platforms){var _ref,platform;return _regenerator.default.async(function _handleUnknownPlatform$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var _handleUnknownPlatform=function _handleUnknownPlatform(c,platforms){var _await$inquirerPrompt,platform;return _regenerator.default.async(function _handleUnknownPlatform$(_context){while(1){switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('_handleUnknownPlatform');_context.next=3;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'list',
 name:'platform',
 message:'pick one of the following',
 choices:platforms,
-logMessage:"cli: Command "+_chalk.default.grey(c.command)+" does not support platform "+_chalk.default.grey(c.platform)+". "}));case 3:_ref=_context.sent;platform=_ref.platform;
+logMessage:"cli: Command "+_chalk.default.grey(c.command)+" does not support platform "+_chalk.default.grey(c.platform)+". "}));case 3:_await$inquirerPrompt=_context.sent;platform=_await$inquirerPrompt.platform;
 
 
 c.platform=platform;return _context.abrupt("return",
-run(c));case 7:case"end":return _context.stop();}}});};
+run(c));case 7:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 
@@ -284,7 +284,7 @@ run(c));case 7:case"end":return _context.stop();}}});};
 
 
 var _builderStarted=false;
-var _startBuilder=function _startBuilder(c){var _ref2,command;return _regenerator.default.async(function _startBuilder$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _startBuilder=function _startBuilder(c){var _await$inquirerPrompt2,command;return _regenerator.default.async(function _startBuilder$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("_startBuilder:"+_builderStarted);if(!
 
 _builderStarted){_context2.next=3;break;}return _context2.abrupt("return");case 3:
@@ -303,7 +303,7 @@ name:'command',
 message:'Pick a command',
 choices:NO_OP_COMMANDS.sort(),
 pageSize:15,
-logMessage:'You need to tell rnv what to do. NOTE: your current directory is not ReNative project. RNV options will be limited'}));case 12:_ref2=_context2.sent;command=_ref2.command;
+logMessage:'You need to tell rnv what to do. NOTE: your current directory is not ReNative project. RNV options will be limited'}));case 12:_await$inquirerPrompt2=_context2.sent;command=_await$inquirerPrompt2.command;
 
 c.command=command;case 15:if(!
 
@@ -330,7 +330,7 @@ c);case 19:_context2.next=21;return _regenerator.default.awrap(
 SKIP_APP_CONFIG_CHECK.includes(c.command)){_context2.next=46;break;}_context2.next=46;return _regenerator.default.awrap(
 (0,_configParser.updateConfig)(c,c.runtime.appId));case 46:_context2.next=48;return _regenerator.default.awrap(
 
-(0,_logger.logAppInfo)(c));case 48:case"end":return _context2.stop();}}});};exports._startBuilder=_startBuilder;
+(0,_logger.logAppInfo)(c));case 48:case"end":return _context2.stop();}}},null,null,null,Promise);};exports._startBuilder=_startBuilder;
 
 
 var _execCommandHep=function _execCommandHep(c,cmd){var opts,subCommands;return _regenerator.default.async(function _execCommandHep$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
@@ -356,10 +356,10 @@ subCommands+"\n"+
 opts+"\nMore info at "+
 _chalk.default.grey("https://renative.org/docs/rnv-"+c.command)+"\n");return _context3.abrupt("return",
 
-Promise.resolve());case 6:case"end":return _context3.stop();}}});};
+Promise.resolve());case 6:case"end":return _context3.stop();}}},null,null,null,Promise);};
 
 
-var _handleUnknownSubCommand=function _handleUnknownSubCommand(c){var _COMMANDS$c$command;var cmds,_ref3,subCommand;return _regenerator.default.async(function _handleUnknownSubCommand$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _handleUnknownSubCommand=function _handleUnknownSubCommand(c){var _COMMANDS$c$command;var cmds,_await$inquirerPrompt3,subCommand;return _regenerator.default.async(function _handleUnknownSubCommand$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)('_handleUnknownSubCommand');
 cmds=(_COMMANDS$c$command=COMMANDS[c.command])==null?void 0:_COMMANDS$c$command.subCommands;_context4.next=4;return _regenerator.default.awrap(
 
@@ -368,14 +368,14 @@ type:'list',
 name:'subCommand',
 message:'Pick a subCommand',
 choices:Object.keys(cmds),
-logMessage:"cli: Command "+_chalk.default.bold(c.command)+" does not support method "+_chalk.default.bold(c.subCommand)+"!"}));case 4:_ref3=_context4.sent;subCommand=_ref3.subCommand;
+logMessage:"cli: Command "+_chalk.default.bold(c.command)+" does not support method "+_chalk.default.bold(c.subCommand)+"!"}));case 4:_await$inquirerPrompt3=_context4.sent;subCommand=_await$inquirerPrompt3.subCommand;
 
 
 c.subCommand=subCommand;return _context4.abrupt("return",
-run(c));case 8:case"end":return _context4.stop();}}});};
+run(c));case 8:case"end":return _context4.stop();}}},null,null,null,Promise);};
 
 
-var _handleUnknownCommand=function _handleUnknownCommand(c){var _ref4,command;return _regenerator.default.async(function _handleUnknownCommand$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var _handleUnknownCommand=function _handleUnknownCommand(c){var _await$inquirerPrompt4,command;return _regenerator.default.async(function _handleUnknownCommand$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)('_handleUnknownCommand');
 
 c.program.scheme=true;_context5.next=4;return _regenerator.default.awrap(
@@ -386,10 +386,10 @@ name:'command',
 message:'Pick a command',
 pageSize:7,
 choices:Object.keys(COMMANDS).sort(),
-logMessage:"cli: Command "+_chalk.default.bold(c.command)+" not supported!"}));case 4:_ref4=_context5.sent;command=_ref4.command;
+logMessage:"cli: Command "+_chalk.default.bold(c.command)+" not supported!"}));case 4:_await$inquirerPrompt4=_context5.sent;command=_await$inquirerPrompt4.command;
 
 c.command=command;return _context5.abrupt("return",
-run(c));case 8:case"end":return _context5.stop();}}});};
+run(c));case 8:case"end":return _context5.stop();}}},null,null,null,Promise);};
 
 
 
@@ -461,7 +461,7 @@ _execute(c,subCmdFn,cmd));case 29:_context6.next=33;break;case 31:_context6.next
 _handleUnknownSubCommand(c));case 33:_context6.next=37;break;case 35:_context6.next=37;return _regenerator.default.awrap(
 
 
-_handleUnknownCommand(c));case 37:case"end":return _context6.stop();}}});};
+_handleUnknownCommand(c));case 37:case"end":return _context6.stop();}}},null,null,null,Promise);};
 
 
 
@@ -505,7 +505,7 @@ c.runtime.localhost=_utils.isSystemWin?'127.0.0.1':'0.0.0.0';
 pipeEnabled=!NO_OP_COMMANDS.includes(c.command)&&!SKIP_APP_CONFIG_CHECK.includes(c.command);if(!
 pipeEnabled){_context7.next=21;break;}_context7.next=21;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":before"));case 21:_context7.next=23;return _regenerator.default.awrap(
 cmdFn(c));case 23:if(!
-pipeEnabled){_context7.next=26;break;}_context7.next=26;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":after"));case 26:case"end":return _context7.stop();}}});};var _default=
+pipeEnabled){_context7.next=26;break;}_context7.next=26;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":after"));case 26:case"end":return _context7.stop();}}},null,null,null,Promise);};var _default=
 
 
 

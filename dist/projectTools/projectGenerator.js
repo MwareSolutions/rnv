@@ -20,7 +20,7 @@ var _logger=require("../systemTools/logger");
 
 var _workspace=require("./workspace");
 var _configParser=require("../configTools/configParser");
-var _analytics=_interopRequireDefault(require("../systemTools/analytics"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _analytics=_interopRequireDefault(require("../systemTools/analytics"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var highlight=_chalk.default.green;
 
@@ -35,7 +35,7 @@ _fs.default.existsSync(_path.default.join(projectPath,'.git'))){_context.next=14
 (0,_exec.executeAsync)('git add -A',{cwd:projectPath}));case 9:_context.next=11;return _regenerator.default.awrap(
 (0,_exec.executeAsync)('git commit -m "Initial"',{cwd:projectPath}));case 11:_context.next=14;break;case 13:
 
-(0,_logger.logWarning)('We tried to create a git repo inside your project but you don\'t seem to have git installed');case 14:case"end":return _context.stop();}}});};
+(0,_logger.logWarning)('We tried to create a git repo inside your project but you don\'t seem to have git installed');case 14:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 
@@ -91,7 +91,7 @@ configureGit(c));case 15:
 
 (0,_logger.logSuccess)("Your project is ready! navigate to project "+
 _chalk.default.white("cd "+data.projectName)+" and run "+_chalk.default.white("rnv run -p "+
-data.optionPlatforms.selectedOptions[0])+" to see magic happen!");case 16:case"end":return _context2.stop();}}});};
+data.optionPlatforms.selectedOptions[0])+" to see magic happen!");case 16:case"end":return _context2.stop();}}},null,null,null,Promise);};
 
 
 
@@ -140,7 +140,7 @@ str+='\n';
 data.confirmString=str;
 };
 
-var createNewProject=function createNewProject(c){var args,data,inputProjectName,inputProjectNameObj,_ref,inputAppTitle,inputAppID,inputVersion,inputWorkspace,_ref2,inputTemplate,templateVersionsStr,versionArr,rnvVersion,validVersions,_ref3,inputTemplateVersion,_ref4,inputSupportedPlatforms,_ref5,gitEnabled,_ref6,confirm;return _regenerator.default.async(function createNewProject$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var createNewProject=function createNewProject(c){var args,data,inputProjectName,inputProjectNameObj,_await$inquirer$promp,inputAppTitle,inputAppID,inputVersion,inputWorkspace,_await$inquirer$promp2,inputTemplate,templateVersionsStr,versionArr,rnvVersion,validVersions,_await$inquirer$promp3,inputTemplateVersion,_await$inquirer$promp4,inputSupportedPlatforms,_await$inquirer$promp5,gitEnabled,_await$inquirer$promp6,confirm;return _regenerator.default.async(function createNewProject$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)('createNewProject');
 args=c.program.args;
 
@@ -198,7 +198,7 @@ name:'inputWorkspace',
 type:'list',
 message:'What workspace to use?',
 default:data.defaultWorkspace,
-choices:data.optionWorkspaces.keysAsArray}]));case 16:_ref=_context3.sent;inputAppTitle=_ref.inputAppTitle;inputAppID=_ref.inputAppID;inputVersion=_ref.inputVersion;inputWorkspace=_ref.inputWorkspace;
+choices:data.optionWorkspaces.keysAsArray}]));case 16:_await$inquirer$promp=_context3.sent;inputAppTitle=_await$inquirer$promp.inputAppTitle;inputAppID=_await$inquirer$promp.inputAppID;inputVersion=_await$inquirer$promp.inputVersion;inputWorkspace=_await$inquirer$promp.inputWorkspace;
 
 data.optionWorkspaces.selectedOption=inputWorkspace;
 
@@ -213,7 +213,7 @@ name:'inputTemplate',
 type:'list',
 message:'What template to use?',
 default:data.defaultTemplate,
-choices:data.optionTemplates.keysAsArray}));case 28:_ref2=_context3.sent;inputTemplate=_ref2.inputTemplate;
+choices:data.optionTemplates.keysAsArray}));case 28:_await$inquirer$promp2=_context3.sent;inputTemplate=_await$inquirer$promp2.inputTemplate;
 
 data.optionTemplates.selectedOption=inputTemplate;_context3.next=33;return _regenerator.default.awrap(
 
@@ -237,7 +237,7 @@ name:'inputTemplateVersion',
 type:'list',
 message:'What version of template to use?',
 default:data.optionTemplates.selectedVersion,
-choices:validVersions}));case 41:_ref3=_context3.sent;inputTemplateVersion=_ref3.inputTemplateVersion;
+choices:validVersions}));case 41:_await$inquirer$promp3=_context3.sent;inputTemplateVersion=_await$inquirer$promp3.inputTemplateVersion;
 
 data.optionTemplates.selectedVersion=inputTemplateVersion;_context3.next=46;return _regenerator.default.awrap(
 
@@ -251,7 +251,7 @@ pageSize:20,
 message:'What platforms would you like to use?',
 validate:function validate(val){return!!val.length||'Please select at least a platform';},
 default:data.optionPlatforms.keysAsArray,
-choices:data.optionPlatforms.keysAsArray}));case 46:_ref4=_context3.sent;inputSupportedPlatforms=_ref4.inputSupportedPlatforms;_context3.next=50;return _regenerator.default.awrap(
+choices:data.optionPlatforms.keysAsArray}));case 46:_await$inquirer$promp4=_context3.sent;inputSupportedPlatforms=_await$inquirer$promp4.inputSupportedPlatforms;_context3.next=50;return _regenerator.default.awrap(
 
 
 
@@ -259,11 +259,11 @@ choices:data.optionPlatforms.keysAsArray}));case 46:_ref4=_context3.sent;inputSu
 _inquirer.default.prompt({
 name:'gitEnabled',
 type:'confirm',
-message:'Do you want to set-up git in your new project?'}));case 50:_ref5=_context3.sent;gitEnabled=_ref5.gitEnabled;
+message:'Do you want to set-up git in your new project?'}));case 50:_await$inquirer$promp5=_context3.sent;gitEnabled=_await$inquirer$promp5.gitEnabled;
 
 
-data=_objectSpread({},
-data,{inputProjectName:inputProjectName,inputAppTitle:inputAppTitle,inputAppID:inputAppID,inputVersion:inputVersion,inputTemplate:inputTemplate,inputSupportedPlatforms:inputSupportedPlatforms,inputWorkspace:inputWorkspace,gitEnabled:gitEnabled});
+data=_objectSpread(_objectSpread({},
+data),{},{inputProjectName:inputProjectName,inputAppTitle:inputAppTitle,inputAppID:inputAppID,inputVersion:inputVersion,inputTemplate:inputTemplate,inputSupportedPlatforms:inputSupportedPlatforms,inputWorkspace:inputWorkspace,gitEnabled:gitEnabled});
 
 data.optionPlatforms.selectedOptions=inputSupportedPlatforms;
 
@@ -273,7 +273,7 @@ _prepareProjectOverview(c,data);_context3.next=57;return _regenerator.default.aw
 _inquirer.default.prompt({
 type:'confirm',
 name:'confirm',
-message:"\n"+data.confirmString+"\nIs all this correct?"}));case 57:_ref6=_context3.sent;confirm=_ref6.confirm;if(!
+message:"\n"+data.confirmString+"\nIs all this correct?"}));case 57:_await$inquirer$promp6=_context3.sent;confirm=_await$inquirer$promp6.confirm;if(!
 
 
 confirm){_context3.next=69;break;}_context3.prev=60;_context3.next=63;return _regenerator.default.awrap(
@@ -285,5 +285,5 @@ platforms:inputSupportedPlatforms}));case 63:_context3.next=67;break;case 65:_co
 
 
 
-_generateProject(c,data));case 69:case"end":return _context3.stop();}}},null,null,[[60,65]]);};exports.createNewProject=createNewProject;
+_generateProject(c,data));case 69:case"end":return _context3.stop();}}},null,null,[[60,65]],Promise);};exports.createNewProject=createNewProject;
 //# sourceMappingURL=projectGenerator.js.map

@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvLink=exports.rnvSwitch=exports.rnvConfigure=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvSwitch=exports.rnvLink=exports.rnvConfigure=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
@@ -79,13 +79,13 @@ _configurePlatform(c,p,_constants.FIREFOX_TV,_firefox.configureKaiOSProject));ca
 _configurePlatform(c,p,_constants.IOS,_apple.configureXcodeProject));case 52:_context.next=54;return _regenerator.default.awrap(
 _configurePlatform(c,p,_constants.TVOS,_apple.configureXcodeProject));case 54:
 
-c.platform=originalPlatform;case 55:case"end":return _context.stop();}}});};exports.rnvConfigure=rnvConfigure;
+c.platform=originalPlatform;case 55:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvConfigure=rnvConfigure;
 
 
 var _configurePlatform=function _configurePlatform(c,p,platform,method){return _regenerator.default.async(function _configurePlatform$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:if(!
 _isOK(c,p,[platform])){_context2.next=4;break;}
 c.platform=platform;_context2.next=4;return _regenerator.default.awrap(
-method(c,platform));case 4:case"end":return _context2.stop();}}});};
+method(c,platform));case 4:case"end":return _context2.stop();}}},null,null,null,Promise);};
 
 
 
@@ -168,7 +168,7 @@ _fs.default.existsSync(_appFolder)){_context3.next=27;break;}
 command:'platform',
 subCommand:'configure',
 platform:k,
-program:{appConfig:c.runtime.appId,platform:k}}));case 27:i++;_context3.next=20;break;case 30:case"end":return _context3.stop();}}});};
+program:{appConfig:c.runtime.appId,platform:k}}));case 27:i++;_context3.next=20;break;case 30:case"end":return _context3.stop();}}},null,null,null,Promise);};
 
 
 
@@ -212,7 +212,7 @@ if(_fs.default.existsSync(source)){
 }
 
 var overrideConfig=(0,_fileutils.readObjectSync)(_path.default.resolve(pluginsPath,dir,'overrides.json'));
-if(overrideConfig==null?void 0:overrideConfig.overrides){
+if(overrideConfig!=null&&overrideConfig.overrides){
 for(var k in overrideConfig.overrides){
 var override=overrideConfig.overrides[k];
 ovDir=_path.default.join(dest,k);

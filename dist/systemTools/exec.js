@@ -1,4 +1,4 @@
-var _interopRequireWildcard=require("@babel/runtime/helpers/interopRequireWildcard");var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports.executeTelnet=exports.openCommand=exports.commandExistsSync=exports.commandExists=exports.execCLI=exports.executeAsync=exports.npmInstall=exports.cleanNodeModules=exports.parseErrorMessage=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseErrorMessage=exports.openCommand=exports.npmInstall=exports.executeTelnet=exports.executeAsync=exports.execCLI=exports.default=exports.commandExistsSync=exports.commandExists=exports.cleanNodeModules=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireWildcard(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
@@ -9,9 +9,9 @@ var _config=_interopRequireDefault(require("../config"));
 
 var _logger=require("./logger");
 var _fileutils=require("./fileutils");
-var _utils=require("../utils");function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}var _require=
+var _utils=require("../utils");function _getRequireWildcardCache(nodeInterop){if(typeof WeakMap!=="function")return null;var cacheBabelInterop=new WeakMap();var cacheNodeInterop=new WeakMap();return(_getRequireWildcardCache=function _getRequireWildcardCache(nodeInterop){return nodeInterop?cacheNodeInterop:cacheBabelInterop;})(nodeInterop);}function _interopRequireWildcard(obj,nodeInterop){if(!nodeInterop&&obj&&obj.__esModule){return obj;}if(obj===null||typeof obj!=="object"&&typeof obj!=="function"){return{default:obj};}var cache=_getRequireWildcardCache(nodeInterop);if(cache&&cache.has(obj)){return cache.get(obj);}var newObj={};var hasPropertyDescriptor=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var key in obj){if(key!=="default"&&Object.prototype.hasOwnProperty.call(obj,key)){var desc=hasPropertyDescriptor?Object.getOwnPropertyDescriptor(obj,key):null;if(desc&&(desc.get||desc.set)){Object.defineProperty(newObj,key,desc);}else{newObj[key]=obj[key];}}}newObj.default=obj;if(cache){cache.set(obj,newObj);}return newObj;}function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
-require('child_process'),exec=_require.exec,execSync=_require.execSync;
+var _require=require('child_process'),exec=_require.exec,execSync=_require.execSync;
 
 
 
@@ -47,7 +47,7 @@ defaultOpts.stdio='inherit';
 defaultOpts.shell=true;
 }
 
-var mergedOpts=_objectSpread({},defaultOpts,{},opts);
+var mergedOpts=_objectSpread(_objectSpread({},defaultOpts),opts);
 
 var cleanCommand=command;
 var interval;
@@ -57,14 +57,14 @@ var privateMask='*******';
 
 if(Array.isArray(command))cleanCommand=command.join(' ');
 
-var logMessage=cleanCommand;var
-privateParams=mergedOpts.privateParams;
+var logMessage=cleanCommand;
+var privateParams=mergedOpts.privateParams;
 if(privateParams&&Array.isArray(privateParams)){
 logMessage=(0,_utils.replaceOverridesInString)(command,privateParams,privateMask);
 }
 
-(0,_logger.logDebug)("_execute: "+logMessage);var
-silent=mergedOpts.silent,mono=mergedOpts.mono,maxErrorLength=mergedOpts.maxErrorLength,ignoreErrors=mergedOpts.ignoreErrors;
+(0,_logger.logDebug)("_execute: "+logMessage);
+var silent=mergedOpts.silent,mono=mergedOpts.mono,maxErrorLength=mergedOpts.maxErrorLength,ignoreErrors=mergedOpts.ignoreErrors;
 var spinner=!silent&&!mono&&(0,_ora.default)({text:"Executing: "+logMessage}).start();
 
 if(mono){
@@ -74,8 +74,8 @@ timer+=intervalTimer;
 },intervalTimer);
 }
 var child;
-if(opts.rawCommand){var
-args=opts.rawCommand.args;
+if(opts.rawCommand){
+var args=opts.rawCommand.args;
 child=(0,_execa.default)(command,args,mergedOpts);
 }else{
 child=_execa.default.command(cleanCommand,mergedOpts);
@@ -90,7 +90,7 @@ spinner.text=(0,_utils.replaceOverridesInString)(lastLine.substring(0,MAX_OUTPUT
 if(lastLine.length===MAX_OUTPUT_LENGTH)spinner.text+='...\n';
 };
 
-if((_c$program3=c.program)==null?void 0:_c$program3.info){var _child,_child$stdout;
+if((_c$program3=c.program)!=null&&_c$program3.info){var _child,_child$stdout;
 (_child=child)==null?void 0:(_child$stdout=_child.stdout)==null?void 0:_child$stdout.pipe(process.stdout);
 }else if(spinner){var _child2,_child2$stdout;
 (_child2=child)==null?void 0:(_child2$stdout=_child2.stdout)==null?void 0:_child2$stdout.on('data',printLastLine);
@@ -142,7 +142,7 @@ c.paths.globalConfigPath)+" file if you SDK path is correct");
 
 }
 
-return _execute(c,p+" "+command,_objectSpread({},opts,{shell:true}));
+return _execute(c,p+" "+command,_objectSpread(_objectSpread({},opts),{},{shell:true}));
 };exports.execCLI=execCLI;
 
 
@@ -415,7 +415,7 @@ return(0,_logger.logError)(e);
 return cleanNodeModules(_config.default.getConfig()).
 then(function(){return npmInstall(true);}).
 catch(function(f){return(0,_logger.logError)(f);});
-}));case 4:case"end":return _context.stop();}}});};exports.npmInstall=npmInstall;
+}));case 4:case"end":return _context.stop();}}},null,null,null,Promise);};exports.npmInstall=npmInstall;
 
 
 

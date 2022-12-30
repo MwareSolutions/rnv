@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvHooksPipes=exports.executePipe=exports.rnvHooksRun=exports.rnvHooksList=exports.buildHooks=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvHooksRun=exports.rnvHooksPipes=exports.rnvHooksList=exports.executePipe=exports.buildHooks=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
 var _fs=_interopRequireDefault(require("fs"));
 var _common=require("../common");
 
@@ -41,7 +41,7 @@ pipe=c.buildPipes?c.buildPipes[key]:null;if(!
 Array.isArray(pipe)){_context.next=9;break;}_context.next=7;return _regenerator.default.awrap(
 pipe.reduce(function(accumulatorPromise,next){return accumulatorPromise.then(function(){return next(c);});},Promise.resolve()));case 7:_context.next=12;break;case 9:if(!
 pipe){_context.next=12;break;}_context.next=12;return _regenerator.default.awrap(
-pipe(c));case 12:case"end":return _context.stop();}}});};exports.executePipe=executePipe;
+pipe(c));case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.executePipe=executePipe;
 
 
 

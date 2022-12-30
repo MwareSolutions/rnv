@@ -64,7 +64,7 @@ return ftpDeploy.deploy(config);
 }).catch(reject);
 });};
 
-var _createEnvFtpConfig=function _createEnvFtpConfig(configFilePath){var previousContent,envContent,_ref3,host,user,password,port,_args=arguments;return _regenerator.default.async(function _createEnvFtpConfig$(_context){while(1){switch(_context.prev=_context.next){case 0:previousContent=_args.length>1&&_args[1]!==undefined?_args[1]:'';
+var _createEnvFtpConfig=function _createEnvFtpConfig(configFilePath){var previousContent,envContent,_await$inquirer$promp,host,user,password,port,_args=arguments;return _regenerator.default.async(function _createEnvFtpConfig$(_context){while(1){switch(_context.prev=_context.next){case 0:previousContent=_args.length>1&&_args[1]!==undefined?_args[1]:'';
 envContent=previousContent||'';_context.next=4;return _regenerator.default.awrap(
 
 _inquirer.default.prompt([
@@ -90,7 +90,7 @@ validate:function validate(i){return!!i||'No FTP user provided';}},
 {
 name:'password',
 message:'Type your FTP password (or press ENTER for prompting every time)',
-type:'password'}]));case 4:_ref3=_context.sent;host=_ref3.host;user=_ref3.user;password=_ref3.password;port=_ref3.port;
+type:'password'}]));case 4:_await$inquirer$promp=_context.sent;host=_await$inquirer$promp.host;user=_await$inquirer$promp.user;password=_await$inquirer$promp.password;port=_await$inquirer$promp.port;
 
 
 
@@ -100,10 +100,10 @@ envContent+="RNV_DEPLOY_WEB_FTP_PASSWORD="+password+"\n";
 envContent+="RNV_DEPLOY_WEB_FTP_PORT="+port;
 
 _fs.default.writeFileSync(configFilePath,envContent);
-(0,_logger.logInfo)("Writing .env config to "+configFilePath);case 15:case"end":return _context.stop();}}});};
+(0,_logger.logInfo)("Writing .env config to "+configFilePath);case 15:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
-var _createDeployConfig=function _createDeployConfig(c,platform){var deploy,_ref4,remoteRoot,deleteRemote,include,exclude,excludeSourcemaps;return _regenerator.default.async(function _createDeployConfig$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _createDeployConfig=function _createDeployConfig(c,platform){var deploy,_await$inquirer$promp2,remoteRoot,deleteRemote,include,exclude,excludeSourcemaps;return _regenerator.default.async(function _createDeployConfig$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("_createDeployConfig:"+platform);
 
 deploy=c.buildConfig.platforms[platform].deploy||{};
@@ -139,7 +139,7 @@ default:'[]'},
 {
 name:'excludeSourcemaps',
 type:'confirm',
-message:'Exclude sourcemaps?'}]));case 7:_ref4=_context2.sent;remoteRoot=_ref4.remoteRoot;deleteRemote=_ref4.deleteRemote;include=_ref4.include;exclude=_ref4.exclude;excludeSourcemaps=_ref4.excludeSourcemaps;
+message:'Exclude sourcemaps?'}]));case 7:_await$inquirer$promp2=_context2.sent;remoteRoot=_await$inquirer$promp2.remoteRoot;deleteRemote=_await$inquirer$promp2.deleteRemote;include=_await$inquirer$promp2.include;exclude=_await$inquirer$promp2.exclude;excludeSourcemaps=_await$inquirer$promp2.excludeSourcemaps;
 
 
 
@@ -155,13 +155,13 @@ c.paths.appConfig.config+"\n                ");
 
 
 c.files.appConfig.config.platforms[platform].deploy=deploy;
-(0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);case 21:case"end":return _context2.stop();}}});};
+(0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);case 21:case"end":return _context2.stop();}}},null,null,null,Promise);};
 
 
 var deployToFtp=function deployToFtp(c,platform){var _targetConfig$deploy,_targetConfig$deploy$;
 (0,_logger.logTask)("checkDeployConfigTarget:"+platform);
 var targetConfig=c.buildConfig.platforms[platform];
-if(targetConfig==null?void 0:(_targetConfig$deploy=targetConfig.deploy)==null?void 0:(_targetConfig$deploy$=_targetConfig$deploy[_webTools.DEPLOY_TARGET_FTP])==null?void 0:_targetConfig$deploy$.type){
+if(targetConfig!=null&&(_targetConfig$deploy=targetConfig.deploy)!=null&&(_targetConfig$deploy$=_targetConfig$deploy[_webTools.DEPLOY_TARGET_FTP])!=null&&_targetConfig$deploy$.type){
 return _deployToFtp(c,platform);
 }
 return _createDeployConfig(c,platform).then(function(){return _deployToFtp(c,platform);});

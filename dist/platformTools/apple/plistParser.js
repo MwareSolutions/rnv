@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.saveObjToPlistSync=exports.objToPlist=exports.parseInfoPlist=exports.parseEntitlementsPlist=exports.parseExportOptionsPlist=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.saveObjToPlistSync=exports.parseInfoPlist=exports.parseExportOptionsPlist=exports.parseEntitlementsPlist=exports.objToPlist=void 0;var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _objectUtils=require("../../systemTools/objectUtils");
 var _common=require("../../common");
@@ -66,8 +66,8 @@ var parseInfoPlist=function parseInfoPlist(c,platform){return new Promise(functi
 
 var appFolder=(0,_common.getAppFolder)(c,platform);
 var appFolderName=(0,_index.getAppFolderName)(c,platform);
-var plat=c.buildConfig.platforms[platform];var
-orientationSupport=plat.orientationSupport,urlScheme=plat.urlScheme;
+var plat=c.buildConfig.platforms[platform];
+var orientationSupport=plat.orientationSupport,urlScheme=plat.urlScheme;
 var plistPath=_path.default.join(appFolder,appFolderName+"/Info.plist");
 
 

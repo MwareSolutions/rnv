@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.injectPluginKotlinSync=exports.parseSplashActivitySync=exports.parseMainActivitySync=exports.parseMainApplicationSync=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseSplashActivitySync=exports.parseMainApplicationSync=exports.parseMainActivitySync=exports.injectPluginKotlinSync=void 0;var _path=_interopRequireDefault(require("path"));
 var _common=require("../../common");
 
 
@@ -99,9 +99,9 @@ c.pluginConfigAndroid.pluginActivityImports+="import "+activityImport+"\n";
 if(plugin.activityMethods instanceof Array){
 c.pluginConfigAndroid.pluginActivityMethods+='\n';
 c.pluginConfigAndroid.pluginActivityMethods+=""+plugin.activityMethods.join('\n    ');
-}var
+}
 
-mainActivity=plugin.mainActivity;
+var mainActivity=plugin.mainActivity;
 if(mainActivity){
 if(mainActivity.createMethods instanceof Array){
 c.pluginConfigAndroid.pluginActivityCreateMethods+='\n';
@@ -139,9 +139,9 @@ plugin.MainApplication.packages.forEach(function(v){
 _injectPackage(c,plugin,v);
 });
 }
-}var
+}
 
-mainApplication=plugin.mainApplication;
+var mainApplication=plugin.mainApplication;
 if(mainApplication){
 if(mainApplication.createMethods instanceof Array){
 c.pluginConfigAndroid.pluginApplicationCreateMethods+='\n';

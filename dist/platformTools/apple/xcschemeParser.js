@@ -28,5 +28,5 @@ launcherId=poisxSpawn?'Xcode.IDEFoundation.Launcher.PosixSpawn':'Xcode.DebuggerF
 schemePath=appFolderName+".xcodeproj/xcshareddata/xcschemes/"+appFolderName+".xcscheme";
 (0,_common.writeCleanFile)(_path.default.join(appTemplateFolder,schemePath),_path.default.join(appFolder,schemePath),[
 {pattern:'{{PLUGIN_DEBUGGER_ID}}',override:debuggerId},
-{pattern:'{{PLUGIN_LAUNCHER_ID}}',override:launcherId}]);case 12:case"end":return _context.stop();}}});};exports.parseXcscheme=parseXcscheme;
+{pattern:'{{PLUGIN_LAUNCHER_ID}}',override:launcherId}]);case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.parseXcscheme=parseXcscheme;
 //# sourceMappingURL=xcschemeParser.js.map

@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.cleanPlaformAssets=exports.configureNodeModules=exports.upgradeProjectDependencies=exports.copyBuildsFolder=exports.copyAssetsFolder=exports.copySharedPlatforms=exports.parseFonts=exports.copyRuntimeAssets=exports.checkAndCreateGitignore=exports.checkAndCreateProjectPackage=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.upgradeProjectDependencies=exports.parseFonts=exports.copySharedPlatforms=exports.copyRuntimeAssets=exports.copyBuildsFolder=exports.copyAssetsFolder=exports.configureNodeModules=exports.cleanPlaformAssets=exports.checkAndCreateProjectPackage=exports.checkAndCreateGitignore=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _constants=require("../constants");
@@ -90,8 +90,8 @@ var fontsObj='export default [';
 
 parseFonts(c,function(font,dir){
 if(font.includes('.ttf')||font.includes('.otf')){
-var key=font.split('.')[0];var
-includedFonts=c.buildConfig.common.includedFonts;
+var key=font.split('.')[0];
+var includedFonts=c.buildConfig.common.includedFonts;
 if(includedFonts){
 if(includedFonts.includes('*')||includedFonts.includes(key)){
 if(font){
@@ -236,24 +236,24 @@ sourcePath=_path.default.join(c.paths.appConfig.dir,"assets/"+platform);if(
 _fs.default.existsSync(sourcePath)){_context.next=18;break;}_context.next=18;return _regenerator.default.awrap(
 generateDefaultAssets(c,platform,sourcePath));case 18:
 
-(0,_fileutils.copyFolderContentsRecursiveSync)(sourcePath,destPath);case 19:case"end":return _context.stop();}}});};exports.copyAssetsFolder=copyAssetsFolder;
+(0,_fileutils.copyFolderContentsRecursiveSync)(sourcePath,destPath);case 19:case"end":return _context.stop();}}},null,null,null,Promise);};exports.copyAssetsFolder=copyAssetsFolder;
 
 
 
-var generateDefaultAssets=function generateDefaultAssets(c,platform,sourcePath){var confirmAssets,_ref,confirm;return _regenerator.default.async(function generateDefaultAssets$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var generateDefaultAssets=function generateDefaultAssets(c,platform,sourcePath){var confirmAssets,_await$inquirerPrompt,confirm;return _regenerator.default.async(function generateDefaultAssets$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("generateDefaultAssets:"+platform);
 confirmAssets=true;if(!(
 c.program.ci===false)){_context2.next=8;break;}_context2.next=5;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:"It seems you don't have assets configured in "+_chalk.default.white(sourcePath)+" do you want generate default ones?"}));case 5:_ref=_context2.sent;confirm=_ref.confirm;
+message:"It seems you don't have assets configured in "+_chalk.default.white(sourcePath)+" do you want generate default ones?"}));case 5:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;
 
 confirmAssets=confirm;case 8:
 
 
 if(confirmAssets){
 (0,_fileutils.copyFolderContentsRecursiveSync)(_path.default.join(c.paths.rnv.dir,"projectTemplate/assets/"+platform),sourcePath);
-}case 9:case"end":return _context2.stop();}}});};
+}case 9:case"end":return _context2.stop();}}},null,null,null,Promise);};
 
 
 var copyBuildsFolder=function copyBuildsFolder(c,platform){return new Promise(function(resolve,reject){
@@ -317,7 +317,7 @@ var upgradeProjectDependencies=function upgradeProjectDependencies(c,version){va
 var thw='renative-template-hello-world';
 var tb='renative-template-blank';
 var devDependencies=(_c$files$project$pack=c.files.project.package)==null?void 0:_c$files$project$pack.devDependencies;
-if(devDependencies==null?void 0:devDependencies.rnv){
+if(devDependencies!=null&&devDependencies.rnv){
 devDependencies.rnv=version;
 }
 if(devDependencies[thw]){
@@ -326,14 +326,14 @@ devDependencies[thw]=version;
 if(devDependencies[tb]){
 devDependencies[tb]=version;
 }
-if(devDependencies==null?void 0:devDependencies.renative){
+if(devDependencies!=null&&devDependencies.renative){
 devDependencies.renative=version;
 }
 
 (0,_fileutils.writeFileSync)(c.paths.project.package,c.files.project.package);
 
-if((_c$files$project$conf4=c.files.project.config)==null?void 0:(_c$files$project$conf5=_c$files$project$conf4.templates)==null?void 0:(_c$files$project$conf6=_c$files$project$conf5[thw])==null?void 0:_c$files$project$conf6.version)c.files.project.config.templates[thw].version=version;
-if((_c$files$project$conf7=c.files.project.config)==null?void 0:(_c$files$project$conf8=_c$files$project$conf7.templates)==null?void 0:(_c$files$project$conf9=_c$files$project$conf8[tb])==null?void 0:_c$files$project$conf9.version)c.files.project.config.templates[tb].version=version;
+if((_c$files$project$conf4=c.files.project.config)!=null&&(_c$files$project$conf5=_c$files$project$conf4.templates)!=null&&(_c$files$project$conf6=_c$files$project$conf5[thw])!=null&&_c$files$project$conf6.version)c.files.project.config.templates[thw].version=version;
+if((_c$files$project$conf7=c.files.project.config)!=null&&(_c$files$project$conf8=_c$files$project$conf7.templates)!=null&&(_c$files$project$conf9=_c$files$project$conf8[tb])!=null&&_c$files$project$conf9.version)c.files.project.config.templates[tb].version=version;
 
 c._requiresNpmInstall=true;
 
@@ -365,5 +365,5 @@ var cleanPlaformAssets=function cleanPlaformAssets(c){return _regenerator.defaul
 
 (0,_fileutils.cleanFolder)(c.paths.project.assets.dir));case 3:
 (0,_fileutils.mkdirSync)(c.paths.project.assets.runtimeDir);return _context3.abrupt("return",
-true);case 5:case"end":return _context3.stop();}}});};exports.cleanPlaformAssets=cleanPlaformAssets;
+true);case 5:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.cleanPlaformAssets=cleanPlaformAssets;
 //# sourceMappingURL=projectParser.js.map

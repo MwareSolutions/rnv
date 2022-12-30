@@ -8,8 +8,8 @@ var _exec=require("../systemTools/exec");
 var _fileutils=require("../systemTools/fileutils");
 var _logger=require("../systemTools/logger");
 
-var bumpVersions=function bumpVersions(version){var _Config$getConfig$pat=
-_config.default.getConfig().paths,dir=_Config$getConfig$pat.project.dir,pluginTemplates=_Config$getConfig$pat.rnv.pluginTemplates;
+var bumpVersions=function bumpVersions(version){
+var _Config$getConfig$pat=_config.default.getConfig().paths,dir=_Config$getConfig$pat.project.dir,pluginTemplates=_Config$getConfig$pat.rnv.pluginTemplates;
 
 var packagesDir=_path.default.join(dir,'packages');
 if(_fs.default.existsSync(packagesDir)){
@@ -39,8 +39,8 @@ version:version}}});
 }
 };
 
-var publishAll=function publishAll(){var
-dir=_config.default.getConfig().paths.project.dir;
+var publishAll=function publishAll(){
+var dir=_config.default.getConfig().paths.project.dir;
 var packagesDir=_path.default.join(dir,'packages');
 if(_fs.default.existsSync(packagesDir)){
 var packages=_fs.default.readdirSync(packagesDir);
@@ -68,7 +68,7 @@ firstArg;_context.next=_context.t0===
 'publish'?12:13;break;case 7:if(secondArg){_context.next=9;break;}return _context.abrupt("return",(0,_logger.logError)('No version specified',false,true));case 9:if(_semver.default.valid(secondArg)){_context.next=11;break;}return _context.abrupt("return",(0,_logger.logError)("Invalid version specified "+secondArg,false,true));case 11:return _context.abrupt("return",bumpVersions(secondArg));case 12:return _context.abrupt("return",
 publishAll());case 13:
 
-(0,_logger.logError)("Unknown argument "+firstArg,false,true);return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}});};var _default=
+(0,_logger.logError)("Unknown argument "+firstArg,false,true);return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}},null,null,null,Promise);};var _default=
 
 
 

@@ -11,7 +11,7 @@ var _constants=require("../constants");
 var _projectParser=require("./projectParser");
 var _prompt=require("../systemTools/prompt");
 
-var checkAndMigrateProject=function checkAndMigrateProject(c){var prjDir,paths,_ref,confirm;return _regenerator.default.async(function checkAndMigrateProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var checkAndMigrateProject=function checkAndMigrateProject(c){var prjDir,paths,_await$inquirer$promp,confirm;return _regenerator.default.async(function checkAndMigrateProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('checkAndMigrateProject');
 prjDir=c.paths.project.dir;
 
@@ -46,7 +46,7 @@ Promise.reject('Your project has been created with previous version of ReNative'
 _inquirer.default.prompt({
 name:'confirm',
 type:'confirm',
-message:'Your project has been created with previous version of ReNative. Do you want to migrate it to new format? Backing up project is recommended!'}));case 9:_ref=_context.sent;confirm=_ref.confirm;if(!
+message:'Your project has been created with previous version of ReNative. Do you want to migrate it to new format? Backing up project is recommended!'}));case 9:_await$inquirer$promp=_context.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 
 confirm){_context.next=22;break;}
@@ -60,7 +60,7 @@ true);case 22:_context.next=26;break;case 24:_context.next=26;return _regenerato
 
 _migrateProjectSoft(c,paths));case 26:return _context.abrupt("return",
 
-true);case 27:case"end":return _context.stop();}}});};exports.checkAndMigrateProject=checkAndMigrateProject;
+true);case 27:case"end":return _context.stop();}}},null,null,null,Promise);};exports.checkAndMigrateProject=checkAndMigrateProject;
 
 
 var PATH_PROPS=[
@@ -73,7 +73,7 @@ var PATH_PROPS=[
 {oldKey:'projectConfigFolder',newKey:'projectConfigDir'}];
 
 
-var _migrateProjectSoft=function _migrateProjectSoft(c,paths){var files,_files$configNew,_files$configNew2,_files$configNew3,requiresSave,packageString,metroConfig,_ref2,confirm;return _regenerator.default.async(function _migrateProjectSoft$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _migrateProjectSoft=function _migrateProjectSoft(c,paths){var files,_files$configNew,_files$configNew2,_files$configNew3,requiresSave,packageString,metroConfig,_await$inquirerPrompt,confirm;return _regenerator.default.async(function _migrateProjectSoft$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)('_migrateProjectSoft');_context2.prev=1;
 
 
@@ -82,7 +82,7 @@ files={
 configNew:_fs.default.existsSync(paths.configNew)?(0,_fileutils.readObjectSync)(paths.configNew):null};
 
 
-if((_files$configNew=files.configNew)==null?void 0:_files$configNew.paths){
+if((_files$configNew=files.configNew)!=null&&_files$configNew.paths){
 PATH_PROPS.forEach(function(v){
 if(files.configNew.paths[v.oldKey]){
 (0,_logger.logWarning)("You use old key "+_chalk.default.white(v.oldKey)+" instead of new one: "+_chalk.default.white(v.newKey)+". ReNative will try to fix it for you!");
@@ -107,7 +107,7 @@ _fs.default.writeFileSync(paths.metroConfigNew,metroConfig);
 (0,_fileutils.removeFilesSync)([paths.metroConfig]);
 }
 
-if((_files$configNew2=files.configNew)==null?void 0:_files$configNew2.android){
+if((_files$configNew2=files.configNew)!=null&&_files$configNew2.android){
 (0,_logger.logWarning)('Found legacy object "android" at root. ReNative will try to fix it for you!');
 files.configNew.platforms=files.configNew.platforms||{};
 
@@ -122,7 +122,7 @@ delete files.configNew.android;
 requiresSave=true;
 }
 
-if((_files$configNew3=files.configNew)==null?void 0:_files$configNew3.ios){
+if((_files$configNew3=files.configNew)!=null&&_files$configNew3.ios){
 (0,_logger.logWarning)('Found legacy object "ios" at root. ReNative will try to fix it for you!');
 files.configNew.platforms=files.configNew.platforms||{};
 files.configNew.platforms.ios=(0,_fileutils.mergeObjects)(c,files.configNew.platforms.ios||{},files.configNew.ios);
@@ -146,7 +146,7 @@ if(requiresSave)(0,_fileutils.writeFileSync)(paths.configNew,files.configNew);if
 _fs.default.existsSync(paths.projectConfigDir)){_context2.next=24;break;}_context2.next=15;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:'in RNV 0.28.12+ ./projectConfig has been migrated to ./appConfigs/base. confirm to migrate to new structure. (having a backup or clean git status is recommended)'}));case 15:_ref2=_context2.sent;confirm=_ref2.confirm;if(!
+message:'in RNV 0.28.12+ ./projectConfig has been migrated to ./appConfigs/base. confirm to migrate to new structure. (having a backup or clean git status is recommended)'}));case 15:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;if(!
 
 
 confirm){_context2.next=23;break;}
@@ -161,7 +161,7 @@ confirm){_context2.next=23;break;}
 
 
 
-(0,_logger.logError)("Migration not successfull. "+_context2.t0);case 29:case"end":return _context2.stop();}}},null,null,[[1,26]]);};
+(0,_logger.logError)("Migration not successfull. "+_context2.t0);case 29:case"end":return _context2.stop();}}},null,null,[[1,26]],Promise);};
 
 
 

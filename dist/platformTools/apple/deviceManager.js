@@ -6,7 +6,7 @@ var _common=require("../../common");
 
 var _logger=require("../../systemTools/logger");
 var _constants=require("../../constants");
-var _exec=require("../../systemTools/exec");function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _exec=require("../../systemTools/exec");function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var getAppleDevices=function getAppleDevices(c,platform,ignoreDevices,ignoreSimulators){var skipTargetCheck,devicesAndSims,simctl,availableSims,devicesArr,simulatorsArr,allDevices;return _regenerator.default.async(function getAppleDevices$(_context){while(1){switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("getAppleDevices:"+platform+",ignoreDevices:"+ignoreDevices+",ignoreSimulators"+ignoreSimulators);
@@ -21,7 +21,7 @@ availableSims=[];
 Object.keys(simctl.devices).forEach(function(runtime){
 console.log('runtime',runtime);
 simctl.devices[runtime].forEach(function(device){
-if(device.isAvailable)availableSims.push(_objectSpread({},device,{version:runtime.split('.').pop()}));
+if(device.isAvailable)availableSims.push(_objectSpread(_objectSpread({},device),{},{version:runtime.split('.').pop()}));
 });
 });
 
@@ -34,18 +34,18 @@ if(!skipTargetCheck){
 allDevices=allDevices.filter(function(d){return!d.version.includes('watchOS');});
 
 allDevices=allDevices.filter(function(d){var _d$icon,_d$icon2,_d$icon3;
-if(platform===_constants.IOS&&(((_d$icon=d.icon)==null?void 0:_d$icon.includes('Phone'))||((_d$icon2=d.icon)==null?void 0:_d$icon2.includes('Tablet'))))return true;
-if(platform===_constants.TVOS&&((_d$icon3=d.icon)==null?void 0:_d$icon3.includes('TV')))return true;
+if(platform===_constants.IOS&&((_d$icon=d.icon)!=null&&_d$icon.includes('Phone')||(_d$icon2=d.icon)!=null&&_d$icon2.includes('Tablet')))return true;
+if(platform===_constants.TVOS&&(_d$icon3=d.icon)!=null&&_d$icon3.includes('TV'))return true;
 return false;
 });
 }return _context.abrupt("return",
-allDevices);case 17:case"end":return _context.stop();}}});};exports.getAppleDevices=getAppleDevices;
+allDevices);case 17:case"end":return _context.stop();}}},null,null,null,Promise);};exports.getAppleDevices=getAppleDevices;
 
 
 var _parseIOSDevicesList=function _parseIOSDevicesList(rawDevices,platform){var ignoreDevices=arguments.length>2&&arguments[2]!==undefined?arguments[2]:false;var ignoreSimulators=arguments.length>3&&arguments[3]!==undefined?arguments[3]:false;
 var devices=[];
-var decideIcon=function decideIcon(device){var
-name=device.name,isDevice=device.isDevice;
+var decideIcon=function decideIcon(device){
+var name=device.name,isDevice=device.isDevice;
 switch(platform){
 case _constants.IOS:
 if(name.includes('iPhone')||name.includes('iPad')||name.includes('iPod')){
@@ -87,27 +87,27 @@ if(!isDevice)return;
 
 if(!ignoreDevices){
 var device={udid:udid,name:name,version:version,isDevice:isDevice};
-devices.push(_objectSpread({},device,{icon:decideIcon(device)}));
+devices.push(_objectSpread(_objectSpread({},device),{},{icon:decideIcon(device)}));
 }
 }
 });
 }else if(typeof rawDevices==='object'&&!ignoreSimulators){
-rawDevices.forEach(function(d){var
-name=d.name,udid=d.udid,version=d.version;
+rawDevices.forEach(function(d){
+var name=d.name,udid=d.udid,version=d.version;
 var device={
 name:name,
 udid:udid,
 isDevice:false,
 version:version};
 
-devices.push(_objectSpread({},device,{icon:decideIcon(device)}));
+devices.push(_objectSpread(_objectSpread({},device),{},{icon:decideIcon(device)}));
 });
 }
 
 return devices;
 };
 
-var launchAppleSimulator=function launchAppleSimulator(c,platform,target){var devicesArr,selectedDevice,i,devices,_ref,sim;return _regenerator.default.async(function launchAppleSimulator$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var launchAppleSimulator=function launchAppleSimulator(c,platform,target){var devicesArr,selectedDevice,i,devices,_await$inquirer$promp,sim;return _regenerator.default.async(function launchAppleSimulator$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("launchAppleSimulator:"+platform+":"+target);_context2.next=3;return _regenerator.default.awrap(
 
 getAppleDevices(c,platform,true));case 3:devicesArr=_context2.sent;
@@ -129,14 +129,14 @@ _inquirer.default.prompt({
 name:'sim',
 message:'Select the simulator you want to launch',
 type:'list',
-choices:devices}));case 12:_ref=_context2.sent;sim=_ref.sim;if(!
+choices:devices}));case 12:_await$inquirer$promp=_context2.sent;sim=_await$inquirer$promp.sim;if(!
 
 
 sim){_context2.next=17;break;}
 _launchSimulator(sim);return _context2.abrupt("return",
 sim.name);case 17:return _context2.abrupt("return",
 
-Promise.reject('Action canceled!'));case 18:case"end":return _context2.stop();}}});};exports.launchAppleSimulator=launchAppleSimulator;
+Promise.reject('Action canceled!'));case 18:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.launchAppleSimulator=launchAppleSimulator;
 
 
 var _launchSimulator=function _launchSimulator(selectedDevice){
@@ -159,5 +159,5 @@ v.isDevice?_chalk.default.red(' (device)'):'')+"\n";
 
 });
 
-(0,_logger.logToSummary)(platform+" Targets:\n\n"+devicesString);case 7:case"end":return _context3.stop();}}});};exports.listAppleDevices=listAppleDevices;
+(0,_logger.logToSummary)(platform+" Targets:\n\n"+devicesString);case 7:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.listAppleDevices=listAppleDevices;
 //# sourceMappingURL=deviceManager.js.map

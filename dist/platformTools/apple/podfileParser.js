@@ -38,8 +38,8 @@ if(reactSubSpecs){
 }
 
 var podfile=(0,_common.getFlavouredProp)(c,pluginPlat,'Podfile');
-if(podfile){var
-injectLines=podfile.injectLines;
+if(podfile){
+var injectLines=podfile.injectLines;
 
 if(injectLines){
 injectLines.forEach(function(v){

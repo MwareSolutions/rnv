@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runElectronDevServer=exports.exportElectron=exports.buildElectron=exports.runElectron=exports.configureElectronProject=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runElectronDevServer=exports.runElectron=exports.exportElectron=exports.configureElectronProject=exports.buildElectron=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _child_process=require("child_process");
@@ -46,7 +46,7 @@ var configureElectronProject=function configureElectronProject(c,platform){retur
 (0,_projectParser.copyAssetsFolder)(c,platform,platform===_constants.MACOS?_generateICNS:null));case 3:_context.next=5;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 5:_context.next=7;return _regenerator.default.awrap(
 configureProject(c,platform));case 7:return _context.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}});};exports.configureElectronProject=configureElectronProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureElectronProject=configureElectronProject;
 
 var merge=require('deepmerge');
 
@@ -159,7 +159,7 @@ console.log("removing old build "+buildPath);_context2.next=8;return _regenerato
 
 (0,_exec.executeAsync)(c,"npx electron-builder --config "+_path.default.join(appFolder,'electronConfig.json')));case 10:
 
-(0,_logger.logSuccess)("Your Exported App is located in "+_chalk.default.white(_path.default.join(appFolder,'build/release'))+" .");case 11:case"end":return _context2.stop();}}});};exports.exportElectron=exportElectron;
+(0,_logger.logSuccess)("Your Exported App is located in "+_chalk.default.white(_path.default.join(appFolder,'build/release'))+" .");case 11:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.exportElectron=exportElectron;
 
 
 var runElectron=function runElectron(c,platform,port){var bundleIsDev,bundleAssets,isPortActive;return _regenerator.default.async(function runElectron$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
@@ -186,7 +186,7 @@ catch(_logger.logError);_context3.next=18;return _regenerator.default.awrap(
 runElectronDevServer(c,platform,port));case 18:_context3.next=24;break;case 20:_context3.next=22;return _regenerator.default.awrap(
 
 (0,_common.confirmActiveBundler)(c));case 22:_context3.next=24;return _regenerator.default.awrap(
-_runElectronSimulator(c,platform));case 24:case"end":return _context3.stop();}}});};exports.runElectron=runElectron;
+_runElectronSimulator(c,platform));case 24:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.runElectron=runElectron;
 
 
 
@@ -204,13 +204,13 @@ stdio:'inherit'}).
 on('close',function(code){return process.exit(code);}).
 on('error',function(spawnError){return console.error(spawnError);});
 
-child.unref();case 5:case"end":return _context4.stop();}}});};
+child.unref();case 5:case"end":return _context4.stop();}}},null,null,null,Promise);};
 
 
 var runElectronDevServer=function runElectronDevServer(c,platform,port){return _regenerator.default.async(function runElectronDevServer$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)("runElectronDevServer:"+platform);return _context5.abrupt("return",
 
-(0,_web.runWeb)(c,platform,port));case 2:case"end":return _context5.stop();}}});};exports.runElectronDevServer=runElectronDevServer;
+(0,_web.runWeb)(c,platform,port));case 2:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.runElectronDevServer=runElectronDevServer;
 
 
 var _generateICNS=function _generateICNS(c,platform){return new Promise(function(resolve,reject){

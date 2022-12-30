@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _possibleConstructorReturn2=_interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2=_interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _inherits2=_interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _shelljs=_interopRequireDefault(require("shelljs"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _inherits2=_interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _possibleConstructorReturn2=_interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2=_interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _shelljs=_interopRequireDefault(require("shelljs"));
 var _getInstalledPath=require("get-installed-path");
 var _path=_interopRequireDefault(require("path"));
 var _child_process=require("child_process");
@@ -9,15 +9,15 @@ var _exec=require("../systemTools/exec");
 var _logger=require("../systemTools/logger");
 var _fileutils=require("../systemTools/fileutils");
 var _base=_interopRequireDefault(require("./base"));
-var _config=_interopRequireDefault(require("./config"));var
+var _config=_interopRequireDefault(require("./config"));function _createSuper(Derived){var hasNativeReflectConstruct=_isNativeReflectConstruct();return function _createSuperInternal(){var Super=(0,_getPrototypeOf2.default)(Derived),result;if(hasNativeReflectConstruct){var NewTarget=(0,_getPrototypeOf2.default)(this).constructor;result=Reflect.construct(Super,arguments,NewTarget);}else{result=Super.apply(this,arguments);}return(0,_possibleConstructorReturn2.default)(this,result);};}function _isNativeReflectConstruct(){if(typeof Reflect==="undefined"||!Reflect.construct)return false;if(Reflect.construct.sham)return false;if(typeof Proxy==="function")return true;try{Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){}));return true;}catch(e){return false;}}var
 
-LinuxPlatformSetup=function(_BasePlatformSetup){(0,_inherits2.default)(LinuxPlatformSetup,_BasePlatformSetup);
+LinuxPlatformSetup=function(_BasePlatformSetup){(0,_inherits2.default)(LinuxPlatformSetup,_BasePlatformSetup);var _super=_createSuper(LinuxPlatformSetup);
 function LinuxPlatformSetup(c){var _this;(0,_classCallCheck2.default)(this,LinuxPlatformSetup);
-_this=(0,_possibleConstructorReturn2.default)(this,(0,_getPrototypeOf2.default)(LinuxPlatformSetup).call(this,'win32',c));
+_this=_super.call(this,'win32',c);
 _this.scoopInstalled=false;return _this;
-}(0,_createClass2.default)(LinuxPlatformSetup,[{key:"checkPrereqs",value:function checkPrereqs()
+}(0,_createClass2.default)(LinuxPlatformSetup,[{key:"checkPrereqs",value:
 
-{
+function checkPrereqs(){
 (0,_logger.logInfo)("Platform "+this.os);
 (0,_logger.logInfo)('Checking wget is installed');
 if((0,_exec.commandExistsSync)('wget')){
@@ -28,25 +28,25 @@ this.availableDownloader='wget';
 if((0,_exec.commandExistsSync)('scoop')){
 this.scoopInstalled=true;
 }
-}},{key:"installSoftware",value:function installSoftware(
+}},{key:"installSoftware",value:
 
-software){return _regenerator.default.async(function installSoftware$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
+function installSoftware(software){return _regenerator.default.async(function installSoftware$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
 _shelljs.default.exec((0,_fileutils.replaceHomeFolder)("~/scoop/shims/scoop install "+software)));case 2:_context.next=4;return _regenerator.default.awrap(
 this.reloadPathEnv());case 4:return _context.abrupt("return",
-true);case 5:case"end":return _context.stop();}}},null,this);}},{key:"addScoopBucket",value:function addScoopBucket(
+true);case 5:case"end":return _context.stop();}}},null,this,null,Promise);}},{key:"addScoopBucket",value:
 
 
-bucket){
+function addScoopBucket(bucket){
 return _shelljs.default.exec((0,_fileutils.replaceHomeFolder)("~/scoop/shims/scoop bucket add "+bucket));
-}},{key:"reloadPathEnv",value:function reloadPathEnv(){return _regenerator.default.async(function reloadPathEnv$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
+}},{key:"reloadPathEnv",value:
 
-
+function reloadPathEnv(){return _regenerator.default.async(function reloadPathEnv$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
 _shelljs.default.exec((0,_getInstalledPath.getInstalledPathSync)('rnv')+"/scripts/resetPath.vbs"));case 2:_context2.next=4;return _regenerator.default.awrap(
 _shelljs.default.exec('%TEMP%/resetvars.bat'));case 4:return _context2.abrupt("return",
-true);case 5:case"end":return _context2.stop();}}});}},{key:"installPrereqs",value:function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(
+true);case 5:case"end":return _context2.stop();}}},null,null,null,Promise);}},{key:"installPrereqs",value:
 
 
-
+function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(
 this.scoopInstalled){_context3.next=6;break;}
 (0,_logger.logInfo)('Installing Scoop...');_context3.next=4;return _regenerator.default.awrap(
 _shelljs.default.exec("powershell -executionpolicy remotesigned \"& \"\""+(0,_getInstalledPath.getInstalledPathSync)('rnv')+"/scripts/installPackageManager.ps1\"\"\""));case 4:_context3.next=6;return _regenerator.default.awrap(
@@ -70,17 +70,17 @@ this.addScoopBucket('java'));case 21:_context3.next=23;return _regenerator.defau
 this.installSoftware('ojdkbuild8'));case 23:return _context3.abrupt("return",
 
 
-true);case 24:case"end":return _context3.stop();}}},null,this);}},{key:"installSdksAndEmulator",value:function installSdksAndEmulator(){return _regenerator.default.async(function installSdksAndEmulator$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+true);case 24:case"end":return _context3.stop();}}},null,this,null,Promise);}},{key:"installSdksAndEmulator",value:
 
 
-
+function installSdksAndEmulator(){return _regenerator.default.async(function installSdksAndEmulator$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logDebug)('Accepting licenses');_context4.next=3;return _regenerator.default.awrap(
 (0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat --licenses"));case 3:
 (0,_logger.logDebug)('Installing SDKs',this.sdksToInstall);_context4.next=6;return _regenerator.default.awrap(
-(0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat "+this.sdksToInstall));case 6:case"end":return _context4.stop();}}},null,this);}},{key:"installTizenSdk",value:function installTizenSdk(){var downloadDir,res;return _regenerator.default.async(function installTizenSdk$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+(0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat "+this.sdksToInstall));case 6:case"end":return _context4.stop();}}},null,this,null,Promise);}},{key:"installTizenSdk",value:
 
 
-
+function installTizenSdk(){var downloadDir,res;return _regenerator.default.async(function installTizenSdk$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
 downloadDir=_config.default.tizen.downloadLocation.split('/');
 downloadDir.pop();
 downloadDir=downloadDir.join('/');
@@ -107,10 +107,10 @@ return _fs.default.existsSync(_path.default.join(res.sdkPath,'tools/ide/bin/tize
 }}));case 10:
 
 
-this.tizenSdkPath=res.sdkPath;case 11:case"end":return _context5.stop();}}},null,this);}},{key:"installWebosSdk",value:function installWebosSdk(){var downloadLink,res;return _regenerator.default.async(function installWebosSdk$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+this.tizenSdkPath=res.sdkPath;case 11:case"end":return _context5.stop();}}},null,this,null,Promise);}},{key:"installWebosSdk",value:
 
 
-
+function installWebosSdk(){var downloadLink,res;return _regenerator.default.async(function installWebosSdk$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
 downloadLink=_config.default.webos.downloadLink;
 (0,_logger.logInfo)("Opening "+downloadLink+". Please download and install the SDK then continue after it finished installing. Make sure you also install the CLI and Emulator components");
 (0,_child_process.exec)(_exec.openCommand+" "+downloadLink);_context6.next=5;return _regenerator.default.awrap(
@@ -134,7 +134,7 @@ return _fs.default.existsSync(_path.default.join(res.sdkPath,'tools/ide/bin/tize
 }}));case 8:
 
 
-this.webosSdkPath=res.sdkPath;case 9:case"end":return _context6.stop();}}},null,this);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
+this.webosSdkPath=res.sdkPath;case 9:case"end":return _context6.stop();}}},null,this,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
 
 
 

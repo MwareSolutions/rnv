@@ -17,7 +17,7 @@ var _index=require("./index");
 var _provisionParser=require("./provisionParser");
 var _fileutils=require("../../systemTools/fileutils");
 
-var parseXcodeProject=function parseXcodeProject(c,platform){var result,eligibleProfile,_ref,autoFix;return _regenerator.default.async(function parseXcodeProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var parseXcodeProject=function parseXcodeProject(c,platform){var result,eligibleProfile,_await$inquirerPrompt,autoFix;return _regenerator.default.async(function parseXcodeProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('parseXcodeProject');
 
 c.runtime.xcodeProj={};
@@ -49,7 +49,7 @@ eligibleProfile){_context.next=24;break;}_context.next=19;return _regenerator.de
 type:'confirm',
 name:'autoFix',
 message:"Found following eligible provisioning profile on your system: "+eligibleProfile.Entitlements['application-identifier']+". Do you want ReNative to fix your app confing?",
-warningMessage:'No provisionProfileSpecifier configured in appConfig despite setting provisioningStyle to manual'}));case 19:_ref=_context.sent;autoFix=_ref.autoFix;
+warningMessage:'No provisionProfileSpecifier configured in appConfig despite setting provisioningStyle to manual'}));case 19:_await$inquirerPrompt=_context.sent;autoFix=_await$inquirerPrompt.autoFix;
 
 if(autoFix){
 c.runtime.xcodeProj.provisionProfileSpecifier=eligibleProfile.Name;
@@ -61,7 +61,7 @@ c.files.appConfig.config.platforms[platform].buildSchemes[c.program.scheme].prov
 
 
 
-_parseXcodeProject(c,platform));case 27:case"end":return _context.stop();}}});};exports.parseXcodeProject=parseXcodeProject;
+_parseXcodeProject(c,platform));case 27:case"end":return _context.stop();}}},null,null,null,Promise);};exports.parseXcodeProject=parseXcodeProject;
 
 
 var _parseXcodeProject=function _parseXcodeProject(c,platform){return new Promise(function(resolve,reject){
@@ -72,8 +72,8 @@ var appFolder=(0,_common.getAppFolder)(c,platform);
 var appFolderName=(0,_index.getAppFolderName)(c,platform);
 var projectPath=_path.default.join(appFolder,appFolderName+".xcodeproj/project.pbxproj");
 var xcodeProj=xcode.project(projectPath);
-xcodeProj.parse(function(){var _c$runtime$xcodeProj=
-
+xcodeProj.parse(function(){
+var _c$runtime$xcodeProj=
 
 
 c.runtime.xcodeProj,provisioningStyle=_c$runtime$xcodeProj.provisioningStyle,deploymentTarget=_c$runtime$xcodeProj.deploymentTarget,provisionProfileSpecifier=_c$runtime$xcodeProj.provisionProfileSpecifier,codeSignIdentity=_c$runtime$xcodeProj.codeSignIdentity,systemCapabilities=_c$runtime$xcodeProj.systemCapabilities,runScheme=_c$runtime$xcodeProj.runScheme,teamID=_c$runtime$xcodeProj.teamID,appId=_c$runtime$xcodeProj.appId;

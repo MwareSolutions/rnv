@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.injectPluginGradleSync=exports.parseGradlePropertiesSync=exports.parseSettingsGradleSync=exports.parseAppBuildGradleSync=exports.parseBuildGradleSync=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseSettingsGradleSync=exports.parseGradlePropertiesSync=exports.parseBuildGradleSync=exports.parseAppBuildGradleSync=exports.injectPluginGradleSync=void 0;var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _common=require("../../common");
@@ -38,7 +38,7 @@ c.pluginConfigAndroid.buildGradleBuildScriptDexOptions+"\n        }";
 
 };exports.parseBuildGradleSync=parseBuildGradleSync;
 
-var parseAppBuildGradleSync=function parseAppBuildGradleSync(c,platform){var _c$buildConfig,_ref,_pluginConfig$platfor,_pluginConfig$platfor2,_pluginConfig$platfor3,_ref2,_pluginConfig$platfor4,_pluginConfig$platfor5,_pluginConfig$platfor6;
+var parseAppBuildGradleSync=function parseAppBuildGradleSync(c,platform){var _c$buildConfig,_pluginConfig$platfor,_pluginConfig$platfor2,_pluginConfig$platfor3,_pluginConfig$platfor4,_pluginConfig$platfor5,_pluginConfig$platfor6,_pluginConfig$platfor7,_pluginConfig$platfor8;
 (0,_logger.logTask)('parseAppBuildGradleSync');
 var appFolder=(0,_common.getAppFolder)(c,platform);
 
@@ -103,8 +103,8 @@ _chalk.default.white(keystorePathFull)+" does not exist. You won't be able to ma
 
 
 var pluginConfig=(_c$buildConfig=c.buildConfig)!=null?_c$buildConfig:{};
-var debugBuildTypes=(_ref=pluginConfig==null?void 0:(_pluginConfig$platfor=pluginConfig.platforms[platform])==null?void 0:(_pluginConfig$platfor2=_pluginConfig$platfor.gradle)==null?void 0:(_pluginConfig$platfor3=_pluginConfig$platfor2.buildTypes)==null?void 0:_pluginConfig$platfor3.debug)!=null?_ref:[];
-var releaseBuildTypes=(_ref2=pluginConfig==null?void 0:(_pluginConfig$platfor4=pluginConfig.platforms[platform])==null?void 0:(_pluginConfig$platfor5=_pluginConfig$platfor4.gradle)==null?void 0:(_pluginConfig$platfor6=_pluginConfig$platfor5.buildTypes)==null?void 0:_pluginConfig$platfor6.release)!=null?_ref2:[];
+var debugBuildTypes=(_pluginConfig$platfor=pluginConfig==null?void 0:(_pluginConfig$platfor2=pluginConfig.platforms[platform])==null?void 0:(_pluginConfig$platfor3=_pluginConfig$platfor2.gradle)==null?void 0:(_pluginConfig$platfor4=_pluginConfig$platfor3.buildTypes)==null?void 0:_pluginConfig$platfor4.debug)!=null?_pluginConfig$platfor:[];
+var releaseBuildTypes=(_pluginConfig$platfor5=pluginConfig==null?void 0:(_pluginConfig$platfor6=pluginConfig.platforms[platform])==null?void 0:(_pluginConfig$platfor7=_pluginConfig$platfor6.gradle)==null?void 0:(_pluginConfig$platfor8=_pluginConfig$platfor7.buildTypes)==null?void 0:_pluginConfig$platfor8.release)!=null?_pluginConfig$platfor5:[];
 c.pluginConfigAndroid.buildTypes="\n    debug {\n        minifyEnabled false\n        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\n        "+
 
 

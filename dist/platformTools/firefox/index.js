@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.buildFirefoxProject=exports.runFirefoxProject=exports.configureKaiOSProject=exports.launchKaiOSSimulator=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runFirefoxProject=exports.launchKaiOSSimulator=exports.configureKaiOSProject=exports.buildFirefoxProject=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _common=require("../../common");
@@ -57,7 +57,7 @@ var configureKaiOSProject=function configureKaiOSProject(c,platform){return _reg
 (0,_projectParser.copyAssetsFolder)(c,platform));case 5:_context.next=7;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 7:_context.next=9;return _regenerator.default.awrap(
 configureProject(c,platform));case 9:return _context.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context.stop();}}});};exports.configureKaiOSProject=configureKaiOSProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureKaiOSProject=configureKaiOSProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){

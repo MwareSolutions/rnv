@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runAndroidLog=exports.configureProject=exports.configureGradleProject=exports.configureAndroidProperties=exports.buildAndroid=exports.runAndroid=exports.packageAndroid=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runAndroidLog=exports.runAndroid=exports.packageAndroid=exports.configureProject=exports.configureGradleProject=exports.configureAndroidProperties=exports.buildAndroid=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
@@ -32,9 +32,9 @@ var _gradleParser=require("./gradleParser");
 var _xmlValuesParser=require("./xmlValuesParser");
 var _deviceManager=require("./deviceManager");
 
-var _getEntryOutputName=function _getEntryOutputName(c){var
+var _getEntryOutputName=function _getEntryOutputName(c){
 
-entryFile=c.buildConfig.platforms[c.platform].entryFile;
+var entryFile=c.buildConfig.platforms[c.platform].entryFile;
 
 var outputFile;
 if(c.platform===_constants.ANDROID_WEAR){
@@ -64,8 +64,8 @@ if(_utils.isSystemWin){
 reactNative=_path.default.normalize(process.cwd()+"/node_modules/.bin/react-native.cmd");
 }
 
-console.log('ANDROID PACKAGE STARTING...');
-(0,_exec.executeAsync)(c,reactNative+" bundle --platform android --dev false --assets-dest "+appFolder+"/app/src/main/res --entry-file "+((_c$buildConfig$platfo=c.buildConfig.platforms[c.platform])==null?void 0:_c$buildConfig$platfo.entryFile)+".js --bundle-output "+appFolder+"/app/src/main/assets/"+outputFile+".bundle").
+console.log('ANDROID PACKAGE STARTING................');
+(0,_exec.executeAsync)(c,reactNative+" bundle --platform android --dev false --assets-dest "+appFolder+"/app/src/main/res --entry-file "+((_c$buildConfig$platfo=c.buildConfig.platforms[c.platform])==null?void 0:_c$buildConfig$platfo.entryFile)+".js --bundle-output "+appFolder+"/app/src/main/assets/"+outputFile+".bundle --sourcemap-output "+appFolder+"/app/src/main/assets/"+outputFile+".bundle.map").
 then(function(){
 console.log('ANDROID PACKAGE FINISHED');
 return resolve();
@@ -133,7 +133,7 @@ _runGradleApp(c,platform,dev));case 26:_context.next=35;break;case 28:_context.n
 
 (0,_deviceManager.askForNewEmulator)(c,platform));case 30:_context.next=32;return _regenerator.default.awrap(
 (0,_deviceManager.checkForActiveEmulator)(c,platform));case 32:_devices=_context.sent;_context.next=35;return _regenerator.default.awrap(
-_runGradleApp(c,platform,_devices));case 35:case"end":return _context.stop();}}});};if(!
+_runGradleApp(c,platform,_devices));case 35:case"end":return _context.stop();}}},null,null,null,Promise);};if(!
 
 
 
@@ -172,12 +172,12 @@ _runGradleApp(c,platform,_device));case 67:_context2.next=72;break;case 69:
 
 
 (0,_logger.logDebug)('Target not provided, asking where to run');_context2.next=72;return _regenerator.default.awrap(
-askWhereToRun());case 72:case"end":return _context2.stop();}}},null,null,[[10,16]]);};exports.runAndroid=runAndroid;
+askWhereToRun());case 72:case"end":return _context2.stop();}}},null,null,[[10,16]],Promise);};exports.runAndroid=runAndroid;
 
 
 
 
-var _checkSigningCerts=function _checkSigningCerts(c){var _c$files$workspace$ap;var signingConfig,isRelease,privateConfig,_ref,confirm,confirmCopy,platCandidate,_ref2,confirmNewKeystore,platCandidates,resultCopy,storeFile,result,_ref3,storePassword,keyAlias,keyPassword,keystorePath,keytoolCmd;return _regenerator.default.async(function _checkSigningCerts$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var _checkSigningCerts=function _checkSigningCerts(c){var _c$files$workspace$ap;var signingConfig,isRelease,privateConfig,_await$inquirer$promp,confirm,confirmCopy,platCandidate,_await$inquirerPrompt,confirmNewKeystore,platCandidates,resultCopy,storeFile,result,_await$inquirer$promp2,storePassword,keyAlias,keyPassword,keystorePath,keytoolCmd;return _regenerator.default.async(function _checkSigningCerts$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)('_checkSigningCerts');
 signingConfig=(0,_common.getConfigProp)(c,c.platform,'signingConfig','Debug');
 isRelease=signingConfig==='Release';
@@ -189,7 +189,7 @@ isRelease&&!privateConfig)){_context3.next=54;break;}
 _inquirer.default.prompt({
 type:'confirm',
 name:'confirm',
-message:'Do you want to configure it now?'}));case 8:_ref=_context3.sent;confirm=_ref.confirm;if(!
+message:'Do you want to configure it now?'}));case 8:_await$inquirer$promp=_context3.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 
 confirm){_context3.next=53;break;}
@@ -198,7 +198,7 @@ confirmCopy=false;_context3.next=14;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
 name:'confirmNewKeystore',
-message:'Do you want to generate new keystore as well?'}));case 14:_ref2=_context3.sent;confirmNewKeystore=_ref2.confirmNewKeystore;if(!
+message:'Do you want to generate new keystore as well?'}));case 14:_await$inquirerPrompt=_context3.sent;confirmNewKeystore=_await$inquirerPrompt.confirmNewKeystore;if(!
 
 
 c.files.workspace.appConfig.configPrivate){_context3.next=24;break;}
@@ -248,7 +248,7 @@ message:'keyAlias'},
 {
 type:'password',
 name:'keyPassword',
-message:'keyPassword'}]));case 35:_ref3=_context3.sent;storePassword=_ref3.storePassword;keyAlias=_ref3.keyAlias;keyPassword=_ref3.keyPassword;if(!
+message:'keyPassword'}]));case 35:_await$inquirer$promp2=_context3.sent;storePassword=_await$inquirer$promp2.storePassword;keyAlias=_await$inquirer$promp2.keyAlias;keyPassword=_await$inquirer$promp2.keyPassword;if(!
 
 
 
@@ -278,12 +278,12 @@ c.files.workspace.appConfig.configPrivate[c.platform]={storeFile:storeFile,store
 (0,_logger.logSuccess)("Successfully updated private config file at "+_chalk.default.white(c.paths.workspace.appConfig.dir)+".");_context3.next=51;return _regenerator.default.awrap(
 configureProject(c,c.platform));case 51:_context3.next=54;break;case 53:return _context3.abrupt("return",
 
-Promise.reject('You selected no. Can\'t proceed'));case 54:case"end":return _context3.stop();}}});};
+Promise.reject('You selected no. Can\'t proceed'));case 54:case"end":return _context3.stop();}}},null,null,null,Promise);};
 
 
 
 
-var _runGradleApp=function _runGradleApp(c,platform,device){var signingConfig,appFolder,bundleId,outputAab,outputFolder,arch,name,stacktrace,aabPath,apkPath,_e$message,_ref4,confirm;return _regenerator.default.async(function _runGradleApp$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _runGradleApp=function _runGradleApp(c,platform,device){var signingConfig,appFolder,bundleId,outputAab,outputFolder,arch,name,stacktrace,aabPath,apkPath,_e$message,_await$inquirerPrompt2,confirm;return _regenerator.default.async(function _runGradleApp$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)("_runGradleApp:"+platform);
 
 signingConfig=(0,_common.getConfigProp)(c,platform,'signingConfig','Debug');
@@ -313,10 +313,10 @@ apkPath=_path.default.join(appFolder,"app/build/outputs/apk/"+outputFolder+"/app
 
 (0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" install -r -d -f "+apkPath));case 24:_context4.next=42;break;case 26:_context4.prev=26;_context4.t0=_context4["catch"](21);if(!(
 
-(_context4.t0==null?void 0:_context4.t0.includes('INSTALL_FAILED'))||(_context4.t0==null?void 0:(_e$message=_context4.t0.message)==null?void 0:_e$message.includes('INSTALL_FAILED')))){_context4.next=41;break;}_context4.next=31;return _regenerator.default.awrap(
+_context4.t0!=null&&_context4.t0.includes('INSTALL_FAILED')||_context4.t0!=null&&(_e$message=_context4.t0.message)!=null&&_e$message.includes('INSTALL_FAILED'))){_context4.next=41;break;}_context4.next=31;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:'It seems you already have the app installed but RNV can\'t update it. Uninstall that one and try again?'}));case 31:_ref4=_context4.sent;confirm=_ref4.confirm;if(
+message:'It seems you already have the app installed but RNV can\'t update it. Uninstall that one and try again?'}));case 31:_await$inquirerPrompt2=_context4.sent;confirm=_await$inquirerPrompt2.confirm;if(
 
 
 confirm){_context4.next=35;break;}throw new Error('User canceled');case 35:_context4.next=37;return _regenerator.default.awrap(
@@ -327,7 +327,7 @@ new Error(_context4.t0));case 42:if(
 
 
 
-outputAab){_context4.next=45;break;}_context4.next=45;return _regenerator.default.awrap((0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" shell am start -n "+bundleId+"/.MainActivity"));case 45:case"end":return _context4.stop();}}},null,null,[[21,26]]);};
+outputAab){_context4.next=45;break;}_context4.next=45;return _regenerator.default.awrap((0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" shell am start -n "+bundleId+"/.MainActivity"));case 45:case"end":return _context4.stop();}}},null,null,[[21,26]],Promise);};
 
 
 var buildAndroid=function buildAndroid(c,platform){return new Promise(function(resolve,reject){
@@ -378,7 +378,7 @@ platform=c.platform;
 (0,_projectParser.copyAssetsFolder)(c,platform));case 6:_context5.next=8;return _regenerator.default.awrap(
 configureAndroidProperties(c,platform));case 8:_context5.next=10;return _regenerator.default.awrap(
 configureProject(c,platform));case 10:return _context5.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 11:case"end":return _context5.stop();}}});};exports.configureGradleProject=configureGradleProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 11:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.configureGradleProject=configureGradleProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){
@@ -445,8 +445,8 @@ c.pluginConfigAndroid.pluginPackages=c.pluginConfigAndroid.pluginPackages.substr
 
 (0,_projectParser.parseFonts)(c,function(font,dir){
 if(font.includes('.ttf')||font.includes('.otf')){
-var key=font.split('.')[0];var
-includedFonts=c.buildConfig.common.includedFonts;
+var key=font.split('.')[0];
+var includedFonts=c.buildConfig.common.includedFonts;
 if(includedFonts){
 if(includedFonts.includes('*')||includedFonts.includes(key)){
 if(font){
@@ -497,5 +497,5 @@ console.log(v);
 }
 });
 });return _context6.abrupt("return",
-child.then(function(res){return res.stdout;}).catch(function(err){return Promise.reject("Error: "+err);}));case 5:case"end":return _context6.stop();}}});};exports.runAndroidLog=runAndroidLog;
+child.then(function(res){return res.stdout;}).catch(function(err){return Promise.reject("Error: "+err);}));case 5:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.runAndroidLog=runAndroidLog;
 //# sourceMappingURL=index.js.map

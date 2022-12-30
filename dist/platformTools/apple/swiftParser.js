@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.injectPluginSwiftSync=exports.parseAppDelegate=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseAppDelegate=exports.injectPluginSwiftSync=void 0;var _path=_interopRequireDefault(require("path"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _common=require("../../common");
 
@@ -19,8 +19,8 @@ if(!port)port=c.runtime.port;
 (0,_logger.logTask)("parseAppDelegateSync:"+platform+":"+ip+":"+port);
 var appDelegate='AppDelegate.swift';
 
-var entryFile=(0,_common.getEntryFile)(c,platform);var
-backgroundColor=c.buildConfig.platforms[platform].backgroundColor;
+var entryFile=(0,_common.getEntryFile)(c,platform);
+var backgroundColor=c.buildConfig.platforms[platform].backgroundColor;
 
 var forceBundle=(0,_common.getGetJsBundleFile)(c,platform);
 var bundle;

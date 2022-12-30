@@ -35,7 +35,7 @@ deviceName+"\""];_context.prev=5;_context.next=8;return _regenerator.default.awr
 true);case 12:_context.prev=12;_context.t0=_context["catch"](5);
 
 (0,_logger.logWarning)(_context.t0);return _context.abrupt("return",
-true);case 16:case"end":return _context.stop();}}},null,null,[[5,12]]);};exports.registerDevice=registerDevice;
+true);case 16:case"end":return _context.stop();}}},null,null,[[5,12]],Promise);};exports.registerDevice=registerDevice;
 
 
 
@@ -99,5 +99,5 @@ args.push("--"+provisioning);
 true);case 26:_context2.prev=26;_context2.t0=_context2["catch"](19);
 
 (0,_logger.logWarning)(_context2.t0);return _context2.abrupt("return",
-true);case 30:case"end":return _context2.stop();}}},null,null,[[19,26]]);};exports.updateProfile=updateProfile;
+true);case 30:case"end":return _context2.stop();}}},null,null,[[19,26]],Promise);};exports.updateProfile=updateProfile;
 //# sourceMappingURL=fastlane.js.map

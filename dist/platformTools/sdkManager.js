@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.checkSdk=exports.checkAndConfigureSdks=exports.checkAndConfigureWebosSdks=exports.checkAndConfigureTizenSdks=exports.checkAndConfigureAndroidSdks=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.checkSdk=exports.checkAndConfigureWebosSdks=exports.checkAndConfigureTizenSdks=exports.checkAndConfigureSdks=exports.checkAndConfigureAndroidSdks=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _inquirer=_interopRequireDefault(require("inquirer"));
@@ -68,7 +68,7 @@ c.cli[_constants.CLI_ANDROID_AVDMANAGER]=(0,_fileutils.getRealPath)(c,_path.defa
 c.cli[_constants.CLI_ANDROID_SDKMANAGER]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"tools/bin/sdkmanager"+(_utils.isSystemWin?'.bat':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context.stop();}}});};exports.checkAndConfigureAndroidSdks=checkAndConfigureAndroidSdks;
+}case 3:case"end":return _context.stop();}}},null,null,null,Promise);};exports.checkAndConfigureAndroidSdks=checkAndConfigureAndroidSdks;
 
 
 var checkAndConfigureTizenSdks=function checkAndConfigureTizenSdks(c){var _c$files$workspace$co3,_c$files$workspace$co4;var sdk;return _regenerator.default.async(function checkAndConfigureTizenSdks$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
@@ -80,7 +80,7 @@ c.cli[_constants.CLI_TIZEN]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,
 c.cli[_constants.CLI_SDB_TIZEN]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"tools/sdb"+(_utils.isSystemWin?'.exe':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context2.stop();}}});};exports.checkAndConfigureTizenSdks=checkAndConfigureTizenSdks;
+}case 3:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.checkAndConfigureTizenSdks=checkAndConfigureTizenSdks;
 
 
 var checkAndConfigureWebosSdks=function checkAndConfigureWebosSdks(c){var _c$files$workspace$co5,_c$files$workspace$co6;var sdk;return _regenerator.default.async(function checkAndConfigureWebosSdks$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
@@ -96,7 +96,7 @@ c.cli[_constants.CLI_WEBOS_ARES_DEVICE_INFO]=(0,_fileutils.getRealPath)(c,_path.
 c.cli[_constants.CLI_WEBOS_ARES_NOVACOM]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"CLI/bin/ares-novacom"+(_utils.isSystemWin?'.cmd':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context3.stop();}}});};exports.checkAndConfigureWebosSdks=checkAndConfigureWebosSdks;
+}case 3:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.checkAndConfigureWebosSdks=checkAndConfigureWebosSdks;
 
 
 var checkAndConfigureSdks=function checkAndConfigureSdks(c){return _regenerator.default.async(function checkAndConfigureSdks$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
@@ -114,7 +114,7 @@ _constants.TIZEN_WATCH?5:_context4.t0===
 _constants.WEBOS?6:7;break;case 4:return _context4.abrupt("return",checkAndConfigureAndroidSdks(c));case 5:return _context4.abrupt("return",checkAndConfigureTizenSdks(c));case 6:return _context4.abrupt("return",
 checkAndConfigureWebosSdks(c));case 7:return _context4.abrupt("return",
 
-true);case 8:case"end":return _context4.stop();}}});};exports.checkAndConfigureSdks=checkAndConfigureSdks;
+true);case 8:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.checkAndConfigureSdks=checkAndConfigureSdks;
 
 
 
@@ -130,14 +130,14 @@ var sdkPath=_getCurrentSdkPath(c,c.platform);
 return _fs.default.existsSync((0,_fileutils.getRealPath)(c,sdkPath));
 };
 
-var _attemptAutoFix=function _attemptAutoFix(c,engine){var result,_ref,confirm,setupInstance;return _regenerator.default.async(function _attemptAutoFix$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var _attemptAutoFix=function _attemptAutoFix(c,engine){var result,_await$inquirer$promp,confirm,setupInstance;return _regenerator.default.async(function _attemptAutoFix$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
 result=SDK_LOACTIONS[engine].find(function(v){return _fs.default.existsSync(v);});if(!
 result){_context5.next=19;break;}
 (0,_logger.logSuccess)("Found existing "+c.platform+" SDK location at "+_chalk.default.white(result));_context5.next=5;return _regenerator.default.awrap(
 _inquirer.default.prompt({
 type:'confirm',
 name:'confirm',
-message:'Do you want to use it?'}));case 5:_ref=_context5.sent;confirm=_ref.confirm;if(!
+message:'Do you want to use it?'}));case 5:_await$inquirer$promp=_context5.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 
 confirm){_context5.next=19;break;}_context5.prev=8;
@@ -154,7 +154,7 @@ true);case 19:
 
 
 setupInstance=(0,_setupTools.default)(c);return _context5.abrupt("return",
-setupInstance.askToInstallSDK(engine));case 21:case"end":return _context5.stop();}}},null,null,[[8,15]]);};
+setupInstance.askToInstallSDK(engine));case 21:case"end":return _context5.stop();}}},null,null,[[8,15]],Promise);};
 
 
 
@@ -178,5 +178,5 @@ _attemptAutoFix(c,'webos'));case 9:return _context6.abrupt("return",
 true);case 10:return _context6.abrupt("return",
 
 
-true);case 11:case"end":return _context6.stop();}}});};exports.checkSdk=checkSdk;
+true);case 11:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.checkSdk=checkSdk;
 //# sourceMappingURL=sdkManager.js.map

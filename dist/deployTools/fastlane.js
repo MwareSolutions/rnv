@@ -22,5 +22,5 @@ fastlaneArgs=fastlaneArgs.slice(3);return _context.abrupt("return",
 (0,_exec.executeAsync)(c,"fastlane "+fastlaneArgs.join(' '),{
 interactive:true,
 env:process.env,
-cwd:appFolder}));case 11:case"end":return _context.stop();}}});};exports.rnvFastlane=rnvFastlane;
+cwd:appFolder}));case 11:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvFastlane=rnvFastlane;
 //# sourceMappingURL=fastlane.js.map

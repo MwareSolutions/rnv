@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvLog=exports.rnvDeploy=exports.rnvExport=exports.rnvBuild=exports.rnvPackage=exports.rnvRun=exports.rnvDebug=exports.rnvStart=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvStart=exports.rnvRun=exports.rnvPackage=exports.rnvLog=exports.rnvExport=exports.rnvDeploy=exports.rnvDebug=exports.rnvBuild=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _chalk=_interopRequireDefault(require("chalk"));
 var _betterOpn=_interopRequireDefault(require("better-opn"));
@@ -113,7 +113,7 @@ if(c.program.reset){
 startCmd+=' --reset-cache';
 }_context.next=20;return _regenerator.default.awrap(
 
-(0,_exec.executeAsync)(c,startCmd,{stdio:'inherit',silent:true}));case 20:case"end":return _context.stop();}}});};exports.rnvStart=rnvStart;
+(0,_exec.executeAsync)(c,startCmd,{stdio:'inherit',silent:true}));case 20:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvStart=rnvStart;
 
 
 var runWeinre=function runWeinre(c){return(0,_exec.executeAsync)(c,'npx weinre --boundHost -all-');};
@@ -123,7 +123,7 @@ var rnvDebug=function rnvDebug(c){return _regenerator.default.async(function rnv
 
 (0,_index.isPlatformSupported)(c));case 3:_context2.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context2.next=7;return _regenerator.default.awrap(
-runWeinre(c));case 7:case"end":return _context2.stop();}}});};exports.rnvDebug=rnvDebug;
+runWeinre(c));case 7:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.rnvDebug=rnvDebug;
 
 
 
@@ -132,7 +132,7 @@ var rnvRun=function rnvRun(c){return _regenerator.default.async(function rnvRun$
 
 (0,_index.isPlatformSupported)(c));case 3:_context3.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context3.next=7;return _regenerator.default.awrap(
-_rnvRunWithPlatform(c));case 7:case"end":return _context3.stop();}}});};exports.rnvRun=rnvRun;
+_rnvRunWithPlatform(c));case 7:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.rnvRun=rnvRun;
 
 
 var rnvPackage=function rnvPackage(c){return _regenerator.default.async(function rnvPackage$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
@@ -140,7 +140,7 @@ var rnvPackage=function rnvPackage(c){return _regenerator.default.async(function
 
 (0,_index.isPlatformSupported)(c));case 3:_context4.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context4.next=7;return _regenerator.default.awrap(
-_rnvPackageWithPlatform(c));case 7:case"end":return _context4.stop();}}});};exports.rnvPackage=rnvPackage;
+_rnvPackageWithPlatform(c));case 7:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.rnvPackage=rnvPackage;
 
 
 var rnvBuild=function rnvBuild(c){return _regenerator.default.async(function rnvBuild$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
@@ -148,7 +148,7 @@ var rnvBuild=function rnvBuild(c){return _regenerator.default.async(function rnv
 
 (0,_index.isPlatformSupported)(c));case 3:_context5.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context5.next=7;return _regenerator.default.awrap(
-_rnvBuildWithPlatform(c));case 7:case"end":return _context5.stop();}}});};exports.rnvBuild=rnvBuild;
+_rnvBuildWithPlatform(c));case 7:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.rnvBuild=rnvBuild;
 
 
 var rnvExport=function rnvExport(c){return _regenerator.default.async(function rnvExport$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
@@ -156,7 +156,7 @@ var rnvExport=function rnvExport(c){return _regenerator.default.async(function r
 
 (0,_index.isPlatformSupported)(c));case 3:_context6.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context6.next=7;return _regenerator.default.awrap(
-_rnvExportWithPlatform(c));case 7:case"end":return _context6.stop();}}});};exports.rnvExport=rnvExport;
+_rnvExportWithPlatform(c));case 7:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.rnvExport=rnvExport;
 
 
 var rnvDeploy=function rnvDeploy(c){return _regenerator.default.async(function rnvDeploy$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
@@ -164,7 +164,7 @@ var rnvDeploy=function rnvDeploy(c){return _regenerator.default.async(function r
 
 (0,_index.isPlatformSupported)(c));case 3:_context7.next=5;return _regenerator.default.awrap(
 (0,_common.isBuildSchemeSupported)(c));case 5:_context7.next=7;return _regenerator.default.awrap(
-_rnvDeployWithPlatform(c));case 7:case"end":return _context7.stop();}}});};exports.rnvDeploy=rnvDeploy;
+_rnvDeployWithPlatform(c));case 7:case"end":return _context7.stop();}}},null,null,null,Promise);};exports.rnvDeploy=rnvDeploy;
 
 
 var rnvLog=function rnvLog(c){return _regenerator.default.async(function rnvLog$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:_context8.t0=
@@ -180,7 +180,7 @@ _constants.TVOS?6:9;break;case 3:_context8.next=5;return _regenerator.default.aw
 
 
 
-(0,_common.logErrorPlatform)(c,c.platform);case 10:case"end":return _context8.stop();}}});};exports.rnvLog=rnvLog;
+(0,_common.logErrorPlatform)(c,c.platform);case 10:case"end":return _context8.stop();}}},null,null,null,Promise);};exports.rnvLog=rnvLog;
 
 
 
@@ -197,7 +197,7 @@ c.paths,project=_c$paths.project,rnv=_c$paths.rnv;
 (0,_common.writeCleanFile)(_path.default.join(rnv.dir,'supportFiles','appShell','index.html'),_path.default.join(project.dir,'platformBuilds',c.runtime.appId+"_"+c.platform,'public','index.html'),[
 {pattern:'{{DEV_SERVER}}',override:"http://"+_ip.default.address()+":"+c.runtime.port}]);
 
-}case 2:case"end":return _context9.stop();}}});};
+}case 2:case"end":return _context9.stop();}}},null,null,null,Promise);};
 
 
 var _startBundlerIfRequired=function _startBundlerIfRequired(c){var bundleAssets,isRunning;return _regenerator.default.async(function _startBundlerIfRequired$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:
@@ -211,7 +211,7 @@ rnvStart(c);
 keepRNVRunning=true;_context10.next=12;return _regenerator.default.awrap(
 (0,_bundler.waitForBundler)(c));case 12:_context10.next=16;break;case 14:_context10.next=16;return _regenerator.default.awrap(
 
-(0,_common.confirmActiveBundler)(c));case 16:case"end":return _context10.stop();}}});};
+(0,_common.confirmActiveBundler)(c));case 16:case"end":return _context10.stop();}}},null,null,null,Promise);};
 
 
 
@@ -220,7 +220,7 @@ bundleAssets=(0,_common.getConfigProp)(c,c.platform,'bundleAssets');if(!(
 bundleAssets===true)){_context11.next=3;break;}return _context11.abrupt("return");case 3:if(!
 
 keepRNVRunning){_context11.next=5;break;}return _context11.abrupt("return",new Promise(function(){}));case 5:return _context11.abrupt("return",
-true);case 6:case"end":return _context11.stop();}}});};
+true);case 6:case"end":return _context11.stop();}}},null,null,null,Promise);};
 
 
 var _rnvRunWithPlatform=function _rnvRunWithPlatform(c){var platform,port,target,hosted;return _regenerator.default.async(function _rnvRunWithPlatform$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:
@@ -308,7 +308,7 @@ c.program.only){_context12.next=74;break;}_context12.next=72;return _regenerator
 
 (0,_firefox.runFirefoxProject)(c,platform));case 75:return _context12.abrupt("return",
 
-(0,_common.logErrorPlatform)(c,platform));case 76:case"end":return _context12.stop();}}});};
+(0,_common.logErrorPlatform)(c,platform));case 76:case"end":return _context12.stop();}}},null,null,null,Promise);};
 
 
 
@@ -340,7 +340,7 @@ c.program.only){_context13.next=21;break;}_context13.next=17;return _regenerator
 (0,_android.packageAndroid)(c,platform,target,platform===_constants.ANDROID_WEAR));case 22:
 
 (0,_common.logErrorPlatform)(c,platform);return _context13.abrupt("return",
-false);case 24:case"end":return _context13.stop();}}});};
+false);case 24:case"end":return _context13.stop();}}},null,null,null,Promise);};
 
 
 
@@ -373,7 +373,7 @@ c.program.only){_context14.next=23;break;}_context14.next=17;return _regenerator
 
 (0,_electron.exportElectron)(c,platform));case 24:
 
-(0,_common.logErrorPlatform)(c,platform);case 25:case"end":return _context14.stop();}}});};
+(0,_common.logErrorPlatform)(c,platform);case 25:case"end":return _context14.stop();}}},null,null,null,Promise);};
 
 
 
@@ -406,7 +406,7 @@ _rnvBuildWithPlatform(c));case 18:return _context15.abrupt("return");case 19:
 
 
 
-(0,_common.logErrorPlatform)(c,platform);case 20:case"end":return _context15.stop();}}});};
+(0,_common.logErrorPlatform)(c,platform);case 20:case"end":return _context15.stop();}}},null,null,null,Promise);};
 
 
 
@@ -463,5 +463,5 @@ _constants.WEBOS?52:59;break;case 5:_context16.next=7;return _regenerator.defaul
 (0,_webos.buildWebOSProject)(c,platform));case 58:return _context16.abrupt("return");case 59:
 
 
-(0,_common.logErrorPlatform)(c,platform);case 60:case"end":return _context16.stop();}}});};
+(0,_common.logErrorPlatform)(c,platform);case 60:case"end":return _context16.stop();}}},null,null,null,Promise);};
 //# sourceMappingURL=runner.js.map

@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.injectPluginXmlValuesSync=exports.parseValuesColorsSync=exports.parseValuesStringsSync=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseValuesStringsSync=exports.parseValuesColorsSync=exports.injectPluginXmlValuesSync=void 0;var _path=_interopRequireDefault(require("path"));
 var _common=require("../../common");
 
 

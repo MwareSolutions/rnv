@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.DEPLOY_TARGET_NONE=exports.DEPLOY_TARGET_NOW=exports.DEPLOY_TARGET_FTP=exports.selectWebToolAndExport=exports.selectWebToolAndDeploy=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.selectWebToolAndExport=exports.selectWebToolAndDeploy=exports.DEPLOY_TARGET_NOW=exports.DEPLOY_TARGET_NONE=exports.DEPLOY_TARGET_FTP=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
 var _minimist=_interopRequireDefault(require("minimist"));
 var _inquirer=_interopRequireDefault(require("inquirer"));
 var _path=_interopRequireDefault(require("path"));
@@ -32,7 +32,7 @@ deployToDocker=(0,_common.importPackageFromProject)('@rnv/deploy-docker');
 deployToDocker.setRNVPath(rnvPath);return _context.abrupt("return",
 deployToDocker.doDeploy());case 10:return _context.abrupt("return",
 
-Promise.reject(new Error("Deploy Type not supported "+deployType)));case 11:case"end":return _context.stop();}}});};
+Promise.reject(new Error("Deploy Type not supported "+deployType)));case 11:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 
@@ -48,7 +48,7 @@ return Promise.reject(new Error("Deploy Type not supported "+deployType));}
 
 };
 
-var selectToolAndExecute=function selectToolAndExecute(_ref){var c,platform,choices,configFunction,executeFunction,_ref$isDeploy,isDeploy,argv,type,targetConfig,_ref2,selectedTarget;return _regenerator.default.async(function selectToolAndExecute$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var selectToolAndExecute=function selectToolAndExecute(_ref){var c,platform,choices,configFunction,executeFunction,_ref$isDeploy,isDeploy,argv,type,targetConfig,_await$inquirer$promp,selectedTarget;return _regenerator.default.async(function selectToolAndExecute$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 c=_ref.c,platform=_ref.platform,choices=_ref.choices,configFunction=_ref.configFunction,executeFunction=_ref.executeFunction,_ref$isDeploy=_ref.isDeploy,isDeploy=_ref$isDeploy===void 0?true:_ref$isDeploy;
 
 argv=(0,_minimist.default)(c.process.argv.slice(2));
@@ -63,13 +63,13 @@ _inquirer.default.prompt({
 name:'selectedTarget',
 type:'list',
 choices:choices,
-message:"Which type of "+(isDeploy?'deploy':'export')+" option would you like to use for "+_chalk.default.white(platform)+"?"}));case 10:_ref2=_context2.sent;selectedTarget=_ref2.selectedTarget;_context2.next=14;return _regenerator.default.awrap(
+message:"Which type of "+(isDeploy?'deploy':'export')+" option would you like to use for "+_chalk.default.white(platform)+"?"}));case 10:_await$inquirer$promp=_context2.sent;selectedTarget=_await$inquirer$promp.selectedTarget;_context2.next=14;return _regenerator.default.awrap(
 
 
 configFunction(selectedTarget));case 14:
 
 (0,_logger.logInfo)("Setting your appconfig for "+_chalk.default.white(platform)+" to include "+(isDeploy?'deploy':'export')+" type: "+_chalk.default.white(selectedTarget)+" at "+_chalk.default.white(c.paths.appConfig.config));return _context2.abrupt("return",
-executeFunction(c,platform,selectedTarget));case 16:case"end":return _context2.stop();}}});};
+executeFunction(c,platform,selectedTarget));case 16:case"end":return _context2.stop();}}},null,null,null,Promise);};
 
 
 var selectWebToolAndDeploy=function selectWebToolAndDeploy(c,platform){return selectToolAndExecute({

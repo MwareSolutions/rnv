@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.createRnvConfig=exports.configureRnvGlobal=exports.parseRenativeConfigs=exports.updateConfig=exports.setAppConfig=exports.loadPlatformTemplates=exports.loadPluginTemplates=exports.loadProjectTemplates=exports.listAppConfigsFoldersSync=exports.generateLocalConfig=exports.generateRuntimeConfig=exports.generateBuildConfig=exports.loadFile=exports.versionCheck=exports.fixRenativeConfigsSync=exports.checkIsRenativeProject=void 0;var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.versionCheck=exports.updateConfig=exports.setAppConfig=exports.parseRenativeConfigs=exports.loadProjectTemplates=exports.loadPluginTemplates=exports.loadPlatformTemplates=exports.loadFile=exports.listAppConfigsFoldersSync=exports.generateRuntimeConfig=exports.generateLocalConfig=exports.generateBuildConfig=exports.fixRenativeConfigsSync=exports.createRnvConfig=exports.configureRnvGlobal=exports.checkIsRenativeProject=void 0;var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
 var _deepmerge=_interopRequireDefault(require("deepmerge"));
@@ -37,7 +37,7 @@ var _projectParser=require("../projectTools/projectParser");
 
 
 var _prompt=require("../systemTools/prompt");
-var _config=_interopRequireDefault(require("../config"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _config=_interopRequireDefault(require("../config"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var base=_path.default.resolve('.');
 var homedir=require('os').homedir();
@@ -61,7 +61,7 @@ return{dir:dir,id:renativeConf.id};
 return{dir:dir,id:null};
 };
 
-var askUserAboutConfigs=function askUserAboutConfigs(c,dir,id,basePath){var _ref,choice,filePath,fileContents;return _regenerator.default.async(function askUserAboutConfigs$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var askUserAboutConfigs=function askUserAboutConfigs(c,dir,id,basePath){var _await$inquirer$promp,choice,filePath,fileContents;return _regenerator.default.async(function askUserAboutConfigs$(_context){while(1){switch(_context.prev=_context.next){case 0:
 (0,_logger.logWarning)("AppConfig error - It seems you have a mismatch between appConfig folder name ("+dir+") and the id defined in renative.json ("+id+"). They must match.");if(!(
 c.program.ci===true)){_context.next=3;break;}throw new Error('You cannot continue if you set --ci flag. please fix above error first');case 3:_context.next=5;return _regenerator.default.awrap(
 _inquirer.default.prompt({
@@ -76,7 +76,7 @@ name:"Keep folder name ("+dir+") and rename the ID from renative.json ("+id+" ->
 value:'keepFolder'},
 new _inquirer.default.Separator(),{
 name:'I\'ll do it manually',
-value:'manually'}]}));case 5:_ref=_context.sent;choice=_ref.choice;if(!(
+value:'manually'}]}));case 5:_await$inquirer$promp=_context.sent;choice=_await$inquirer$promp.choice;if(!(
 
 
 
@@ -92,7 +92,7 @@ fileContents=JSON.parse(_fs.default.readFileSync(filePath));
 fileContents.id=dir;
 
 (0,_fileutils.writeFileSync)(filePath,fileContents);
-}case 11:case"end":return _context.stop();}}});};
+}case 11:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 var matchAppConfigID=function matchAppConfigID(c,appConfigID){var _c$buildConfig,_c$buildConfig$paths,_c$paths$project;var appConfigsDirs,_loop,i,_ret;return _regenerator.default.async(function matchAppConfigID$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
@@ -104,12 +104,12 @@ appConfigsDirs=((_c$buildConfig=c.buildConfig)==null?void 0:(_c$buildConfig$path
 i){var appConfigsDir,appConfigDirContents,appConfigs,ids,dirs,foundConfig;return _regenerator.default.async(function _loop$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
 appConfigsDir=appConfigsDirs[i];_context3.t0=_regenerator.default;_context3.next=4;return _regenerator.default.awrap(
 
-readdirAsync(appConfigsDir));case 4:_context3.t1=function(folder){return _fs.default.statSync(_path.default.join(appConfigsDir,folder)).isDirectory();};_context3.t2=_context3.sent.filter(_context3.t1);_context3.next=8;return _context3.t0.awrap.call(_context3.t0,_context3.t2);case 8:appConfigDirContents=_context3.sent;
+readdirAsync(appConfigsDir));case 4:_context3.t1=_context3.sent.filter(function(folder){return _fs.default.statSync(_path.default.join(appConfigsDir,folder)).isDirectory();});_context3.next=7;return _context3.t0.awrap.call(_context3.t0,_context3.t1);case 7:appConfigDirContents=_context3.sent;
 
 appConfigs=appConfigDirContents.map(function(dir){return loadAppConfigIDfromDir(dir,appConfigsDir);}).filter(function(conf){return conf.id!==null;});
 
 ids=[];
-dirs=[];_context3.next=14;return _regenerator.default.awrap(
+dirs=[];_context3.next=13;return _regenerator.default.awrap(
 Promise.all(appConfigs.map(function _callee(conf){var id,dir;return _regenerator.default.async(function _callee$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 id=conf.id.toLowerCase();
 dir=conf.dir.toLowerCase();if(!(
@@ -118,13 +118,13 @@ id!==dir)){_context2.next=5;break;}_context2.next=5;return _regenerator.default.
 ids.includes(id)){_context2.next=7;break;}throw new Error("AppConfig error - You have 2 duplicate app configs with ID "+id+". Keep in mind that ID is case insensitive. Please edit one of them in /appConfigs/<folder>/renative.json");case 7:
 ids.push(id);if(!
 dirs.includes(dir)){_context2.next=10;break;}throw new Error("AppConfig error - You have 2 duplicate app config folders named "+dir+". Keep in mind that folder names are case insensitive. Please rename one /appConfigs/<folder>");case 10:
-dirs.push(dir);case 11:case"end":return _context2.stop();}}});})));case 14:
+dirs.push(dir);case 11:case"end":return _context2.stop();}}},null,null,null,Promise);})));case 13:
 
 
 foundConfig=appConfigs.filter(function(cfg){return cfg.id===appConfigID||cfg.id.toLowerCase()===appConfigID||cfg.dir===appConfigID||cfg.dir.toLowerCase()===appConfigID;});if(!
-foundConfig.length){_context3.next=17;break;}return _context3.abrupt("return",{v:foundConfig[0].id.toLowerCase()});case 17:case"end":return _context3.stop();}}});};i=0;case 6:if(!(i<appConfigsDirs.length)){_context4.next=15;break;}_context4.next=9;return _regenerator.default.awrap(_loop(i));case 9:_ret=_context4.sent;if(!(typeof _ret==="object")){_context4.next=12;break;}return _context4.abrupt("return",_ret.v);case 12:i++;_context4.next=6;break;case 15:return _context4.abrupt("return",
+foundConfig.length){_context3.next=16;break;}return _context3.abrupt("return",{v:foundConfig[0].id.toLowerCase()});case 16:case"end":return _context3.stop();}}},null,null,null,Promise);};i=0;case 6:if(!(i<appConfigsDirs.length)){_context4.next=15;break;}_context4.next=9;return _regenerator.default.awrap(_loop(i));case 9:_ret=_context4.sent;if(!(typeof _ret==="object")){_context4.next=12;break;}return _context4.abrupt("return",_ret.v);case 12:i++;_context4.next=6;break;case 15:return _context4.abrupt("return",
 
-false);case 16:case"end":return _context4.stop();}}});};
+false);case 16:case"end":return _context4.stop();}}},null,null,null,Promise);};
 
 
 var checkIsRenativeProject=function checkIsRenativeProject(c){return new Promise(function(resolve,reject){
@@ -166,7 +166,7 @@ _chalk.default.white(c.paths.project.babelConfig)+" is missing! Let's create one
 (0,_fileutils.copyFileSync)(_path.default.join(c.paths.rnv.dir,_constants.RN_BABEL_CONFIG_NAME),c.paths.project.babelConfig);
 }return _context5.abrupt("return",
 
-true);case 7:case"end":return _context5.stop();}}});};exports.fixRenativeConfigsSync=fixRenativeConfigsSync;
+true);case 7:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.fixRenativeConfigsSync=fixRenativeConfigsSync;
 
 
 var _generateConfigPaths=function _generateConfigPaths(pathObj,dir){
@@ -176,7 +176,7 @@ pathObj.configLocal=_path.default.join(dir,_constants.RENATIVE_CONFIG_LOCAL_NAME
 pathObj.configPrivate=_path.default.join(dir,_constants.RENATIVE_CONFIG_PRIVATE_NAME);
 };
 
-var versionCheck=function versionCheck(c){var _c$files$rnv,_c$files$rnv$package,_c$files$project,_c$files$project$pack,_c$files$project$pack2;var recCmd,actionNoUpdate,actionWithUpdate,actionUpgrade,_ref2,chosenAction;return _regenerator.default.async(function versionCheck$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var versionCheck=function versionCheck(c){var _c$files$rnv,_c$files$rnv$package,_c$files$project,_c$files$project$pack,_c$files$project$pack2;var recCmd,actionNoUpdate,actionWithUpdate,actionUpgrade,_await$inquirerPrompt,chosenAction;return _regenerator.default.async(function versionCheck$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)('versionCheck');if(!(
 
 c.runtime.isWrapper||c.runtime.versionCheckCompleted)){_context6.next=3;break;}return _context6.abrupt("return",
@@ -201,7 +201,7 @@ actionNoUpdate,
 actionWithUpdate,
 actionUpgrade],
 
-warningMessage:"You are running $rnv v"+_chalk.default.red(c.runtime.rnvVersionRunner)+" against project built with rnv v"+_chalk.default.red(c.runtime.rnvVersionProject)+". This might result in unexpected behaviour! It is recommended that you run your rnv command with npx prefix: "+recCmd+" . or manually update your devDependencies.rnv version in your package.json."}));case 14:_ref2=_context6.sent;chosenAction=_ref2.chosenAction;
+warningMessage:"You are running $rnv v"+_chalk.default.red(c.runtime.rnvVersionRunner)+" against project built with rnv v"+_chalk.default.red(c.runtime.rnvVersionProject)+". This might result in unexpected behaviour! It is recommended that you run your rnv command with npx prefix: "+recCmd+" . or manually update your devDependencies.rnv version in your package.json."}));case 14:_await$inquirerPrompt=_context6.sent;chosenAction=_await$inquirerPrompt.chosenAction;
 
 
 c.runtime.versionCheckCompleted=true;
@@ -213,7 +213,7 @@ if(chosenAction===actionUpgrade){
 }case 19:return _context6.abrupt("return",
 
 
-true);case 20:case"end":return _context6.stop();}}});};exports.versionCheck=versionCheck;
+true);case 20:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.versionCheck=versionCheck;
 
 
 var loadFile=function loadFile(fileObj,pathObj,key){
@@ -415,7 +415,7 @@ c.assetConfig=(0,_fileutils.mergeObjects)(c,c.assetConfig,(0,_common.getConfigPr
 if(_fs.default.existsSync(c.paths.project.assets.dir)){
 (0,_fileutils.writeFileSync)(c.paths.project.assets.config,c.assetConfig);
 }return _context7.abrupt("return",
-true);case 7:case"end":return _context7.stop();}}});};exports.generateRuntimeConfig=generateRuntimeConfig;
+true);case 7:case"end":return _context7.stop();}}},null,null,null,Promise);};exports.generateRuntimeConfig=generateRuntimeConfig;
 
 
 var generateLocalConfig=function generateLocalConfig(c,resetAppId){
@@ -547,7 +547,7 @@ c.files.rnv.configWorkspaces=(0,_fileutils.readObjectSync)(c.paths.rnv.configWor
 
 if(!c.files.rnv.configWorkspaces)c.files.rnv.configWorkspaces={};
 
-if(!((_c$files$rnv$configWo=c.files.rnv.configWorkspaces)==null?void 0:_c$files$rnv$configWo.workspaces))c.files.rnv.configWorkspaces.workspaces={};
+if(!((_c$files$rnv$configWo=c.files.rnv.configWorkspaces)!=null&&_c$files$rnv$configWo.workspaces))c.files.rnv.configWorkspaces.workspaces={};
 if(Object.keys(c.files.rnv.configWorkspaces.workspaces).length===0){
 (0,_logger.logWarning)("No workspace found in "+c.paths.rnv.configWorkspaces+". Creating default rnv one for you");
 c.files.rnv.configWorkspaces.workspaces={
@@ -595,10 +595,10 @@ generateLocalConfig(c);_context8.t0=
 
 
 _generateConfigPaths;_context8.t1=c.paths.workspace;_context8.t2=_fileutils.getRealPath;_context8.t3=c;_context8.next=21;return _regenerator.default.awrap((0,_workspace.getWorkspaceDirPath)(c));case 21:_context8.t4=_context8.sent;_context8.t5=(0,_context8.t2)(_context8.t3,_context8.t4);(0,_context8.t0)(_context8.t1,_context8.t5);
-_loadConfigFiles(c,c.files.workspace,c.paths.workspace);case 25:case"end":return _context8.stop();}}});};exports.setAppConfig=setAppConfig;
+_loadConfigFiles(c,c.files.workspace,c.paths.workspace);case 25:case"end":return _context8.stop();}}},null,null,null,Promise);};exports.setAppConfig=setAppConfig;
 
 
-var updateConfig=function updateConfig(c,appConfigId){var isPureRnv,configDirs,_ref3,_conf,_ref4,conf;return _regenerator.default.async(function updateConfig$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:
+var updateConfig=function updateConfig(c,appConfigId){var isPureRnv,configDirs,_await$inquirerPrompt2,_conf,_await$inquirerPrompt3,conf;return _regenerator.default.async(function updateConfig$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:
 (0,_logger.logTask)("updateConfig:"+appConfigId);_context9.next=3;return _regenerator.default.awrap(
 
 setAppConfig(c,appConfigId));case 3:
@@ -634,7 +634,7 @@ type:'list',
 message:'Which one would you like to pick?',
 choices:configDirs,
 pageSize:50,
-logMessage:'ReNative found multiple existing appConfigs'}));case 15:_ref3=_context9.sent;_conf=_ref3.conf;if(!
+logMessage:'ReNative found multiple existing appConfigs'}));case 15:_await$inquirerPrompt2=_context9.sent;_conf=_await$inquirerPrompt2.conf;if(!
 
 
 _conf){_context9.next=21;break;}_context9.next=20;return _regenerator.default.awrap(
@@ -648,7 +648,7 @@ type:'confirm',
 message:"Do you want ReNative to create new sample appConfig ("+_chalk.default.white(
 appConfigId)+") for you?",
 
-warningMessage:'No app configs found for this project'}));case 23:_ref4=_context9.sent;conf=_ref4.conf;if(!
+warningMessage:'No app configs found for this project'}));case 23:_await$inquirerPrompt3=_context9.sent;conf=_await$inquirerPrompt3.conf;if(!
 
 
 conf){_context9.next=30;break;}_context9.next=28;return _regenerator.default.awrap(
@@ -660,7 +660,7 @@ _path.default.join(c.paths.appConfig.dir));return _context9.abrupt("return",
 true);case 30:return _context9.abrupt("return",
 
 
-true);case 31:case"end":return _context9.stop();}}});};exports.updateConfig=updateConfig;
+true);case 31:case"end":return _context9.stop();}}},null,null,null,Promise);};exports.updateConfig=updateConfig;
 
 
 var parseRenativeConfigs=function parseRenativeConfigs(c){var _c$program$appConfigI,_c$files$project2,_c$files$project2$con,_c$files$project2$con2,aid;return _regenerator.default.async(function parseRenativeConfigs$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:
@@ -707,7 +707,7 @@ c.paths.workspace.project.projectConfig.dir=_path.default.join(c.paths.workspace
 _findAndSwitchAppConfigDir(c);
 
 c.runtime.isWrapper=c.buildConfig.isWrapper;
-c.paths.project.platformTemplatesDirs=_generatePlatformTemplatePaths(c);case 33:case"end":return _context10.stop();}}});};exports.parseRenativeConfigs=parseRenativeConfigs;
+c.paths.project.platformTemplatesDirs=_generatePlatformTemplatePaths(c);case 33:case"end":return _context10.stop();}}},null,null,null,Promise);};exports.parseRenativeConfigs=parseRenativeConfigs;
 
 
 var configureRnvGlobal=function configureRnvGlobal(c){var oldGlobalConfigPath,_c$files$workspace$co,defaultConfig,newConfig;return _regenerator.default.async(function configureRnvGlobal$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:
@@ -739,7 +739,7 @@ if(_fs.default.existsSync(oldGlobalConfigPath)){
 if(_fs.default.existsSync(c.paths.workspace.config)){
 c.files.workspace.config=JSON.parse(_fs.default.readFileSync(c.paths.workspace.config).toString());
 
-if((_c$files$workspace$co=c.files.workspace.config)==null?void 0:_c$files$workspace$co.appConfigsPath){
+if((_c$files$workspace$co=c.files.workspace.config)!=null&&_c$files$workspace$co.appConfigsPath){
 if(!_fs.default.existsSync(c.files.workspace.config.appConfigsPath)){
 (0,_logger.logWarning)("Looks like your custom global appConfig is pointing to "+
 _chalk.default.white(
@@ -764,12 +764,12 @@ _chalk.default.white(c.paths.workspace.config)+". Let's add them!");
 defaultConfig=JSON.parse(
 _fs.default.readFileSync(_path.default.join(c.paths.rnv.dir,'supportFiles','global-config-template.json')).toString());
 
-newConfig=_objectSpread({},c.files.workspace.config,{defaultTargets:defaultConfig.defaultTargets});
+newConfig=_objectSpread(_objectSpread({},c.files.workspace.config),{},{defaultTargets:defaultConfig.defaultTargets});
 _fs.default.writeFileSync(c.paths.workspace.config,JSON.stringify(newConfig,null,2));
 }
 }return _context11.abrupt("return",
 
-true);case 5:case"end":return _context11.stop();}}});};exports.configureRnvGlobal=configureRnvGlobal;
+true);case 5:case"end":return _context11.stop();}}},null,null,null,Promise);};exports.configureRnvGlobal=configureRnvGlobal;
 
 
 var createRnvConfig=function createRnvConfig(program,process,cmd,subCmd){

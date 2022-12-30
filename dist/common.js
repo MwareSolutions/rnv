@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports.importPackageFromProject=exports.waitForWebpack=exports.waitForEmulator=exports.getBuildFilePath=exports.getFlavouredProp=exports.resolveNodeModulePath=exports.checkPortInUse=exports.cleanPlatformIfRequired=exports.getIP=exports.getBuildsFolder=exports.writeCleanFile=exports.getBinaryPath=exports.configureIfRequired=exports.PLATFORM_RUNS=exports.logErrorPlatform=exports.getAppVersionCode=exports.getAppDescription=exports.getGetJsBundleFile=exports.getEntryFile=exports.getAppLicense=exports.getAppAuthor=exports.getAppVersion=exports.getAppTitle=exports.getAppId=exports.getConfigProp=exports.CLI_PROPS=exports.getAppTemplateFolder=exports.getAppSubFolder=exports.getAppFolder=exports.confirmActiveBundler=exports.isBuildSchemeSupported=exports.sanitizeColor=exports.getSourceExtsAsString=exports.getSourceExts=exports.generateChecksum=exports.initializeBuilder=void 0;var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.writeCleanFile=exports.waitForWebpack=exports.waitForEmulator=exports.sanitizeColor=exports.resolveNodeModulePath=exports.logErrorPlatform=exports.isBuildSchemeSupported=exports.initializeBuilder=exports.importPackageFromProject=exports.getSourceExtsAsString=exports.getSourceExts=exports.getIP=exports.getGetJsBundleFile=exports.getFlavouredProp=exports.getEntryFile=exports.getConfigProp=exports.getBuildsFolder=exports.getBuildFilePath=exports.getBinaryPath=exports.getAppVersionCode=exports.getAppVersion=exports.getAppTitle=exports.getAppTemplateFolder=exports.getAppSubFolder=exports.getAppLicense=exports.getAppId=exports.getAppFolder=exports.getAppDescription=exports.getAppAuthor=exports.generateChecksum=exports.default=exports.confirmActiveBundler=exports.configureIfRequired=exports.cleanPlatformIfRequired=exports.checkPortInUse=exports.PLATFORM_RUNS=exports.CLI_PROPS=void 0;var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
 var _fs=_interopRequireDefault(require("fs"));
 var _path=_interopRequireDefault(require("path"));
 var _detectPort=_interopRequireDefault(require("detect-port"));
@@ -34,7 +34,7 @@ c=(0,_configParser.createRnvConfig)(program,process,cmd,subCmd);
 (0,_logger.configureLogger)(c,c.process,c.command,c.subCommand,program.info===true);
 (0,_logger.logInitialize)();return _context.abrupt("return",
 
-c);case 4:case"end":return _context.stop();}}});};exports.initializeBuilder=initializeBuilder;
+c);case 4:case"end":return _context.stop();}}},null,null,null,Promise);};exports.initializeBuilder=initializeBuilder;
 
 
 
@@ -76,7 +76,7 @@ hex:hex};
 
 };exports.sanitizeColor=sanitizeColor;
 
-var isBuildSchemeSupported=function isBuildSchemeSupported(c){var scheme,buildSchemes,schemeDoesNotExist,opts,_ref,selectedScheme;return _regenerator.default.async(function isBuildSchemeSupported$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var isBuildSchemeSupported=function isBuildSchemeSupported(c){var scheme,buildSchemes,schemeDoesNotExist,opts,_await$inquirerPrompt,selectedScheme;return _regenerator.default.async(function isBuildSchemeSupported$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("isBuildSchemeSupported:"+c.platform);
 
 scheme=c.program.scheme;
@@ -105,25 +105,25 @@ name:'selectedScheme',
 type:'list',
 message:'Pick one of available buildSchemes',
 choices:opts.keysAsArray,
-logMessage:'You need to specify scheme'}));case 13:_ref=_context2.sent;selectedScheme=_ref.selectedScheme;
+logMessage:'You need to specify scheme'}));case 13:_await$inquirerPrompt=_context2.sent;selectedScheme=_await$inquirerPrompt.selectedScheme;
 
 
 c.program.scheme=selectedScheme;return _context2.abrupt("return",
 selectedScheme);case 17:return _context2.abrupt("return",
 
-scheme);case 18:case"end":return _context2.stop();}}});};exports.isBuildSchemeSupported=isBuildSchemeSupported;
+scheme);case 18:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.isBuildSchemeSupported=isBuildSchemeSupported;
 
 
-var confirmActiveBundler=function confirmActiveBundler(c){var _ref2,confirm;return _regenerator.default.async(function confirmActiveBundler$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(!
+var confirmActiveBundler=function confirmActiveBundler(c){var _await$inquirerPrompt2,confirm;return _regenerator.default.async(function confirmActiveBundler$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(!
 c.runtime.skipActiveServerCheck){_context3.next=2;break;}return _context3.abrupt("return",true);case 2:_context3.next=4;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
 message:'It will be used for this session. Continue?',
-warningMessage:"Another "+c.platform+" server at port "+c.runtime.port+" already running"}));case 4:_ref2=_context3.sent;confirm=_ref2.confirm;if(!
+warningMessage:"Another "+c.platform+" server at port "+c.runtime.port+" already running"}));case 4:_await$inquirerPrompt2=_context3.sent;confirm=_await$inquirerPrompt2.confirm;if(!
 
 
 confirm){_context3.next=8;break;}return _context3.abrupt("return",true);case 8:return _context3.abrupt("return",
-Promise.reject('Cancelled by user'));case 9:case"end":return _context3.stop();}}});};exports.confirmActiveBundler=confirmActiveBundler;
+Promise.reject('Cancelled by user'));case 9:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.confirmActiveBundler=confirmActiveBundler;
 
 
 var getAppFolder=function getAppFolder(c,platform){return _path.default.join(c.paths.project.builds.dir,c.runtime.appId+"_"+platform);};exports.getAppFolder=getAppFolder;
@@ -238,7 +238,7 @@ c.program.resetHard){_context4.next=12;break;}_context4.next=12;return _regenera
 (0,_projectParser.cleanPlaformAssets)(c));case 12:_context4.next=14;return _regenerator.default.awrap(
 
 (0,_platformTools.createPlatformBuild)(c,platform));case 14:_context4.next=16;return _regenerator.default.awrap(
-(0,_cli.default)(c,nc));case 16:case"end":return _context4.stop();}}});};exports.configureIfRequired=configureIfRequired;
+(0,_cli.default)(c,nc));case 16:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.configureIfRequired=configureIfRequired;
 
 
 var getBinaryPath=function getBinaryPath(c,platform){
@@ -309,7 +309,7 @@ var getIP=function getIP(){return _ip.default.address();};exports.getIP=getIP;
 var cleanPlatformIfRequired=function cleanPlatformIfRequired(c,platform){return _regenerator.default.async(function cleanPlatformIfRequired$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:if(!
 c.program.reset){_context5.next=4;break;}
 (0,_logger.logInfo)("You passed "+_chalk.default.white('-r')+" argument. paltform "+_chalk.default.white(platform)+" will be cleaned up first!");_context5.next=4;return _regenerator.default.awrap(
-(0,_platformTools.cleanPlatformBuild)(c,platform));case 4:case"end":return _context5.stop();}}});};exports.cleanPlatformIfRequired=cleanPlatformIfRequired;
+(0,_platformTools.cleanPlatformBuild)(c,platform));case 4:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.cleanPlatformIfRequired=cleanPlatformIfRequired;
 
 
 
@@ -381,7 +381,7 @@ return reject('Can\'t connect to the running emulator. Try restarting it.');
 }
 });
 },CHECK_INTEVAL);
-}));case 6:case"end":return _context6.stop();}}});};exports.waitForEmulator=waitForEmulator;
+}));case 6:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.waitForEmulator=waitForEmulator;
 
 
 var waitForWebpack=function waitForWebpack(c){var attempts,maxAttempts,CHECK_INTEVAL,extendConfig,devServerHost,url;return _regenerator.default.async(function waitForWebpack$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
@@ -417,7 +417,7 @@ return reject('Can\'t connect to webpack. Try restarting it.');
 }
 });
 },CHECK_INTEVAL);
-}));case 8:case"end":return _context7.stop();}}});};exports.waitForWebpack=waitForWebpack;
+}));case 8:case"end":return _context7.stop();}}},null,null,null,Promise);};exports.waitForWebpack=waitForWebpack;
 
 var importPackageFromProject=function importPackageFromProject(name){
 var c=_config.default.getConfig();

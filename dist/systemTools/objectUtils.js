@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.isSymbol=exports.isDate=exports.isError=exports.isRegExp=exports.isLikeNull=exports.isUndefined=exports.isNull=exports.isBool=exports.isFunction=exports.isNumber=exports.isString=exports.isArray=exports.isObject=void 0;
+Object.defineProperty(exports,"__esModule",{value:true});exports.isUndefined=exports.isSymbol=exports.isString=exports.isRegExp=exports.isObject=exports.isNumber=exports.isNull=exports.isLikeNull=exports.isFunction=exports.isError=exports.isDate=exports.isBool=exports.isArray=void 0;
 var isObject=function isObject(value){return value&&typeof value==='object'&&value.constructor===Object;};exports.isObject=isObject;
 
 var isArray=function isArray(value){return value&&typeof value==='object'&&value.constructor===Array;};exports.isArray=isArray;

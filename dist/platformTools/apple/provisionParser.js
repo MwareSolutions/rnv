@@ -12,5 +12,5 @@ AppId:id,
 TeamIdentifier:teamID,
 Certificates:certificates.valid});return _context.abrupt("return",
 
-result);case 6:case"end":return _context.stop();}}});};exports.parseProvisioningProfiles=parseProvisioningProfiles;
+result);case 6:case"end":return _context.stop();}}},null,null,null,Promise);};exports.parseProvisioningProfiles=parseProvisioningProfiles;
 //# sourceMappingURL=provisionParser.js.map

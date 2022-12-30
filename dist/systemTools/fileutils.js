@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports.getFileListSync=exports.replaceHomeFolder=exports.updateConfigFile=exports.mergeObjects=exports.sanitizeDynamicProps=exports.sanitizeDynamicRefs=exports.arrayMerge=exports.getRealPath=exports.updateObjectSync=exports.readObjectSync=exports.writeObjectSync=exports.writeFileSync=exports.removeDirSync=exports.removeDirs=exports.removeDirsSync=exports.removeFilesSync=exports.cleanFolder=exports.mkdirSync=exports.removeDir=exports.saveAsJs=exports.copyFolderContentsRecursive=exports.copyFolderContentsRecursiveSync=exports.copyFolderRecursiveSync=exports.invalidatePodsChecksum=exports.copyFileSync=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _fs=_interopRequireDefault(require("fs"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.writeObjectSync=exports.writeFileSync=exports.updateObjectSync=exports.updateConfigFile=exports.saveAsJs=exports.sanitizeDynamicRefs=exports.sanitizeDynamicProps=exports.replaceHomeFolder=exports.removeFilesSync=exports.removeDirsSync=exports.removeDirs=exports.removeDirSync=exports.removeDir=exports.readObjectSync=exports.mkdirSync=exports.mergeObjects=exports.invalidatePodsChecksum=exports.getRealPath=exports.getFileListSync=exports.default=exports.copyFolderRecursiveSync=exports.copyFolderContentsRecursiveSync=exports.copyFolderContentsRecursive=exports.copyFileSync=exports.cleanFolder=exports.arrayMerge=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _fs=_interopRequireDefault(require("fs"));
 var _path=_interopRequireDefault(require("path"));
 var _rimraf=_interopRequireDefault(require("rimraf"));
 var _svg2js=_interopRequireDefault(require("svg2js"));
@@ -392,7 +392,7 @@ configContents.sdks.WEBOS_SDK=update.webosSdk;
 
 (0,_logger.logDebug)("Updating "+globalConfigPath+". New file "+JSON.stringify(configContents,null,3));
 
-_fs.default.writeFileSync(globalConfigPath,JSON.stringify(configContents,null,3));case 6:case"end":return _context.stop();}}});};exports.updateConfigFile=updateConfigFile;
+_fs.default.writeFileSync(globalConfigPath,JSON.stringify(configContents,null,3));case 6:case"end":return _context.stop();}}},null,null,null,Promise);};exports.updateConfigFile=updateConfigFile;
 
 
 var replaceHomeFolder=function replaceHomeFolder(p){

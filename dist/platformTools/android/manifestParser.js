@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.injectPluginManifestSync=exports.parseAndroidManifestSync=void 0;var _path=_interopRequireDefault(require("path"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.parseAndroidManifestSync=exports.injectPluginManifestSync=void 0;var _path=_interopRequireDefault(require("path"));
 var _common=require("../../common");
 
 

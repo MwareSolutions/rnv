@@ -1,6 +1,6 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports.printBoxEnd=exports.rnvStatus=exports.printBoxStart=exports.printArrIntoBox=exports.printIntoBox=exports.logAppInfo=exports.logInitialize=exports.logEnd=exports.logError=exports.logSuccess=exports.logComplete=exports.isInfoEnabled=exports.logDebug=exports.logInfo=exports.logWarning=exports.logTask=exports.setCurrentJob=exports.logSummary=exports.logToSummary=exports.getCurrentCommand=exports.logAndSave=exports.configureLogger=exports.logWelcome=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _chalk2=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.setCurrentJob=exports.rnvStatus=exports.printIntoBox=exports.printBoxStart=exports.printBoxEnd=exports.printArrIntoBox=exports.logWelcome=exports.logWarning=exports.logToSummary=exports.logTask=exports.logSummary=exports.logSuccess=exports.logInitialize=exports.logInfo=exports.logError=exports.logEnd=exports.logDebug=exports.logComplete=exports.logAppInfo=exports.logAndSave=exports.isInfoEnabled=exports.getCurrentCommand=exports.default=exports.configureLogger=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));var _chalk2=_interopRequireDefault(require("chalk"));
 var _prompt=require("./prompt");
-var _analytics=_interopRequireDefault(require("./analytics"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _analytics=_interopRequireDefault(require("./analytics"));function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var _chalkCols={
 white:function white(v){return v;},
@@ -13,8 +13,8 @@ grey:function grey(v){return v;},
 blue:function blue(v){return v;},
 magenta:function magenta(v){return v;}};
 
-var _chalkMono=_objectSpread({},
-_chalkCols,{
+var _chalkMono=_objectSpread(_objectSpread({},
+_chalkCols),{},{
 bold:_chalkCols});
 
 
@@ -40,7 +40,7 @@ chalk.red('╚═╝  ╚═╝')+"\u255A\u2550\u2550\u2550\u2550\u2550\u2550\u2
 
 
 
-if((_c2=_c)==null?void 0:(_c2$files=_c2.files)==null?void 0:(_c2$files$rnv=_c2$files.rnv)==null?void 0:(_c2$files$rnv$package=_c2$files$rnv.package)==null?void 0:_c2$files$rnv$package.version){
+if((_c2=_c)!=null&&(_c2$files=_c2.files)!=null&&(_c2$files$rnv=_c2$files.rnv)!=null&&(_c2$files$rnv$package=_c2$files$rnv.package)!=null&&_c2$files$rnv$package.version){
 _c.rnvVersion=_c.files.rnv.package.version;
 str+=printIntoBox("      Version: "+chalk.green(_c.rnvVersion),1);
 if(_c.rnvVersion.includes('alpha')){
@@ -51,7 +51,7 @@ str+=printIntoBox("      "+chalk.yellow('Use "npm install rnv" for stable one.')
 str+=printIntoBox("      "+chalk.grey('https://renative.org'),1);
 str+=printIntoBox("      \uD83D\uDE80 "+chalk.yellow('Firing up!...'),1);
 str+=printIntoBox("      "+getCurrentCommand());
-if((_c3=_c)==null?void 0:_c3.timeStart)str+=printIntoBox("      Start Time: "+_c.timeStart.toLocaleString());
+if((_c3=_c)!=null&&_c3.timeStart)str+=printIntoBox("      Start Time: "+_c.timeStart.toLocaleString());
 str+=printIntoBox('');
 str+=printBoxEnd();
 str+='\n';
@@ -143,15 +143,15 @@ if(_c.files.project.package){
 str+=printIntoBox("Project Name: "+_highlightColor(_c.files.project.package.name),1);
 str+=printIntoBox("Project Version: "+_highlightColor(_c.files.project.package.version),1);
 }
-if((_c$buildConfig=_c.buildConfig)==null?void 0:(_c$buildConfig$_meta=_c$buildConfig._meta)==null?void 0:_c$buildConfig$_meta.currentAppConfigId){var _c$buildConfig$_meta2;
+if((_c$buildConfig=_c.buildConfig)!=null&&(_c$buildConfig$_meta=_c$buildConfig._meta)!=null&&_c$buildConfig$_meta.currentAppConfigId){var _c$buildConfig$_meta2;
 str+=printIntoBox("App Config: "+_highlightColor((_c$buildConfig$_meta2=_c.buildConfig._meta)==null?void 0:_c$buildConfig$_meta2.currentAppConfigId),1);
 }
-if((_c$buildConfig2=_c.buildConfig)==null?void 0:_c$buildConfig2.workspaceID){
+if((_c$buildConfig2=_c.buildConfig)!=null&&_c$buildConfig2.workspaceID){
 str+=printIntoBox("Workspace: "+_highlightColor(_c.buildConfig.workspaceID),1);
 }
 if(_c.files.project.config){
 var defaultProjectConfigs=_c.files.project.config.defaults;
-if(defaultProjectConfigs==null?void 0:defaultProjectConfigs.supportedPlatforms){var _c$buildConfig3,_c$buildConfig3$defau;
+if(defaultProjectConfigs!=null&&defaultProjectConfigs.supportedPlatforms){var _c$buildConfig3,_c$buildConfig3$defau;
 var plats=[];
 (0,_prompt.generateOptions)((_c$buildConfig3=_c.buildConfig)==null?void 0:(_c$buildConfig3$defau=_c$buildConfig3.defaults)==null?void 0:_c$buildConfig3$defau.supportedPlatforms,true,null,function(i,obj,mapping,defaultVal){
 var isEjected='';
@@ -163,7 +163,7 @@ plats.push(""+defaultVal+isEjected);
 });
 str+=printArrIntoBox(plats,'Supported Platforms: ');
 }
-if(defaultProjectConfigs==null?void 0:defaultProjectConfigs.template){
+if(defaultProjectConfigs!=null&&defaultProjectConfigs.template){
 str+=printIntoBox("Master Template: "+_highlightColor(defaultProjectConfigs.template),1);
 }
 }
@@ -324,7 +324,7 @@ output+=_defaultColor('├──────────────────
 return output;
 };exports.printBoxStart=printBoxStart;
 
-var rnvStatus=function rnvStatus(){return _regenerator.default.async(function rnvStatus$(_context){while(1){switch(_context.prev=_context.next){case 0:return _context.abrupt("return",Promise.resolve());case 1:case"end":return _context.stop();}}});};exports.rnvStatus=rnvStatus;
+var rnvStatus=function rnvStatus(){return _regenerator.default.async(function rnvStatus$(_context){while(1){switch(_context.prev=_context.next){case 0:return _context.abrupt("return",Promise.resolve());case 1:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvStatus=rnvStatus;
 
 var printBoxEnd=function printBoxEnd(){return _defaultColor('└──────────────────────────────────────────────────────────────────────────────┘');};exports.printBoxEnd=printBoxEnd;var _default2=
 

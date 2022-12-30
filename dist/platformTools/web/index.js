@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.exportWeb=exports.deployWeb=exports.configureWebProject=exports.runWeb=exports.buildWeb=exports.configureCoreWebProject=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runWeb=exports.exportWeb=exports.deployWeb=exports.configureWebProject=exports.configureCoreWebProject=exports.buildWeb=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _defineProperty2=_interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
@@ -26,13 +26,13 @@ var _projectParser=require("../../projectTools/projectParser");
 var _fileutils=require("../../systemTools/fileutils");
 var _pluginTools=require("../../pluginTools");
 var _webTools=require("../../deployTools/webTools");
-var _utils=require("../../utils");function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;});keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(Object(source),true).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);});}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source));}else{ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}}return target;}
+var _utils=require("../../utils");function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);enumerableOnly&&(symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable;})),keys.push.apply(keys,symbols);}return keys;}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?ownKeys(Object(source),!0).forEach(function(key){(0,_defineProperty2.default)(target,key,source[key]);}):Object.getOwnPropertyDescriptors?Object.defineProperties(target,Object.getOwnPropertyDescriptors(source)):ownKeys(Object(source)).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key));});}return target;}
 
 var _generateWebpackConfigs=function _generateWebpackConfigs(c,platform){
 var appFolder=(0,_common.getAppFolder)(c,platform);
-var templateFolder=(0,_common.getAppTemplateFolder)(c,platform);var
+var templateFolder=(0,_common.getAppTemplateFolder)(c,platform);
 
-plugins=c.buildConfig.plugins;
+var plugins=c.buildConfig.plugins;
 var modulePaths=[];
 var moduleAliasesString='';
 var moduleAliases={};
@@ -99,8 +99,8 @@ JSON.stringify(obj,null,2);
 _fs.default.writeFileSync(_path.default.join(appFolder,'webpack.extend.js'),extendJs);
 };
 
-var buildWeb=function buildWeb(c,platform){return new Promise(function(resolve,reject){var _c$program=
-c.program,debug=_c$program.debug,debugIp=_c$program.debugIp;
+var buildWeb=function buildWeb(c,platform){return new Promise(function(resolve,reject){
+var _c$program=c.program,debug=_c$program.debug,debugIp=_c$program.debugIp;
 (0,_logger.logTask)("buildWeb:"+platform);
 
 var appFolder=(0,_common.getAppFolder)(c,platform);
@@ -131,12 +131,12 @@ var configureWebProject=function configureWebProject(c,platform){return _regener
 
 configureCoreWebProject(c,platform));case 7:return _context.abrupt("return",
 
-(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}});};exports.configureWebProject=configureWebProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureWebProject=configureWebProject;
 
 
 var configureCoreWebProject=function configureCoreWebProject(c,platform){return _regenerator.default.async(function configureCoreWebProject$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
 _generateWebpackConfigs(c,platform);
-_parseCssSync(c,platform);case 2:case"end":return _context2.stop();}}});};exports.configureCoreWebProject=configureCoreWebProject;
+_parseCssSync(c,platform);case 2:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.configureCoreWebProject=configureCoreWebProject;
 
 
 var _parseCssSync=function _parseCssSync(c,platform){
@@ -169,7 +169,7 @@ _runWebBrowser(c,platform,devServerHost,port,false));case 10:_context3.next=12;r
 runWebDevServer(c,platform,port));case 12:_context3.next=18;break;case 14:_context3.next=16;return _regenerator.default.awrap(
 
 (0,_common.confirmActiveBundler)(c));case 16:_context3.next=18;return _regenerator.default.awrap(
-_runWebBrowser(c,platform,devServerHost,port,true));case 18:case"end":return _context3.stop();}}});};exports.runWeb=runWeb;
+_runWebBrowser(c,platform,devServerHost,port,true));case 18:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.runWeb=runWeb;
 
 
 
@@ -188,8 +188,8 @@ return resolve();
 });};
 
 var runWebDevServer=function runWebDevServer(c,platform,port){return new Promise(function(resolve,reject){
-(0,_logger.logTask)("runWebDevServer:"+platform);var _c$program2=
-c.program,debug=_c$program2.debug,debugIp=_c$program2.debugIp;
+(0,_logger.logTask)("runWebDevServer:"+platform);
+var _c$program2=c.program,debug=_c$program2.debug,debugIp=_c$program2.debugIp;
 
 var appFolder=(0,_common.getAppFolder)(c,platform);
 var wpPublic=_path.default.join(appFolder,'public');

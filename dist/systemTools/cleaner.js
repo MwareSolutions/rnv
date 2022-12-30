@@ -7,7 +7,7 @@ var _fileutils=require("./fileutils");
 var _logger=require("./logger");
 var _exec=require("./exec");
 
-var rnvClean=function rnvClean(c){var skipQuestion,pathsToRemove,pkgLock,msg,packagesFolder,buildDirs,answers,_ref,confirm,_ref2,confirmBuilds,_ref3,confirmCache,_args=arguments;return _regenerator.default.async(function rnvClean$(_context){while(1){switch(_context.prev=_context.next){case 0:skipQuestion=_args.length>1&&_args[1]!==undefined?_args[1]:false;
+var rnvClean=function rnvClean(c){var skipQuestion,pathsToRemove,pkgLock,msg,packagesFolder,buildDirs,answers,_await$inquirer$promp,confirm,_await$inquirer$promp2,confirmBuilds,_await$inquirer$promp3,confirmCache,_args=arguments;return _regenerator.default.async(function rnvClean$(_context){while(1){switch(_context.prev=_context.next){case 0:skipQuestion=_args.length>1&&_args[1]!==undefined?_args[1]:false;
 (0,_logger.logTask)('rnvClean');
 if(c.program.ci)skipQuestion=true;
 pathsToRemove=[];
@@ -57,7 +57,7 @@ skipQuestion){_context.next=24;break;}_context.next=18;return _regenerator.defau
 _inquirer.default.prompt({
 name:'confirm',
 type:'confirm',
-message:"Do you want to remove node_module related files/folders? \n"+msg}));case 18:_ref=_context.sent;confirm=_ref.confirm;
+message:"Do you want to remove node_module related files/folders? \n"+msg}));case 18:_await$inquirer$promp=_context.sent;confirm=_await$inquirer$promp.confirm;
 
 answers.modules=confirm;
 if(confirm)answers.nothingToClean=false;_context.next=25;break;case 24:
@@ -71,7 +71,7 @@ skipQuestion){_context.next=35;break;}_context.next=29;return _regenerator.defau
 _inquirer.default.prompt({
 name:'confirmBuilds',
 type:'confirm',
-message:"Do you want to clean your platformBuilds and platformAssets? \n"+_chalk.default.red(buildDirs.join('\n'))}));case 29:_ref2=_context.sent;confirmBuilds=_ref2.confirmBuilds;
+message:"Do you want to clean your platformBuilds and platformAssets? \n"+_chalk.default.red(buildDirs.join('\n'))}));case 29:_await$inquirer$promp2=_context.sent;confirmBuilds=_await$inquirer$promp2.confirmBuilds;
 
 answers.builds=confirmBuilds;
 if(confirmBuilds)answers.nothingToClean=false;_context.next=36;break;case 35:
@@ -84,7 +84,7 @@ skipQuestion){_context.next=45;break;}_context.next=39;return _regenerator.defau
 _inquirer.default.prompt({
 name:'confirmCache',
 type:'confirm',
-message:'Do you want to clean your npm/bundler cache?'}));case 39:_ref3=_context.sent;confirmCache=_ref3.confirmCache;
+message:'Do you want to clean your npm/bundler cache?'}));case 39:_await$inquirer$promp3=_context.sent;confirmCache=_await$inquirer$promp3.confirmCache;
 
 answers.cache=confirmCache;
 if(confirmCache)answers.nothingToClean=false;_context.next=46;break;case 45:
@@ -105,5 +105,5 @@ answers.builds){_context.next=55;break;}_context.next=55;return _regenerator.def
 
 answers.cache){_context.next=60;break;}_context.next=58;return _regenerator.default.awrap(
 (0,_exec.executeAsync)(c,'watchman watch-del-all'));case 58:_context.next=60;return _regenerator.default.awrap(
-(0,_exec.executeAsync)(c,'rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/haste-*'));case 60:case"end":return _context.stop();}}});};exports.rnvClean=rnvClean;
+(0,_exec.executeAsync)(c,'rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/haste-*'));case 60:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvClean=rnvClean;
 //# sourceMappingURL=cleaner.js.map

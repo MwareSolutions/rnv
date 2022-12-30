@@ -54,7 +54,7 @@ hooks:{
 }
 
 
-if(!((_pkgJson$releaseIt=pkgJson['release-it'])==null?void 0:(_pkgJson$releaseIt$ho=_pkgJson$releaseIt.hooks)==null?void 0:_pkgJson$releaseIt$ho['before:git'])){
+if(!((_pkgJson$releaseIt=pkgJson['release-it'])!=null&&(_pkgJson$releaseIt$ho=_pkgJson$releaseIt.hooks)!=null&&_pkgJson$releaseIt$ho['before:git'])){
 if(!pkgJson['release-it'].hooks){
 pkgJson['release-it'].hooks={};
 }
@@ -98,7 +98,7 @@ rootPublishIfNecessary=function rootPublishIfNecessary(){return _regenerator.def
 (0,_exec.executeAsync)('npx rnv pkg publish',execCommonOpts));case 2:if(
 skipRootPublish){_context.next=6;break;}if(
 rootPublishCommand){_context.next=5;break;}throw new Error('You don\'t have a rootPublishCommand specified in package.json');case 5:return _context.abrupt("return",
-(0,_exec.executeAsync)(rootPublishCommand,execCommonOpts));case 6:case"end":return _context.stop();}}});};
+(0,_exec.executeAsync)(rootPublishCommand,execCommonOpts));case 6:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 
@@ -114,7 +114,7 @@ publishMode!=='ci')){_context2.next=24;break;}return _context2.abrupt("return",(
 rootPublishIfNecessary());case 25:return _context2.abrupt("return",
 
 
-releaseIt());case 26:case"end":return _context2.stop();}}});};var _default=
+releaseIt());case 26:case"end":return _context2.stop();}}},null,null,null,Promise);};var _default=
 
 
 rnvPublish;exports.default=_default;

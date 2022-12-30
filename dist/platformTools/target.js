@@ -35,7 +35,7 @@ _constants.KAIOS?12:13;break;case 8:return _context.abrupt("return",(0,_deviceMa
 
 Promise.reject("\"target launch\" command does not support "+
 _chalk.default.white.bold(
-platform)+" platform yet. You will have to launch the emulator manually. Working on it!"));case 14:case"end":return _context.stop();}}});};exports.rnvTargetLaunch=rnvTargetLaunch;
+platform)+" platform yet. You will have to launch the emulator manually. Working on it!"));case 14:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvTargetLaunch=rnvTargetLaunch;
 
 
 
@@ -67,5 +67,5 @@ _constants.TIZEN?12:_context2.t0===
 _constants.WEBOS?13:14;break;case 10:return _context2.abrupt("return",(0,_deviceManager.listAndroidTargets)(c,platform));case 11:return _context2.abrupt("return",(0,_deviceManager2.listAppleDevices)(c,platform));case 12:return _context2.abrupt("return",(0,_tizen.listTizenTargets)(c,platform));case 13:return _context2.abrupt("return",
 (0,_webos.listWebOSTargets)(c));case 14:return _context2.abrupt("return",
 
-Promise.reject("\"target list\" command does not support "+_chalk.default.white.bold(platform)+" platform yet. Working on it!"));case 15:case"end":return _context2.stop();}}});};exports.rnvTargetList=rnvTargetList;
+Promise.reject("\"target list\" command does not support "+_chalk.default.white.bold(platform)+" platform yet. Working on it!"));case 15:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.rnvTargetList=rnvTargetList;
 //# sourceMappingURL=target.js.map

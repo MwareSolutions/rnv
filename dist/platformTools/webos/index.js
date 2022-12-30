@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.listWebOSTargets=exports.buildWebOSProject=exports.runWebOS=exports.configureWebOSProject=exports.launchWebOSimulator=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _slicedToArray2=_interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.runWebOS=exports.listWebOSTargets=exports.launchWebOSimulator=exports.configureWebOSProject=exports.buildWebOSProject=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _slicedToArray2=_interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 var _path=_interopRequireDefault(require("path"));
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
@@ -70,7 +70,7 @@ device:device,
 connection:connection,
 profile:profile,
 isDevice:!device.includes(c.runtime.localhost),
-active:!deviceInfo.includes('ERR!')});case 12:case"end":return _context.stop();}}},null,null,[[2,8]]);}));
+active:!deviceInfo.includes('ERR!')});case 12:case"end":return _context.stop();}}},null,null,[[2,8]],Promise);}));
 
 
 };
@@ -92,7 +92,7 @@ toReturn=startHostedServerIfRequired(c);_context2.next=17;return _regenerator.de
 (0,_common.waitForWebpack)(c));case 17:_context2.next=19;return _regenerator.default.awrap(
 
 (0,_exec.execCLI)(c,_constants.CLI_WEBOS_ARES_LAUNCH,"--device "+target+" "+tId));case 19:return _context2.abrupt("return",
-toReturn);case 20:case"end":return _context2.stop();}}},null,null,[[0,5]]);};
+toReturn);case 20:case"end":return _context2.stop();}}},null,null,[[0,5]],Promise);};
 
 
 var buildDeviceChoices=function buildDeviceChoices(devices){return devices.map(function(device){return{
@@ -107,7 +107,7 @@ deviceArray=devices.map(function(device,i){return" ["+(i+1)+"]> "+_chalk.default
 
 (0,_logger.logToSummary)("WebOS Targets:\n"+deviceArray.join('\n'));return _context3.abrupt("return",
 
-true);case 9:case"end":return _context3.stop();}}});};exports.listWebOSTargets=listWebOSTargets;
+true);case 9:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.listWebOSTargets=listWebOSTargets;
 
 
 var waitForEmulatorToBeReady=function waitForEmulatorToBeReady(c){var devicesResponse,devices,emulator;return _regenerator.default.async(function waitForEmulatorToBeReady$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:_context4.next=2;return _regenerator.default.awrap(
@@ -116,7 +116,7 @@ parseDevices(c,devicesResponse));case 5:devices=_context4.sent;
 emulator=devices.filter(function(d){return!d.isDevice;})[0];if(
 emulator){_context4.next=9;break;}throw new Error('No WebOS emulator configured');case 9:return _context4.abrupt("return",
 
-(0,_common.waitForEmulator)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,"-d "+emulator.name,function(res){return res.includes('modelName');}));case 10:case"end":return _context4.stop();}}});};
+(0,_common.waitForEmulator)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,"-d "+emulator.name,function(res){return res.includes('modelName');}));case 10:case"end":return _context4.stop();}}},null,null,null,Promise);};
 
 
 var runWebOS=function runWebOS(c,platform,target){var _c$program,device,hosted,isHosted,tDir,tOut,tSim,configFilePath,cnfg,tId,appPath,isPortActive,devicesResponse,devices,activeDevices,actualDevices,response,newDeviceResponse,dev,actualDev,newDevice,tv,choices,_response;return _regenerator.default.async(function runWebOS$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
@@ -215,7 +215,7 @@ installAndLaunchApp(c,tSim,appPath,tId));case 79:_context5.next=82;break;case 81
 
 
 
-installAndLaunchApp(c,c.program.target,appPath,tId));case 82:case"end":return _context5.stop();}}});};exports.runWebOS=runWebOS;
+installAndLaunchApp(c,c.program.target,appPath,tId));case 82:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.runWebOS=runWebOS;
 
 
 
@@ -243,7 +243,7 @@ var configureWebOSProject=function configureWebOSProject(c,platform){return _reg
 (0,_projectParser.copyAssetsFolder)(c,platform));case 5:_context6.next=7;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 7:_context6.next=9;return _regenerator.default.awrap(
 configureProject(c,platform));case 9:return _context6.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context6.stop();}}});};exports.configureWebOSProject=configureWebOSProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.configureWebOSProject=configureWebOSProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){

@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvConfigHandler=exports.default=exports.CLI_PROPS=void 0;var _slicedToArray2=_interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _extends2=_interopRequireDefault(require("@babel/runtime/helpers/extends"));var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.rnvConfigHandler=exports.default=exports.CLI_PROPS=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _slicedToArray2=_interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));var _extends2=_interopRequireDefault(require("@babel/runtime/helpers/extends"));var _toConsumableArray2=_interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 var _consoleTablePrinter=require("console-table-printer");
 var _fs=_interopRequireDefault(require("fs"));
 var _chalk=_interopRequireDefault(require("chalk"));
@@ -19,65 +19,65 @@ var CLI_PROPS=[
 Config=function(){
 function Config(){(0,_classCallCheck2.default)(this,Config);
 this.config={};
-}(0,_createClass2.default)(Config,[{key:"initializeConfig",value:function initializeConfig(
+}(0,_createClass2.default)(Config,[{key:"initializeConfig",value:
 
 
 
 
 
-c){
+function initializeConfig(c){
 this.config=c;
 return c;
-}},{key:"getConfig",value:function getConfig()
+}},{key:"getConfig",value:
 
-{
+function getConfig(){
 return this.config;
-}},{key:"injectProjectDependency",value:function injectProjectDependency(
+}},{key:"command",get:
 
+function get(){
+return this.config.command;
+}},{key:"subCommand",get:
 
+function get(){
+return this.config.subCommand;
+}},{key:"rnvArguments",get:
 
+function get(){var _missingArg;
 
+var _this$config$program=this.config.program,args=_this$config$program.args,rawArgs=_this$config$program.rawArgs;
+var argsCopy=(0,_toConsumableArray2.default)(args);
+var missingArg=rawArgs[rawArgs.indexOf(argsCopy[1])+1];
+if(((_missingArg=missingArg)==null?void 0:_missingArg[0])==='-'){
+if(rawArgs[rawArgs.indexOf(argsCopy[1])+2]){
+missingArg=rawArgs[rawArgs.indexOf(argsCopy[1])+2];
+}else{
+missingArg=undefined;
+}
+}
+if(rawArgs.length===3)missingArg=undefined;
+argsCopy[2]=missingArg;
+return argsCopy.filter(function(arg){return!!arg;});
+}},{key:"injectProjectDependency",value:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-dependency,version,type){var skipInstall,currentPackage,existingPath,_args=arguments;return _regenerator.default.async(function injectProjectDependency$(_context){while(1){switch(_context.prev=_context.next){case 0:skipInstall=_args.length>3&&_args[3]!==undefined?_args[3]:false;
+function injectProjectDependency(dependency,version,type){var skipInstall,currentPackage,existingPath,_args=arguments;return _regenerator.default.async(function injectProjectDependency$(_context){while(1){switch(_context.prev=_context.next){case 0:skipInstall=_args.length>3&&_args[3]!==undefined?_args[3]:false;
 currentPackage=this.config.files.project.package;
 existingPath=this.config.paths.project.package;
 if(!currentPackage[type])currentPackage[type]={};
 currentPackage[type][dependency]=version;
 (0,_fileutils.writeFileSync)(existingPath,currentPackage);if(
 skipInstall){_context.next=9;break;}_context.next=9;return _regenerator.default.awrap((0,_exec.npmInstall)());case 9:return _context.abrupt("return",
-true);case 10:case"end":return _context.stop();}}},null,this);}},{key:"getProjectConfig",value:function getProjectConfig()
+true);case 10:case"end":return _context.stop();}}},null,this,null,Promise);}},{key:"getProjectConfig",value:
 
 
-{
+function getProjectConfig(){
 return this.config.files.project;
-}},{key:"checkRequiredPackage",value:function checkRequiredPackage(
+}},{key:"checkRequiredPackage",value:
 
-pkg){var _projectConfig$packag;var version,type,skipAsking,skipInstall,projectConfig,confirm,resp,latestVersion,currentVersion,_latestVersion,updateAvailable,_confirm,_resp,_args2=arguments;return _regenerator.default.async(function checkRequiredPackage$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:version=_args2.length>1&&_args2[1]!==undefined?_args2[1]:false;type=_args2.length>2?_args2[2]:undefined;skipAsking=_args2.length>3&&_args2[3]!==undefined?_args2[3]:false;skipInstall=_args2.length>4&&_args2[4]!==undefined?_args2[4]:false;if(
+function checkRequiredPackage(pkg){var _projectConfig$packag;var version,type,skipAsking,skipInstall,projectConfig,confirm,resp,latestVersion,currentVersion,_latestVersion,updateAvailable,_confirm,_resp,_args2=arguments;return _regenerator.default.async(function checkRequiredPackage$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:version=_args2.length>1&&_args2[1]!==undefined?_args2[1]:false;type=_args2.length>2?_args2[2]:undefined;skipAsking=_args2.length>3&&_args2[3]!==undefined?_args2[3]:false;skipInstall=_args2.length>4&&_args2[4]!==undefined?_args2[4]:false;if(
 pkg){_context2.next=6;break;}return _context2.abrupt("return",false);case 6:
 projectConfig=this.getProjectConfig();if((_projectConfig$packag=
 
-projectConfig.package[type])==null?void 0:_projectConfig$packag[pkg]){_context2.next=28;break;}
+projectConfig.package[type])!=null&&_projectConfig$packag[pkg]){_context2.next=28;break;}
 
 confirm=skipAsking;if(
 confirm){_context2.next=14;break;}_context2.next=12;return _regenerator.default.awrap(
@@ -134,10 +134,10 @@ this.injectProjectDependency(pkg,_latestVersion,type,skipInstall));case 51:retur
 
 
 
-false);case 52:case"end":return _context2.stop();}}},null,this,[[17,23],[31,37]]);}},{key:"injectPlatformDependencies",value:function injectPlatformDependencies(
+false);case 52:case"end":return _context2.stop();}}},null,this,[[17,23],[31,37]],Promise);}},{key:"injectPlatformDependencies",value:
 
 
-platform){var _this$config$files,_this$config$files$rn,_this$config$files$rn2,_this$config$files$rn3,_this$config$files$rn4,_this$config$files$rn5,_this=this;var npmDeps,promises,installed;return _regenerator.default.async(function injectPlatformDependencies$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+function injectPlatformDependencies(platform){var _this$config$files,_this$config$files$rn,_this$config$files$rn2,_this$config$files$rn3,_this$config$files$rn4,_this$config$files$rn5,_this=this;var npmDeps,promises,installed;return _regenerator.default.async(function injectPlatformDependencies$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
 npmDeps=(_this$config$files=this.config.files)==null?void 0:(_this$config$files$rn=_this$config$files.rnv)==null?void 0:(_this$config$files$rn2=_this$config$files$rn.platformTemplates)==null?void 0:(_this$config$files$rn3=_this$config$files$rn2.config)==null?void 0:(_this$config$files$rn4=_this$config$files$rn3.platforms)==null?void 0:(_this$config$files$rn5=_this$config$files$rn4[platform])==null?void 0:_this$config$files$rn5.npm;if(!
 
 npmDeps){_context3.next=9;break;}
@@ -151,32 +151,32 @@ return acc;
 Promise.all(promises));case 5:installed=_context3.sent;if(!
 
 installed.some(function(i){return i===true;})){_context3.next=9;break;}_context3.next=9;return _regenerator.default.awrap(
-(0,_exec.npmInstall)());case 9:case"end":return _context3.stop();}}},null,this);}},{key:"getConfigValueSeparate",value:function getConfigValueSeparate(
+(0,_exec.npmInstall)());case 9:case"end":return _context3.stop();}}},null,this,null,Promise);}},{key:"platform",get:
 
 
 
 
 
 
+function get(){
+return this.config.platform;
+}},{key:"isRenativeProject",get:
+
+function get(){var _this$config,_this$config$paths,_this$config$paths$pr;
+return((_this$config=this.config)==null?void 0:(_this$config$paths=_this$config.paths)==null?void 0:(_this$config$paths$pr=_this$config$paths.project)==null?void 0:_this$config$paths$pr.configExists)||false;
+}},{key:"program",get:
+
+function get(){
+return this.config.program;
+}},{key:"paths",get:
+
+function get(){
+return this.config.paths;
+}},{key:"getConfigValueSeparate",value:
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-key){var global=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;var
-paths=this.config.paths;
+function getConfigValueSeparate(key){var global=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;
+var paths=this.config.paths;
 
 if(!global&&!_fs.default.existsSync(paths.project.config))return'N/A';
 var cfg=global?require(paths.GLOBAL_RNV_CONFIG):require(paths.project.config);
@@ -185,15 +185,15 @@ var value=cfg[_constants.configSchema[key].key];
 if(value===undefined)return'N/A';
 
 return value;
-}},{key:"getMergedConfigValue",value:function getMergedConfigValue(
+}},{key:"getMergedConfigValue",value:
 
-key){var _this$config$buildCon;
+function getMergedConfigValue(key){var _this$config$buildCon;
 var value=(_this$config$buildCon=this.config.buildConfig)==null?void 0:_this$config$buildCon[_constants.configSchema[key].key];
 if(value===undefined&&_constants.configSchema[key].default)value=_constants.configSchema[key].default;
 return value;
-}},{key:"listConfigValue",value:function listConfigValue(
+}},{key:"listConfigValue",value:
 
-key){
+function listConfigValue(key){
 var localVal=this.getConfigValueSeparate(key).toString();
 var globalVal=this.getConfigValueSeparate(key,true).toString();
 
@@ -211,9 +211,9 @@ table[0]['Project Value']=localVal;
 }
 
 return table;
-}},{key:"isConfigValueValid",value:function isConfigValueValid(
+}},{key:"isConfigValueValid",value:
 
-key,value){
+function isConfigValueValid(key,value){
 var keySchema=_constants.configSchema[key];
 if(!keySchema){
 (0,_logger.logWarning)("Unknown config param "+key);
@@ -226,10 +226,10 @@ return false;
 }
 
 return true;
-}},{key:"setConfigValue",value:function setConfigValue(
+}},{key:"setConfigValue",value:
 
-key,value){var _this$config=
-this.config,global=_this$config.program.global,paths=_this$config.paths;
+function setConfigValue(key,value){
+var _this$config2=this.config,global=_this$config2.program.global,paths=_this$config2.paths;
 
 if(this.isConfigValueValid(key,value)){
 var configPath=global?paths.GLOBAL_RNV_CONFIG:paths.project.config;
@@ -242,9 +242,9 @@ config[_constants.configSchema[key].key]=value;
 return true;
 }
 return false;
-}},{key:"getValueOrMergedObject",value:function getValueOrMergedObject(
+}},{key:"getValueOrMergedObject",value:
 
-resultCli,resultScheme,resultPlatforms,resultCommon){
+function getValueOrMergedObject(resultCli,resultScheme,resultPlatforms,resultCommon){
 if(resultCli!==undefined){
 return resultCli;
 }
@@ -259,10 +259,10 @@ return(0,_extends2.default)(resultCommon||{},resultPlatforms);
 }
 if(resultPlatforms===null)return null;
 return resultCommon;
-}},{key:"getConfigProp",value:function getConfigProp(
+}},{key:"getConfigProp",value:
 
 
-c,platform,key,defaultVal){var _c$buildConfig$common;
+function getConfigProp(c,platform,key,defaultVal){var _c$buildConfig$common;
 if(!c.buildConfig){
 (0,_logger.logError)('getConfigProp: c.buildConfig is undefined!');
 return null;
@@ -286,20 +286,20 @@ var result=this.getValueOrMergedObject(resultCli,resultScheme,resultPlatforms,re
 if(result===undefined)result=defaultVal;
 (0,_logger.logTask)("getConfigProp:"+platform+":"+key+":"+result,_chalk.default.grey);
 return result;
-}},{key:"command",get:function get(){return this.config.command;}},{key:"subCommand",get:function get(){return this.config.subCommand;}},{key:"rnvArguments",get:function get(){var _missingArg;var _this$config$program=this.config.program,args=_this$config$program.args,rawArgs=_this$config$program.rawArgs;var argsCopy=(0,_toConsumableArray2.default)(args);var missingArg=rawArgs[rawArgs.indexOf(argsCopy[1])+1];if(((_missingArg=missingArg)==null?void 0:_missingArg[0])==='-'){if(rawArgs[rawArgs.indexOf(argsCopy[1])+2]){missingArg=rawArgs[rawArgs.indexOf(argsCopy[1])+2];}else{missingArg=undefined;}}if(rawArgs.length===3)missingArg=undefined;argsCopy[2]=missingArg;return argsCopy.filter(function(arg){return!!arg;});}},{key:"platform",get:function get(){return this.config.platform;}},{key:"isRenativeProject",get:function get(){var _this$config2,_this$config2$paths,_this$config2$paths$p;return((_this$config2=this.config)==null?void 0:(_this$config2$paths=_this$config2.paths)==null?void 0:(_this$config2$paths$p=_this$config2$paths.project)==null?void 0:_this$config2$paths$p.configExists)||false;}},{key:"program",get:function get(){return this.config.program;}},{key:"paths",get:function get(){return this.config.paths;}},{key:"isWebHostEnabled",get:function get()
+}},{key:"isWebHostEnabled",get:
 
-{var
-hosted=this.config.program.hosted;
+function get(){
+var hosted=this.config.program.hosted;
 
 var bundleAssets=this.getConfigProp(this.config,this.platform,'bundleAssets');
 return(hosted||!bundleAssets)&&_constants.WEB_HOSTED_PLATFORMS.includes(this.platform);
-}},{key:"isAnalyticsEnabled",get:function get()
+}},{key:"isAnalyticsEnabled",get:
 
-{
+function get(){
 return this.getMergedConfigValue('analytics');
-}},{key:"projectPath",get:function get()
+}},{key:"projectPath",get:
 
-{
+function get(){
 return this.config.paths.project.dir;
 }}]);return Config;}();
 
@@ -348,8 +348,8 @@ return this.config.paths.project.dir;
 
 var Conf=new Config();
 
-var rnvConfigHandler=function rnvConfigHandler(){var _Conf$rnvArguments=(0,_slicedToArray2.default)(
-Conf.rnvArguments,3),key=_Conf$rnvArguments[1],value=_Conf$rnvArguments[2];
+var rnvConfigHandler=function rnvConfigHandler(){
+var _Conf$rnvArguments=(0,_slicedToArray2.default)(Conf.rnvArguments,3),key=_Conf$rnvArguments[1],value=_Conf$rnvArguments[2];
 if(key==='list'){var _ref;
 var rows=[];
 Object.keys(_constants.configSchema).forEach(function(k){return rows.push(Conf.listConfigValue(k));});

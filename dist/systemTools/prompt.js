@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.generateOptions=exports.inquirerPrompt=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.inquirerPrompt=exports.generateOptions=void 0;var _regenerator=_interopRequireDefault(require("@babel/runtime/regenerator"));var _chalk=_interopRequireDefault(require("chalk"));
 var _inquirer=_interopRequireDefault(require("inquirer"));
 var _logger=require("./logger");
 var _config=_interopRequireDefault(require("../config"));
@@ -19,7 +19,7 @@ type=params.type,name=params.name;
 if(type==='confirm'&&!name)params.name='confirm';_context.next=10;return _regenerator.default.awrap(
 
 _inquirer.default.prompt(params));case 10:result=_context.sent;return _context.abrupt("return",
-result);case 12:case"end":return _context.stop();}}});};exports.inquirerPrompt=inquirerPrompt;
+result);case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.inquirerPrompt=inquirerPrompt;
 
 
 var generateOptions=function generateOptions(inputData){var isMultiChoice=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;var mapping=arguments.length>2?arguments[2]:undefined;var renderMethod=arguments.length>3?arguments[3]:undefined;

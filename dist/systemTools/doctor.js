@@ -1,4 +1,4 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=exports.fixPackageObject=exports.fixPackageJson=void 0;var _chalk=_interopRequireDefault(require("chalk"));
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.fixPackageObject=exports.fixPackageJson=exports.default=void 0;var _chalk=_interopRequireDefault(require("chalk"));
 var _fileutils=require("./fileutils");
 var _constants=require("../constants");
 var _logger=require("./logger");
