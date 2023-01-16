@@ -28,7 +28,7 @@ if(version.includes('rc'))return'rc';
 return false;
 };
 
-var rnvPublish=function rnvPublish(){var _pkgJson$releaseIt,_pkgJson$releaseIt$ho;var pkgJson,existingPath,args,maybeVersion,secondArg,prereleaseMark,dir,execCommonOpts,ci,publishMode,_pkgJson$releaseIt2,skipRootPublish,rootPublishCommand,rootPublishIfNecessary,releaseIt;return _regenerator.default.async(function rnvPublish$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
+var rnvPublish=function rnvPublish(){var _pkgJson$releaseIt,_pkgJson$releaseIt$ho;var pkgJson,existingPath,args,maybeVersion,secondArg,prereleaseMark,dir,execCommonOpts,ci,publishMode,_pkgJson$releaseIt2,skipRootPublish,rootPublishCommand,rootPublishIfNecessary,releaseIt;return _regenerator.default.async(function rnvPublish$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
 
 _config.default.checkRequiredPackage('release-it','12.4.3','devDependencies'));case 2:
 
@@ -40,16 +40,16 @@ pkgJson['release-it']={
 git:{
 
 tagName:'v${version}',
-requireCleanWorkingDir:false},
-
+requireCleanWorkingDir:false
+},
 npm:{
-publish:false},
-
+publish:false
+},
 hooks:{
 
-'before:git':'npx rnv pkg version ${version}'}};
-
-
+'before:git':'npx rnv pkg version ${version}'
+}
+};
 (0,_fileutils.writeFileSync)(existingPath,pkgJson);
 }
 
@@ -94,11 +94,11 @@ ci=_config.default.getConfig().program.ci;
 publishMode=pkgJson['release-it'].publish||'local';_pkgJson$releaseIt2=
 pkgJson['release-it'],skipRootPublish=_pkgJson$releaseIt2.skipRootPublish,rootPublishCommand=_pkgJson$releaseIt2.rootPublishCommand;
 
-rootPublishIfNecessary=function rootPublishIfNecessary(){return _regenerator.default.async(function rootPublishIfNecessary$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
+rootPublishIfNecessary=function rootPublishIfNecessary(){return _regenerator.default.async(function rootPublishIfNecessary$(_context){while(1)switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
 (0,_exec.executeAsync)('npx rnv pkg publish',execCommonOpts));case 2:if(
 skipRootPublish){_context.next=6;break;}if(
 rootPublishCommand){_context.next=5;break;}throw new Error('You don\'t have a rootPublishCommand specified in package.json');case 5:return _context.abrupt("return",
-(0,_exec.executeAsync)(rootPublishCommand,execCommonOpts));case 6:case"end":return _context.stop();}}},null,null,null,Promise);};
+(0,_exec.executeAsync)(rootPublishCommand,execCommonOpts));case 6:case"end":return _context.stop();}},null,null,null,Promise);};
 
 
 
@@ -114,7 +114,7 @@ publishMode!=='ci')){_context2.next=24;break;}return _context2.abrupt("return",(
 rootPublishIfNecessary());case 25:return _context2.abrupt("return",
 
 
-releaseIt());case 26:case"end":return _context2.stop();}}},null,null,null,Promise);};var _default=
+releaseIt());case 26:case"end":return _context2.stop();}},null,null,null,Promise);};var _default=
 
 
 rnvPublish;exports.default=_default;

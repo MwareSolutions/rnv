@@ -65,14 +65,14 @@ return(0,_exec.execCLI)(c,_constants.CLI_TIZEN_EMULATOR,"launch --name "+name,{d
 return Promise.reject('No simulator -t target name specified!');
 };exports.launchTizenSimulator=launchTizenSimulator;
 
-var listTizenTargets=function listTizenTargets(c,name){var targets,targetArr,targetStr;return _regenerator.default.async(function listTizenTargets$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
+var listTizenTargets=function listTizenTargets(c,name){var targets,targetArr,targetStr;return _regenerator.default.async(function listTizenTargets$(_context){while(1)switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_TIZEN_EMULATOR,'list-vm',{detached:true}));case 2:targets=_context.sent;
 targetArr=targets.split('\n');
 targetStr='';
 Object.keys(targetArr).forEach(function(i){
 targetStr+="["+i+"]> "+targetArr[i]+"\n";
 });
-(0,_logger.logToSummary)("Tizen Targets:\n"+targetStr);case 7:case"end":return _context.stop();}}},null,null,null,Promise);};exports.listTizenTargets=listTizenTargets;
+(0,_logger.logToSummary)("Tizen Targets:\n"+targetStr);case 7:case"end":return _context.stop();}},null,null,null,Promise);};exports.listTizenTargets=listTizenTargets;
 
 
 var createDevelopTizenCertificate=function createDevelopTizenCertificate(c){return new Promise(function(resolve,reject){
@@ -98,7 +98,7 @@ resolve();
 });
 });};exports.addDevelopTizenCertificate=addDevelopTizenCertificate;
 
-var _getDeviceID=function _getDeviceID(c,target){var device,connectResponse,devicesList,lines,devices,deviceID;return _regenerator.default.async(function _getDeviceID$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _getDeviceID=function _getDeviceID(c,target){var device,connectResponse,devicesList,lines,devices,deviceID;return _regenerator.default.async(function _getDeviceID$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 device=c.program.device;if(!
 
 device){_context2.next=17;break;}_context2.prev=2;_context2.next=5;return _regenerator.default.awrap(
@@ -125,16 +125,16 @@ if(devices.length>1){
 deviceID=devices[0].split('device')[1].trim();return _context2.abrupt("return",
 deviceID);case 26:return _context2.abrupt("return",
 
-Promise.reject("No device matching "+target+" could be found."));case 27:case"end":return _context2.stop();}}},null,null,[[2,8]],Promise);};
+Promise.reject("No device matching "+target+" could be found."));case 27:case"end":return _context2.stop();}},null,null,[[2,8]],Promise);};
 
 
-var _getRunningDevices=function _getRunningDevices(c){var platform,devicesList,lines,devices;return _regenerator.default.async(function _getRunningDevices$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _getRunningDevices=function _getRunningDevices(c){var platform,devicesList,lines,devices;return _regenerator.default.async(function _getRunningDevices$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 platform=c.program.platform;_context4.next=3;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_SDB_TIZEN,'devices'));case 3:devicesList=_context4.sent;
 lines=devicesList.trim().split(/\r?\n/).filter(function(line){return!line.includes('List of devices');});
 devices=[];_context4.next=8;return _regenerator.default.awrap(
 
-Promise.all(lines.map(function _callee(line){var words,name,deviceInfoXML,deviceInfo,deviceType;return _regenerator.default.async(function _callee$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+Promise.all(lines.map(function _callee(line){var words,name,deviceInfoXML,deviceInfo,deviceType;return _regenerator.default.async(function _callee$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 words=line.replace(/\t/g,'').split('    ');if(!(
 words.length>=3)){_context3.next=8;break;}
 name=words[0].trim();_context3.next=5;return _regenerator.default.awrap(
@@ -154,13 +154,13 @@ devices.push({
 name:name,
 type:words[1].trim(),
 id:words[2].trim(),
-deviceType:deviceType});
+deviceType:deviceType
+});
+}case 8:case"end":return _context3.stop();}},null,null,null,Promise);})));case 8:return _context4.abrupt("return",
 
-}case 8:case"end":return _context3.stop();}}},null,null,null,Promise);})));case 8:return _context4.abrupt("return",
 
 
-
-devices);case 9:case"end":return _context4.stop();}}},null,null,null,Promise);};
+devices);case 9:case"end":return _context4.stop();}},null,null,null,Promise);};
 
 
 var _waitForEmulatorToBeReady=function _waitForEmulatorToBeReady(c,target){return(0,_common.waitForEmulator)(c,_constants.CLI_SDB_TIZEN,'devices',function(res){
@@ -177,7 +177,7 @@ return(0,_runner.rnvStart)(c);
 }
 };
 
-var runTizen=function runTizen(c,platform,target){var platformConfig,_c$program,hosted,debug,isHosted,tDir,tBuild,tOut,tId,gwt,certProfile,deviceID,isPortActive,askForEmulator,continueLaunching,isTargetSpecified,devices,targetDevice,choices,_await$inquirer$promp2,chosenEmulator;return _regenerator.default.async(function runTizen$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
+var runTizen=function runTizen(c,platform,target){var platformConfig,_c$program,hosted,debug,isHosted,tDir,tBuild,tOut,tId,gwt,certProfile,deviceID,isPortActive,askForEmulator,continueLaunching,isTargetSpecified,devices,targetDevice,choices,_await$inquirer$promp2,chosenEmulator;return _regenerator.default.async(function runTizen$(_context7){while(1)switch(_context7.prev=_context7.next){case 0:
 (0,_logger.logTask)("runTizen:"+platform+":"+target);
 
 platformConfig=c.buildConfig.platforms[platform];_c$program=
@@ -212,12 +212,12 @@ c.runtime.skipActiveServerCheck=true;case 22:
 
 
 
-askForEmulator=function askForEmulator(){var _await$inquirer$promp,startEmulator,defaultTarget;return _regenerator.default.async(function askForEmulator$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:_context5.next=2;return _regenerator.default.awrap(
+askForEmulator=function askForEmulator(){var _await$inquirer$promp,startEmulator,defaultTarget;return _regenerator.default.async(function askForEmulator$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:_context5.next=2;return _regenerator.default.awrap(
 _inquirer.default.prompt([{
 name:'startEmulator',
 type:'confirm',
-message:"Could not find or connect to the specified target ("+target+"). Would you like to start an emulator?"}]));case 2:_await$inquirer$promp=_context5.sent;startEmulator=_await$inquirer$promp.startEmulator;if(!
-
+message:"Could not find or connect to the specified target ("+target+"). Would you like to start an emulator?"
+}]));case 2:_await$inquirer$promp=_context5.sent;startEmulator=_await$inquirer$promp.startEmulator;if(!
 
 startEmulator){_context5.next=33;break;}
 defaultTarget=c.files.workspace.config.defaultTargets[platform];_context5.prev=6;_context5.next=9;return _regenerator.default.awrap(
@@ -236,13 +236,13 @@ _waitForEmulatorToBeReady(c,defaultTarget));case 26:return _context5.abrupt("ret
 continueLaunching());case 29:_context5.prev=29;_context5.t1=_context5["catch"](18);
 
 (0,_logger.logDebug)(_context5.t1);
-(0,_logger.logError)("Could not find the specified target and could not create the emulator automatically. Please create one and then edit the default target from "+c.paths.workspace.dir+"/"+_constants.RENATIVE_CONFIG_NAME);case 33:case"end":return _context5.stop();}}},null,null,[[6,15],[18,29]],Promise);};
+(0,_logger.logError)("Could not find the specified target and could not create the emulator automatically. Please create one and then edit the default target from "+c.paths.workspace.dir+"/"+_constants.RENATIVE_CONFIG_NAME);case 33:case"end":return _context5.stop();}},null,null,[[6,15],[18,29]],Promise);};
 
 
 
 
 
-continueLaunching=function continueLaunching(){var hasDevice,packageID,toReturn,_packageID;return _regenerator.default.async(function continueLaunching$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+continueLaunching=function continueLaunching(){var hasDevice,packageID,toReturn,_packageID;return _regenerator.default.async(function continueLaunching$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 hasDevice=false;_context6.t0=
 
 !isHosted;if(!_context6.t0){_context6.next=5;break;}_context6.next=5;return _regenerator.default.awrap((0,_web.buildWeb)(c,platform));case 5:_context6.next=7;return _regenerator.default.awrap(
@@ -287,7 +287,7 @@ platform!=='tizenwatch'&&platform!=='tizenmobile'&&hasDevice)){_context6.next=49
 _packageID=tId.split('.');_context6.next=53;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_TIZEN,"run -p "+_packageID[0]+" -t "+deviceID));case 53:return _context6.abrupt("return",
 
-toReturn);case 54:case"end":return _context6.stop();}}},null,null,[[9,16],[24,30]],Promise);};
+toReturn);case 54:case"end":return _context6.stop();}},null,null,[[9,16],[24,30]],Promise);};
 
 
 
@@ -329,12 +329,12 @@ _inquirer.default.prompt([{
 name:'chosenEmulator',
 type:'list',
 message:'On what emulator would you like to run the app?',
-choices:choices}]));case 60:_await$inquirer$promp2=_context7.sent;chosenEmulator=_await$inquirer$promp2.chosenEmulator;
-
+choices:choices
+}]));case 60:_await$inquirer$promp2=_context7.sent;chosenEmulator=_await$inquirer$promp2.chosenEmulator;
 deviceID=chosenEmulator;return _context7.abrupt("return",
 continueLaunching());case 64:return _context7.abrupt("return",
 
-askForEmulator());case 65:case"end":return _context7.stop();}}},null,null,[[39,48]],Promise);};exports.runTizen=runTizen;
+askForEmulator());case 65:case"end":return _context7.stop();}},null,null,[[39,48]],Promise);};exports.runTizen=runTizen;
 
 
 
@@ -359,7 +359,7 @@ catch(function(e){return reject(e);});
 
 var _isGlobalConfigured=false;
 
-var configureTizenProject=function configureTizenProject(c,platform){return _regenerator.default.async(function configureTizenProject$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:
+var configureTizenProject=function configureTizenProject(c,platform){return _regenerator.default.async(function configureTizenProject$(_context8){while(1)switch(_context8.prev=_context8.next){case 0:
 (0,_logger.logTask)('configureTizenProject');if(
 
 (0,_.isPlatformActive)(c,platform)){_context8.next=3;break;}return _context8.abrupt("return");case 3:if(
@@ -372,7 +372,7 @@ configureTizenGlobal(c));case 7:_context8.next=9;return _regenerator.default.awr
 (0,_projectParser.copyAssetsFolder)(c,platform));case 9:_context8.next=11;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 11:_context8.next=13;return _regenerator.default.awrap(
 configureProject(c,platform));case 13:return _context8.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 14:case"end":return _context8.stop();}}},null,null,null,Promise);};exports.configureTizenProject=configureTizenProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 14:case"end":return _context8.stop();}},null,null,null,Promise);};exports.configureTizenProject=configureTizenProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve){

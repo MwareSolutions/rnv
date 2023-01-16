@@ -47,7 +47,7 @@ return(0,_exec.execCLI)(c,_constants.CLI_ANDROID_EMULATOR,"-avd \""+actualTarget
 return Promise.reject('No simulator -t target name specified!');
 };exports.launchAndroidSimulator=launchAndroidSimulator;
 
-var listAndroidTargets=function listAndroidTargets(c){var device,list,devices;return _regenerator.default.async(function listAndroidTargets$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var listAndroidTargets=function listAndroidTargets(c){var device,list,devices;return _regenerator.default.async(function listAndroidTargets$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('listAndroidTargets');
 device=c.program.device;_context.next=4;return _regenerator.default.awrap(
 
@@ -56,7 +56,7 @@ getAndroidTargets(c,false,device,device));case 6:list=_context.sent;_context.nex
 composeDevicesString(list));case 9:devices=_context.sent;
 (0,_logger.logToSummary)("Android Targets:\n"+devices);
 if(devices.trim()==='')(0,_logger.logToSummary)('Android Targets: No devices found');return _context.abrupt("return",
-devices);case 13:case"end":return _context.stop();}}},null,null,null,Promise);};exports.listAndroidTargets=listAndroidTargets;
+devices);case 13:case"end":return _context.stop();}},null,null,null,Promise);};exports.listAndroidTargets=listAndroidTargets;
 
 
 var _getDeviceString=function _getDeviceString(device,i){
@@ -77,7 +77,7 @@ if(i===null)return{key:name,name:deviceString,value:name,icon:deviceIcon};
 return" ["+(i+1)+"]> "+deviceString+"\n";
 };
 
-var resetAdb=function resetAdb(c,ranBefore){return _regenerator.default.async(function resetAdb$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.prev=0;if(
+var resetAdb=function resetAdb(c,ranBefore){return _regenerator.default.async(function resetAdb$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:_context2.prev=0;if(
 
 ranBefore){_context2.next=4;break;}_context2.next=4;return _regenerator.default.awrap((0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,'kill-server'));case 4:_context2.next=9;break;case 6:_context2.prev=6;_context2.t0=_context2["catch"](0);
 
@@ -90,11 +90,11 @@ ranBefore){_context2.next=18;break;}return _context2.abrupt("return",
 Promise.reject(_context2.t1));case 18:
 
 (0,_logger.logWarning)("Got error:\n"+_context2.t1+"\nWill attemnt again in 5 seconds");
-setTimeout(resetAdb,5000,c,true);case 20:case"end":return _context2.stop();}}},null,null,[[0,6],[9,14]],Promise);};exports.resetAdb=resetAdb;
+setTimeout(resetAdb,5000,c,true);case 20:case"end":return _context2.stop();}},null,null,[[0,6],[9,14]],Promise);};exports.resetAdb=resetAdb;
 
 
 
-var getAndroidTargets=function getAndroidTargets(c,skipDevices,skipAvds){var deviceOnly,devicesResult,avdResult,_args3=arguments;return _regenerator.default.async(function getAndroidTargets$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:deviceOnly=_args3.length>3&&_args3[3]!==undefined?_args3[3]:false;
+var getAndroidTargets=function getAndroidTargets(c,skipDevices,skipAvds){var deviceOnly,devicesResult,avdResult,_args3=arguments;return _regenerator.default.async(function getAndroidTargets$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:deviceOnly=_args3.length>3&&_args3[3]!==undefined?_args3[3]:false;
 (0,_logger.logTask)("getAndroidTargets:"+c.platform+":"+skipDevices+":"+skipAvds+":"+deviceOnly);_context3.prev=2;if(
 
 
@@ -109,7 +109,7 @@ skipAvds){_context3.next=11;break;}_context3.next=10;return _regenerator.default
 
 _parseDevicesResult(c,devicesResult,avdResult,deviceOnly));case 14:_context3.prev=14;_context3.t0=_context3["catch"](2);return _context3.abrupt("return",
 
-Promise.reject(_context3.t0));case 17:case"end":return _context3.stop();}}},null,null,[[2,14]],Promise);};exports.getAndroidTargets=getAndroidTargets;
+Promise.reject(_context3.t0));case 17:case"end":return _context3.stop();}},null,null,[[2,14]],Promise);};exports.getAndroidTargets=getAndroidTargets;
 
 
 
@@ -120,7 +120,7 @@ var heightInches=height/density;
 return Math.sqrt(widthInches*widthInches+heightInches*heightInches);
 };
 
-var getRunningDeviceProp=function getRunningDeviceProp(c,udid,prop){var rawProps,reg,lines;return _regenerator.default.async(function getRunningDeviceProp$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:if(!
+var getRunningDeviceProp=function getRunningDeviceProp(c,udid,prop){var rawProps,reg,lines;return _regenerator.default.async(function getRunningDeviceProp$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:if(!
 
 currentDeviceProps[udid]){_context4.next=4;break;}if(
 prop){_context4.next=3;break;}return _context4.abrupt("return",currentDeviceProps[udid]);case 3:return _context4.abrupt("return",
@@ -139,10 +139,10 @@ if(!currentDeviceProps[udid])currentDeviceProps[udid]={};
 currentDeviceProps[udid][key]=value;
 });return _context4.abrupt("return",
 
-getRunningDeviceProp(c,udid,prop));case 11:case"end":return _context4.stop();}}},null,null,null,Promise);};
+getRunningDeviceProp(c,udid,prop));case 11:case"end":return _context4.stop();}},null,null,null,Promise);};
 
 
-var decideIfTVRunning=function decideIfTVRunning(c,device){var udid,model,product,mod,name,flavor,clientIdBase,description,hdmi,modelGroup,configuration,cecEnabled,isTV;return _regenerator.default.async(function decideIfTVRunning$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var decideIfTVRunning=function decideIfTVRunning(c,device){var udid,model,product,mod,name,flavor,clientIdBase,description,hdmi,modelGroup,configuration,cecEnabled,isTV;return _regenerator.default.async(function decideIfTVRunning$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 udid=device.udid,model=device.model,product=device.product;_context5.next=3;return _regenerator.default.awrap(
 getRunningDeviceProp(c,udid,'ro.product.model'));case 3:mod=_context5.sent;_context5.next=6;return _regenerator.default.awrap(
 getRunningDeviceProp(c,udid,'ro.product.name'));case 6:name=_context5.sent;_context5.next=9;return _regenerator.default.awrap(
@@ -165,10 +165,10 @@ if(modelGroup&&modelGroup.toLowerCase().includes('firetv'))isTV=true;
 if(configuration==='tv')isTV=true;
 if(cecEnabled)isTV=true;return _context5.abrupt("return",
 
-isTV);case 36:case"end":return _context5.stop();}}},null,null,null,Promise);};
+isTV);case 36:case"end":return _context5.stop();}},null,null,null,Promise);};
 
 
-var decideIfWearRunning=function decideIfWearRunning(c,device){var udid,model,product,fingerprint,name,mod,flavor,description,isWear;return _regenerator.default.async(function decideIfWearRunning$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var decideIfWearRunning=function decideIfWearRunning(c,device){var udid,model,product,fingerprint,name,mod,flavor,description,isWear;return _regenerator.default.async(function decideIfWearRunning$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 udid=device.udid,model=device.model,product=device.product;_context6.next=3;return _regenerator.default.awrap(
 getRunningDeviceProp(c,udid,'ro.vendor.build.fingerprint'));case 3:fingerprint=_context6.sent;_context6.next=6;return _regenerator.default.awrap(
 getRunningDeviceProp(c,udid,'ro.product.vendor.name'));case 6:name=_context6.sent;_context6.next=9;return _regenerator.default.awrap(
@@ -180,10 +180,10 @@ isWear=false;
 [fingerprint,name,mod,flavor,description,model,product].forEach(function(string){
 if(string&&string.toLowerCase().includes('wear'))isWear=true;
 });return _context6.abrupt("return",
-isWear);case 19:case"end":return _context6.stop();}}},null,null,null,Promise);};
+isWear);case 19:case"end":return _context6.stop();}},null,null,null,Promise);};
 
 
-var getDeviceType=function getDeviceType(device,c){var screenSizeResult,screenDensityResult,arch,screenProps,_screenSizeResult$spl,_screenSizeResult$spl2,width,height,density,_screenProps,_width,_height,_density,diagonalInches,_density2,_width2,_height2,_arch,sysdir,tagId,tagDisplay,deviceName,avdId,name,skin,image,_diagonalInches;return _regenerator.default.async(function getDeviceType$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
+var getDeviceType=function getDeviceType(device,c){var screenSizeResult,screenDensityResult,arch,screenProps,_screenSizeResult$spl,_screenSizeResult$spl2,width,height,density,_screenProps,_width,_height,_density,diagonalInches,_density2,_width2,_height2,_arch,sysdir,tagId,tagDisplay,deviceName,avdId,name,skin,image,_diagonalInches;return _regenerator.default.async(function getDeviceType$(_context7){while(1)switch(_context7.prev=_context7.next){case 0:
 (0,_logger.logDebug)('getDeviceType - in',{device:device});if(!(
 
 device.product==='tunny')){_context7.next=4;break;}
@@ -261,7 +261,7 @@ device.arch=_arch;
 (0,_logger.logDebug)('getDeviceType - out',{device:device});return _context7.abrupt("return",
 device);case 57:return _context7.abrupt("return",
 
-device);case 58:case"end":return _context7.stop();}}},null,null,null,Promise);};
+device);case 58:case"end":return _context7.stop();}},null,null,null,Promise);};
 
 
 var getAvdDetails=function getAvdDetails(c,deviceName){
@@ -308,24 +308,24 @@ results.avdConfig=avdConfig;
 return results;
 };
 
-var getEmulatorName=function getEmulatorName(c,words){var emulator,port,emulatorReply,emulatorReplyArray,emulatorName;return _regenerator.default.async(function getEmulatorName$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:
+var getEmulatorName=function getEmulatorName(c,words){var emulator,port,emulatorReply,emulatorReplyArray,emulatorName;return _regenerator.default.async(function getEmulatorName$(_context8){while(1)switch(_context8.prev=_context8.next){case 0:
 emulator=words[0];
 port=emulator.split('-')[1];_context8.next=4;return _regenerator.default.awrap(
 
 (0,_exec.executeTelnet)(c,port,'avd name'));case 4:emulatorReply=_context8.sent;
 emulatorReplyArray=emulatorReply.split('OK');
 emulatorName=emulatorReplyArray[emulatorReplyArray.length-2].trim();return _context8.abrupt("return",
-emulatorName);case 8:case"end":return _context8.stop();}}},null,null,null,Promise);};
+emulatorName);case 8:case"end":return _context8.stop();}},null,null,null,Promise);};
 
 
-var connectToWifiDevice=function connectToWifiDevice(c,ip){var deviceResponse;return _regenerator.default.async(function connectToWifiDevice$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:_context9.next=2;return _regenerator.default.awrap(
+var connectToWifiDevice=function connectToWifiDevice(c,ip){var deviceResponse;return _regenerator.default.async(function connectToWifiDevice$(_context9){while(1)switch(_context9.prev=_context9.next){case 0:_context9.next=2;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"connect "+ip+":5555"));case 2:deviceResponse=_context9.sent;if(!
 deviceResponse.includes('connected')){_context9.next=5;break;}return _context9.abrupt("return",true);case 5:
 (0,_logger.logError)("Failed to connect to "+ip+":5555",false,true);return _context9.abrupt("return",
-false);case 7:case"end":return _context9.stop();}}},null,null,null,Promise);};exports.connectToWifiDevice=connectToWifiDevice;
+false);case 7:case"end":return _context9.stop();}},null,null,null,Promise);};exports.connectToWifiDevice=connectToWifiDevice;
 
 
-var _parseDevicesResult=function _parseDevicesResult(c,devicesString,avdsString,deviceOnly){var devices,skipTargetCheck,lines,avdLines;return _regenerator.default.async(function _parseDevicesResult$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:
+var _parseDevicesResult=function _parseDevicesResult(c,devicesString,avdsString,deviceOnly){var devices,skipTargetCheck,lines,avdLines;return _regenerator.default.async(function _parseDevicesResult$(_context12){while(1)switch(_context12.prev=_context12.next){case 0:
 (0,_logger.logDebug)("_parseDevicesResult:"+devicesString+":"+avdsString+":"+deviceOnly);
 devices=[];
 skipTargetCheck=c.program.skipTargetCheck;if(!
@@ -334,7 +334,7 @@ devicesString){_context12.next=9;break;}
 lines=devicesString.trim().split(/\r?\n/);
 (0,_logger.logDebug)('_parseDevicesResult 2',{lines:lines});if(!(
 lines.length!==0)){_context12.next=9;break;}_context12.next=9;return _regenerator.default.awrap(
-Promise.all(lines.map(function _callee(line){var words,isDevice,name,model,product;return _regenerator.default.async(function _callee$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:
+Promise.all(lines.map(function _callee(line){var words,isDevice,name,model,product;return _regenerator.default.async(function _callee$(_context10){while(1)switch(_context10.prev=_context10.next){case 0:
 words=line.split(/[ ,\t]+/).filter(function(w){return w!=='';});if(!(
 words.length===0)){_context10.next=3;break;}return _context10.abrupt("return");case 3:
 (0,_logger.logDebug)('_parseDevicesResult 3',{words:words});if(!(
@@ -358,10 +358,10 @@ isDevice:isDevice,
 isActive:true,
 name:name,
 model:model,
-product:product});
-
+product:product
+});
 }return _context10.abrupt("return",
-true);case 20:case"end":return _context10.stop();}}},null,null,null,Promise);})));case 9:if(!
+true);case 20:case"end":return _context10.stop();}},null,null,null,Promise);})));case 9:if(!
 
 
 
@@ -371,7 +371,7 @@ avdsString){_context12.next=14;break;}
 avdLines=avdsString.trim().split(/\r?\n/);
 (0,_logger.logDebug)('_parseDevicesResult 7',{avdLines:avdLines});_context12.next=14;return _regenerator.default.awrap(
 
-Promise.all(avdLines.map(function _callee2(line){var avdDetails,findProcess;return _regenerator.default.async(function _callee2$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:
+Promise.all(avdLines.map(function _callee2(line){var avdDetails,findProcess;return _regenerator.default.async(function _callee2$(_context11){while(1)switch(_context11.prev=_context11.next){case 0:
 
 
 try{
@@ -398,7 +398,7 @@ name:line},
 avdDetails));
 
 }
-}case 2:case"end":return _context11.stop();}}},null,null,null,Promise);})));case 14:
+}case 2:case"end":return _context11.stop();}},null,null,null,Promise);})));case 14:
 
 
 
@@ -413,7 +413,7 @@ if(device.isNotEligibleAndroid)return false;
 var matches=platform===_constants.ANDROID&&device.isTablet||platform===_constants.ANDROID_WEAR&&device.isWear||platform===_constants.ANDROID_TV&&device.isTV||platform===_constants.ANDROID&&device.isMobile;
 (0,_logger.logDebug)('getDeviceType - filter',{device:device,matches:matches,platform:platform});
 return matches;
-});}));case 16:case"end":return _context12.stop();}}},null,null,null,Promise);};
+});}));case 16:case"end":return _context12.stop();}},null,null,null,Promise);};
 
 
 var _getDeviceProp=function _getDeviceProp(arr,prop){
@@ -424,15 +424,15 @@ if(v&&v.includes(prop))return v.replace(prop,'');
 return'';
 };
 
-var askForNewEmulator=function askForNewEmulator(c,platform){var emuName,_await$inquirer$promp,confirm;return _regenerator.default.async(function askForNewEmulator$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:
+var askForNewEmulator=function askForNewEmulator(c,platform){var emuName,_await$inquirer$promp,confirm;return _regenerator.default.async(function askForNewEmulator$(_context13){while(1)switch(_context13.prev=_context13.next){case 0:
 (0,_logger.logTask)('askForNewEmulator');
 emuName=c.files.workspace.config.defaultTargets[platform];_context13.next=4;return _regenerator.default.awrap(
 
 _inquirer.default.prompt({
 name:'confirm',
 type:'confirm',
-message:"Do you want ReNative to create new Emulator ("+_chalk.default.white(emuName)+") for you?"}));case 4:_await$inquirer$promp=_context13.sent;confirm=_await$inquirer$promp.confirm;if(!
-
+message:"Do you want ReNative to create new Emulator ("+_chalk.default.white(emuName)+") for you?"
+}));case 4:_await$inquirer$promp=_context13.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 confirm){_context13.next=14;break;}_context13.t0=
 platform;_context13.next=_context13.t0===
@@ -449,7 +449,7 @@ then(function(){return launchAndroidSimulator(c,platform,emuName,true);}));case 
 Promise.reject('Cannot find any active or created emulators'));case 14:return _context13.abrupt("return",
 
 
-Promise.reject('Action canceled!'));case 15:case"end":return _context13.stop();}}},null,null,null,Promise);};exports.askForNewEmulator=askForNewEmulator;
+Promise.reject('Action canceled!'));case 15:case"end":return _context13.stop();}},null,null,null,Promise);};exports.askForNewEmulator=askForNewEmulator;
 
 
 var _createEmulator=function _createEmulator(c,apiVersion,emuPlatform,emuName){
@@ -472,7 +472,7 @@ var poll=setInterval(function(){
 if(!running){
 running=true;
 getAndroidTargets(c,false,true,false).
-then(function _callee3(v){return _regenerator.default.async(function _callee3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:
+then(function _callee3(v){return _regenerator.default.async(function _callee3$(_context14){while(1)switch(_context14.prev=_context14.next){case 0:
 (0,_logger.logDebug)('Available devices after filtering',v);if(!(
 v.length>0)){_context14.next=7;break;}
 (0,_logger.logSuccess)("Found active emulator! "+_chalk.default.white(v[0].udid)+". Will use it");
@@ -491,7 +491,7 @@ reject('Could not find any active emulatros');
 
 
 }
-running=false;case 14:case"end":return _context14.stop();}}},null,null,null,Promise);}).
+running=false;case 14:case"end":return _context14.stop();}},null,null,null,Promise);}).
 
 
 catch(function(e){

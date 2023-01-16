@@ -49,7 +49,7 @@ resolve();
 });
 });};exports.launchKaiOSSimulator=launchKaiOSSimulator;
 
-var configureKaiOSProject=function configureKaiOSProject(c,platform){return _regenerator.default.async(function configureKaiOSProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var configureKaiOSProject=function configureKaiOSProject(c,platform){return _regenerator.default.async(function configureKaiOSProject$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('configureKaiOSProject');if(
 
 (0,_.isPlatformActive)(c,platform)){_context.next=3;break;}return _context.abrupt("return");case 3:_context.next=5;return _regenerator.default.awrap(
@@ -57,7 +57,7 @@ var configureKaiOSProject=function configureKaiOSProject(c,platform){return _reg
 (0,_projectParser.copyAssetsFolder)(c,platform));case 5:_context.next=7;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 7:_context.next=9;return _regenerator.default.awrap(
 configureProject(c,platform));case 9:return _context.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureKaiOSProject=configureKaiOSProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context.stop();}},null,null,null,Promise);};exports.configureKaiOSProject=configureKaiOSProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){

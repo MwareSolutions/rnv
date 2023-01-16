@@ -13,7 +13,7 @@ var _exec=require("../../systemTools/exec");
 var _constants=require("../../constants");
 var _configParser=require("../../configTools/configParser");
 
-var registerDevice=function registerDevice(c){var teamID,udid,deviceName,args;return _regenerator.default.async(function registerDevice$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var registerDevice=function registerDevice(c){var teamID,udid,deviceName,args;return _regenerator.default.async(function registerDevice$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("registerDevice:"+c.platform);
 
 
@@ -35,11 +35,11 @@ deviceName+"\""];_context.prev=5;_context.next=8;return _regenerator.default.awr
 true);case 12:_context.prev=12;_context.t0=_context["catch"](5);
 
 (0,_logger.logWarning)(_context.t0);return _context.abrupt("return",
-true);case 16:case"end":return _context.stop();}}},null,null,[[5,12]],Promise);};exports.registerDevice=registerDevice;
+true);case 16:case"end":return _context.stop();}},null,null,[[5,12]],Promise);};exports.registerDevice=registerDevice;
 
 
 
-var updateProfile=function updateProfile(c,appConfigId){var _getConfigProp;var scheme,platform,appId,id,teamID,pMethod,runScheme,provisioning,certsPath,args;return _regenerator.default.async(function updateProfile$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var updateProfile=function updateProfile(c,appConfigId){var _getConfigProp;var scheme,platform,appId,id,teamID,pMethod,runScheme,provisioning,certsPath,args;return _regenerator.default.async(function updateProfile$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("updateProfile:"+appConfigId,_chalk.default.grey);if(!
 
 
@@ -99,5 +99,5 @@ args.push("--"+provisioning);
 true);case 26:_context2.prev=26;_context2.t0=_context2["catch"](19);
 
 (0,_logger.logWarning)(_context2.t0);return _context2.abrupt("return",
-true);case 30:case"end":return _context2.stop();}}},null,null,[[19,26]],Promise);};exports.updateProfile=updateProfile;
+true);case 30:case"end":return _context2.stop();}},null,null,[[19,26]],Promise);};exports.updateProfile=updateProfile;
 //# sourceMappingURL=fastlane.js.map

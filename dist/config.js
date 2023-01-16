@@ -59,21 +59,21 @@ argsCopy[2]=missingArg;
 return argsCopy.filter(function(arg){return!!arg;});
 }},{key:"injectProjectDependency",value:
 
-function injectProjectDependency(dependency,version,type){var skipInstall,currentPackage,existingPath,_args=arguments;return _regenerator.default.async(function injectProjectDependency$(_context){while(1){switch(_context.prev=_context.next){case 0:skipInstall=_args.length>3&&_args[3]!==undefined?_args[3]:false;
+function injectProjectDependency(dependency,version,type){var skipInstall,currentPackage,existingPath,_args=arguments;return _regenerator.default.async(function injectProjectDependency$(_context){while(1)switch(_context.prev=_context.next){case 0:skipInstall=_args.length>3&&_args[3]!==undefined?_args[3]:false;
 currentPackage=this.config.files.project.package;
 existingPath=this.config.paths.project.package;
 if(!currentPackage[type])currentPackage[type]={};
 currentPackage[type][dependency]=version;
 (0,_fileutils.writeFileSync)(existingPath,currentPackage);if(
 skipInstall){_context.next=9;break;}_context.next=9;return _regenerator.default.awrap((0,_exec.npmInstall)());case 9:return _context.abrupt("return",
-true);case 10:case"end":return _context.stop();}}},null,this,null,Promise);}},{key:"getProjectConfig",value:
+true);case 10:case"end":return _context.stop();}},null,this,null,Promise);}},{key:"getProjectConfig",value:
 
 
 function getProjectConfig(){
 return this.config.files.project;
 }},{key:"checkRequiredPackage",value:
 
-function checkRequiredPackage(pkg){var _projectConfig$packag;var version,type,skipAsking,skipInstall,projectConfig,confirm,resp,latestVersion,currentVersion,_latestVersion,updateAvailable,_confirm,_resp,_args2=arguments;return _regenerator.default.async(function checkRequiredPackage$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:version=_args2.length>1&&_args2[1]!==undefined?_args2[1]:false;type=_args2.length>2?_args2[2]:undefined;skipAsking=_args2.length>3&&_args2[3]!==undefined?_args2[3]:false;skipInstall=_args2.length>4&&_args2[4]!==undefined?_args2[4]:false;if(
+function checkRequiredPackage(pkg){var _projectConfig$packag;var version,type,skipAsking,skipInstall,projectConfig,confirm,resp,latestVersion,currentVersion,_latestVersion,updateAvailable,_confirm,_resp,_args2=arguments;return _regenerator.default.async(function checkRequiredPackage$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:version=_args2.length>1&&_args2[1]!==undefined?_args2[1]:false;type=_args2.length>2?_args2[2]:undefined;skipAsking=_args2.length>3&&_args2[3]!==undefined?_args2[3]:false;skipInstall=_args2.length>4&&_args2[4]!==undefined?_args2[4]:false;if(
 pkg){_context2.next=6;break;}return _context2.abrupt("return",false);case 6:
 projectConfig=this.getProjectConfig();if((_projectConfig$packag=
 
@@ -83,8 +83,8 @@ confirm=skipAsking;if(
 confirm){_context2.next=14;break;}_context2.next=12;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:"You do not have "+pkg+" installed. Do you want to add it now?"}));case 12:resp=_context2.sent;
-
+message:"You do not have "+pkg+" installed. Do you want to add it now?"
+}));case 12:resp=_context2.sent;
 
 confirm=resp.confirm;case 14:if(!
 
@@ -121,8 +121,8 @@ _confirm=skipAsking;if(
 _confirm){_context2.next=49;break;}_context2.next=47;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:"Seems like "+pkg+"@"+currentVersion+" is installed while there is a newer version, "+pkg+"@"+_latestVersion+". Do you want to upgrade?"}));case 47:_resp=_context2.sent;
-
+message:"Seems like "+pkg+"@"+currentVersion+" is installed while there is a newer version, "+pkg+"@"+_latestVersion+". Do you want to upgrade?"
+}));case 47:_resp=_context2.sent;
 
 _confirm=_resp.confirm;case 49:if(!
 
@@ -134,10 +134,10 @@ this.injectProjectDependency(pkg,_latestVersion,type,skipInstall));case 51:retur
 
 
 
-false);case 52:case"end":return _context2.stop();}}},null,this,[[17,23],[31,37]],Promise);}},{key:"injectPlatformDependencies",value:
+false);case 52:case"end":return _context2.stop();}},null,this,[[17,23],[31,37]],Promise);}},{key:"injectPlatformDependencies",value:
 
 
-function injectPlatformDependencies(platform){var _this$config$files,_this$config$files$rn,_this$config$files$rn2,_this$config$files$rn3,_this$config$files$rn4,_this$config$files$rn5,_this=this;var npmDeps,promises,installed;return _regenerator.default.async(function injectPlatformDependencies$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+function injectPlatformDependencies(platform){var _this$config$files,_this$config$files$rn,_this$config$files$rn2,_this$config$files$rn3,_this$config$files$rn4,_this$config$files$rn5,_this=this;var npmDeps,promises,installed;return _regenerator.default.async(function injectPlatformDependencies$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 npmDeps=(_this$config$files=this.config.files)==null?void 0:(_this$config$files$rn=_this$config$files.rnv)==null?void 0:(_this$config$files$rn2=_this$config$files$rn.platformTemplates)==null?void 0:(_this$config$files$rn3=_this$config$files$rn2.config)==null?void 0:(_this$config$files$rn4=_this$config$files$rn3.platforms)==null?void 0:(_this$config$files$rn5=_this$config$files$rn4[platform])==null?void 0:_this$config$files$rn5.npm;if(!
 
 npmDeps){_context3.next=9;break;}
@@ -151,7 +151,7 @@ return acc;
 Promise.all(promises));case 5:installed=_context3.sent;if(!
 
 installed.some(function(i){return i===true;})){_context3.next=9;break;}_context3.next=9;return _regenerator.default.awrap(
-(0,_exec.npmInstall)());case 9:case"end":return _context3.stop();}}},null,this,null,Promise);}},{key:"platform",get:
+(0,_exec.npmInstall)());case 9:case"end":return _context3.stop();}},null,this,null,Promise);}},{key:"platform",get:
 
 
 
@@ -202,8 +202,8 @@ if(localVal==='N/A')localVal=globalVal;
 
 var table=[{
 Key:key,
-'Global Value':globalVal}];
-
+'Global Value':globalVal
+}];
 
 
 if(localVal!=='N/A'){

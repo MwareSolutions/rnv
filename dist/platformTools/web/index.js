@@ -122,7 +122,7 @@ resolve();
 catch(function(e){return reject(e);});
 });};exports.buildWeb=buildWeb;
 
-var configureWebProject=function configureWebProject(c,platform){return _regenerator.default.async(function configureWebProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var configureWebProject=function configureWebProject(c,platform){return _regenerator.default.async(function configureWebProject$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("configureWebProject:"+platform);if(
 
 (0,_.isPlatformActive)(c,platform)){_context.next=3;break;}return _context.abrupt("return");case 3:_context.next=5;return _regenerator.default.awrap(
@@ -131,12 +131,12 @@ var configureWebProject=function configureWebProject(c,platform){return _regener
 
 configureCoreWebProject(c,platform));case 7:return _context.abrupt("return",
 
-(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureWebProject=configureWebProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}},null,null,null,Promise);};exports.configureWebProject=configureWebProject;
 
 
-var configureCoreWebProject=function configureCoreWebProject(c,platform){return _regenerator.default.async(function configureCoreWebProject$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var configureCoreWebProject=function configureCoreWebProject(c,platform){return _regenerator.default.async(function configureCoreWebProject$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 _generateWebpackConfigs(c,platform);
-_parseCssSync(c,platform);case 2:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.configureCoreWebProject=configureCoreWebProject;
+_parseCssSync(c,platform);case 2:case"end":return _context2.stop();}},null,null,null,Promise);};exports.configureCoreWebProject=configureCoreWebProject;
 
 
 var _parseCssSync=function _parseCssSync(c,platform){
@@ -147,7 +147,7 @@ var stringsPath='public/app.css';
 
 };
 
-var runWeb=function runWeb(c,platform,port){var devServerHost,extendConfig,isPortActive;return _regenerator.default.async(function runWeb$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var runWeb=function runWeb(c,platform,port){var devServerHost,extendConfig,isPortActive;return _regenerator.default.async(function runWeb$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)("runWeb:"+platform+":"+port);
 
 devServerHost=c.runtime.localhost;
@@ -169,7 +169,7 @@ _runWebBrowser(c,platform,devServerHost,port,false));case 10:_context3.next=12;r
 runWebDevServer(c,platform,port));case 12:_context3.next=18;break;case 14:_context3.next=16;return _regenerator.default.awrap(
 
 (0,_common.confirmActiveBundler)(c));case 16:_context3.next=18;return _regenerator.default.awrap(
-_runWebBrowser(c,platform,devServerHost,port,true));case 18:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.runWeb=runWeb;
+_runWebBrowser(c,platform,devServerHost,port,true));case 18:case"end":return _context3.stop();}},null,null,null,Promise);};exports.runWeb=runWeb;
 
 
 
@@ -202,7 +202,7 @@ if(debug){
 debugVariables+="DEBUG=true DEBUG_IP="+(debugIp||_ip.default.address());
 }
 
-var command="npx cross-env PLATFORM="+platform+" "+debugVariables+" webpack-dev-server -d --devtool source-map --config "+wpConfig+"  --inline --hot --colors --content-base "+wpPublic+" --history-api-fallback --port "+port+" --mode=development";
+var command="npx cross-env PLATFORM="+platform+" "+debugVariables+" webpack-dev-server -d --devtool source-map --config "+wpConfig+"  --inline --hot --colors --content-base "+wpPublic+" --history-api-fallback --port "+port+" --mode=development --https";
 (0,_exec.executeAsync)(c,command,{stdio:'inherit',silent:true}).
 then(function(){
 (0,_logger.logDebug)('runWebDevServer: running');

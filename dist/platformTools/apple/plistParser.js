@@ -118,8 +118,8 @@ if(urlScheme){
 plistObj.CFBundleURLTypes.push({
 CFBundleTypeRole:'Editor',
 CFBundleURLName:urlScheme,
-CFBundleURLSchemes:[urlScheme]});
-
+CFBundleURLSchemes:[urlScheme]
+});
 }
 
 

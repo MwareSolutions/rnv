@@ -10,7 +10,7 @@ var _deviceManager=require("./android/deviceManager");
 var _deviceManager2=require("./apple/deviceManager");
 var _firefox=require("./firefox");
 
-var rnvTargetLaunch=function rnvTargetLaunch(c){var platform,program,target;return _regenerator.default.async(function rnvTargetLaunch$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var rnvTargetLaunch=function rnvTargetLaunch(c){var platform,program,target;return _regenerator.default.async(function rnvTargetLaunch$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('_runLaunch');_context.next=3;return _regenerator.default.awrap(
 
 (0,_index.isPlatformSupported)(c));case 3:
@@ -35,13 +35,13 @@ _constants.KAIOS?12:13;break;case 8:return _context.abrupt("return",(0,_deviceMa
 
 Promise.reject("\"target launch\" command does not support "+
 _chalk.default.white.bold(
-platform)+" platform yet. You will have to launch the emulator manually. Working on it!"));case 14:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvTargetLaunch=rnvTargetLaunch;
+platform)+" platform yet. You will have to launch the emulator manually. Working on it!"));case 14:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvTargetLaunch=rnvTargetLaunch;
 
 
 
 
 
-var rnvTargetList=function rnvTargetList(c){var platform,throwError;return _regenerator.default.async(function rnvTargetList$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var rnvTargetList=function rnvTargetList(c){var platform,throwError;return _regenerator.default.async(function rnvTargetList$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)('rnvTargetList');_context2.next=3;return _regenerator.default.awrap(
 
 (0,_index.isPlatformSupported)(c));case 3:
@@ -67,5 +67,5 @@ _constants.TIZEN?12:_context2.t0===
 _constants.WEBOS?13:14;break;case 10:return _context2.abrupt("return",(0,_deviceManager.listAndroidTargets)(c,platform));case 11:return _context2.abrupt("return",(0,_deviceManager2.listAppleDevices)(c,platform));case 12:return _context2.abrupt("return",(0,_tizen.listTizenTargets)(c,platform));case 13:return _context2.abrupt("return",
 (0,_webos.listWebOSTargets)(c));case 14:return _context2.abrupt("return",
 
-Promise.reject("\"target list\" command does not support "+_chalk.default.white.bold(platform)+" platform yet. Working on it!"));case 15:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.rnvTargetList=rnvTargetList;
+Promise.reject("\"target list\" command does not support "+_chalk.default.white.bold(platform)+" platform yet. Working on it!"));case 15:case"end":return _context2.stop();}},null,null,null,Promise);};exports.rnvTargetList=rnvTargetList;
 //# sourceMappingURL=target.js.map

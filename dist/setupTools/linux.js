@@ -18,15 +18,15 @@ function LinuxPlatformSetup(c){(0,_classCallCheck2.default)(this,LinuxPlatformSe
 'linux',c);
 }(0,_createClass2.default)(LinuxPlatformSetup,[{key:"installSoftware",value:
 
-function installSoftware(software){return _regenerator.default.async(function installSoftware$(_context){while(1){switch(_context.prev=_context.next){case 0:if(!
+function installSoftware(software){return _regenerator.default.async(function installSoftware$(_context){while(1)switch(_context.prev=_context.next){case 0:if(!
 (0,_exec.commandExistsSync)('apt-get')){_context.next=3;break;}_context.next=3;return _regenerator.default.awrap(
 _shelljs.default.exec("apt-get -qq update && apt-get install "+software+" -y > /dev/null"));case 3:return _context.abrupt("return",
 
 
-true);case 4:case"end":return _context.stop();}}},null,null,null,Promise);}},{key:"installPrereqs",value:
+true);case 4:case"end":return _context.stop();}},null,null,null,Promise);}},{key:"installPrereqs",value:
 
 
-function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:if(
+function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:if(
 this.availableDownloader){_context2.next=5;break;}
 (0,_logger.logInfo)('Looks like you don\'t have wget or curl installed. We\'ll install wget for you');_context2.next=4;return _regenerator.default.awrap(
 this.installSoftware('wget'));case 4:
@@ -43,10 +43,10 @@ this.installSoftware('unzip'));case 9:if(
 this.installSoftware('openjdk-8-jdk'));case 13:return _context2.abrupt("return",
 
 
-true);case 14:case"end":return _context2.stop();}}},null,this,null,Promise);}},{key:"postInstall",value:
+true);case 14:case"end":return _context2.stop();}},null,this,null,Promise);}},{key:"postInstall",value:
 
 
-function postInstall(sdk){var location,ANDROID_SDK;return _regenerator.default.async(function postInstall$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(!(
+function postInstall(sdk){var location,ANDROID_SDK;return _regenerator.default.async(function postInstall$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:if(!(
 sdk==='android')){_context3.next=11;break;}
 location=_config.default.android.location;
 (0,_logger.logDebug)("Updating "+this.globalConfigPath+" with "+JSON.stringify({androidSdk:location}));_context3.next=5;return _regenerator.default.awrap(
@@ -57,7 +57,7 @@ ANDROID_SDK=this.c.files.workspace.config.sdks.ANDROID_SDK;
 this.c.cli[_constants.CLI_ANDROID_EMULATOR]=(0,_fileutils.getRealPath)(this.c,_path.default.join(ANDROID_SDK,'emulator/emulator'));
 this.c.cli[_constants.CLI_ANDROID_ADB]=(0,_fileutils.getRealPath)(this.c,_path.default.join(ANDROID_SDK,'platform-tools/adb'));
 this.c.cli[_constants.CLI_ANDROID_AVDMANAGER]=(0,_fileutils.getRealPath)(this.c,_path.default.join(ANDROID_SDK,'tools/bin/avdmanager'));
-this.c.cli[_constants.CLI_ANDROID_SDKMANAGER]=(0,_fileutils.getRealPath)(this.c,_path.default.join(ANDROID_SDK,'tools/bin/sdkmanager'));case 11:case"end":return _context3.stop();}}},null,this,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
+this.c.cli[_constants.CLI_ANDROID_SDKMANAGER]=(0,_fileutils.getRealPath)(this.c,_path.default.join(ANDROID_SDK,'tools/bin/sdkmanager'));case 11:case"end":return _context3.stop();}},null,this,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
 
 
 

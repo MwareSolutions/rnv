@@ -112,8 +112,8 @@ return resolve();
 var saveAsJs=function saveAsJs(source,dest){
 _svg2js.default.createSync({
 source:source,
-destination:dest});
-
+destination:dest
+});
 };exports.saveAsJs=saveAsJs;
 
 var removeDir=function removeDir(path,callback){
@@ -375,7 +375,7 @@ var obj=(0,_deepmerge.default)(obj1,obj2,{arrayMerge:replaceArrays?_arrayMergeOv
 return dynamicRefs?sanitizeDynamicRefs(c,obj):obj;
 };exports.mergeObjects=mergeObjects;
 
-var updateConfigFile=function updateConfigFile(update,globalConfigPath){var configContents;return _regenerator.default.async(function updateConfigFile$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var updateConfigFile=function updateConfigFile(update,globalConfigPath){var configContents;return _regenerator.default.async(function updateConfigFile$(_context){while(1)switch(_context.prev=_context.next){case 0:
 configContents=JSON.parse(_fs.default.readFileSync(globalConfigPath));
 
 if(update.androidSdk){
@@ -392,7 +392,7 @@ configContents.sdks.WEBOS_SDK=update.webosSdk;
 
 (0,_logger.logDebug)("Updating "+globalConfigPath+". New file "+JSON.stringify(configContents,null,3));
 
-_fs.default.writeFileSync(globalConfigPath,JSON.stringify(configContents,null,3));case 6:case"end":return _context.stop();}}},null,null,null,Promise);};exports.updateConfigFile=updateConfigFile;
+_fs.default.writeFileSync(globalConfigPath,JSON.stringify(configContents,null,3));case 6:case"end":return _context.stop();}},null,null,null,Promise);};exports.updateConfigFile=updateConfigFile;
 
 
 var replaceHomeFolder=function replaceHomeFolder(p){
@@ -437,5 +437,6 @@ updateObjectSync:updateObjectSync,
 arrayMerge:arrayMerge,
 mergeObjects:mergeObjects,
 updateConfigFile:updateConfigFile,
-replaceHomeFolder:replaceHomeFolder};exports.default=_default;
+replaceHomeFolder:replaceHomeFolder
+};exports.default=_default;
 //# sourceMappingURL=fileutils.js.map

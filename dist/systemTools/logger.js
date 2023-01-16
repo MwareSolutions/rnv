@@ -11,8 +11,8 @@ default:function _default(v){return v;},
 gray:function gray(v){return v;},
 grey:function grey(v){return v;},
 blue:function blue(v){return v;},
-magenta:function magenta(v){return v;}};
-
+magenta:function magenta(v){return v;}
+};
 var _chalkMono=_objectSpread(_objectSpread({},
 _chalkCols),{},{
 bold:_chalkCols});
@@ -324,7 +324,7 @@ output+=_defaultColor('├──────────────────
 return output;
 };exports.printBoxStart=printBoxStart;
 
-var rnvStatus=function rnvStatus(){return _regenerator.default.async(function rnvStatus$(_context){while(1){switch(_context.prev=_context.next){case 0:return _context.abrupt("return",Promise.resolve());case 1:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvStatus=rnvStatus;
+var rnvStatus=function rnvStatus(){return _regenerator.default.async(function rnvStatus$(_context){while(1)switch(_context.prev=_context.next){case 0:return _context.abrupt("return",Promise.resolve());case 1:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvStatus=rnvStatus;
 
 var printBoxEnd=function printBoxEnd(){return _defaultColor('└──────────────────────────────────────────────────────────────────────────────┘');};exports.printBoxEnd=printBoxEnd;var _default2=
 
@@ -339,5 +339,6 @@ logWarning:logWarning,
 logSuccess:logSuccess,
 logWelcome:logWelcome,
 logComplete:logComplete,
-logInitialize:logInitialize};exports.default=_default2;
+logInitialize:logInitialize
+};exports.default=_default2;
 //# sourceMappingURL=logger.js.map

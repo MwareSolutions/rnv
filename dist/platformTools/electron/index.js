@@ -40,13 +40,13 @@ var _fileutils=require("../../systemTools/fileutils");
 
 
 
-var configureElectronProject=function configureElectronProject(c,platform){return _regenerator.default.async(function configureElectronProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var configureElectronProject=function configureElectronProject(c,platform){return _regenerator.default.async(function configureElectronProject$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("configureElectronProject:"+platform);_context.next=3;return _regenerator.default.awrap(
 
 (0,_projectParser.copyAssetsFolder)(c,platform,platform===_constants.MACOS?_generateICNS:null));case 3:_context.next=5;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 5:_context.next=7;return _regenerator.default.awrap(
 configureProject(c,platform));case 7:return _context.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}}},null,null,null,Promise);};exports.configureElectronProject=configureElectronProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 8:case"end":return _context.stop();}},null,null,null,Promise);};exports.configureElectronProject=configureElectronProject;
 
 var merge=require('deepmerge');
 
@@ -107,14 +107,14 @@ if(platform===_constants.MACOS){
 macConfig.mac={
 entitlements:_path.default.join(appFolder,'entitlements.mac.plist'),
 entitlementsInherit:_path.default.join(appFolder,'entitlements.mac.plist'),
-hardenedRuntime:true};
-
+hardenedRuntime:true
+};
 macConfig.mas={
 entitlements:_path.default.join(appFolder,'entitlements.mas.plist'),
 entitlementsInherit:_path.default.join(appFolder,'entitlements.mas.inherit.plist'),
 provisioningProfile:_path.default.join(appFolder,'embedded.provisionprofile'),
-hardenedRuntime:false};
-
+hardenedRuntime:false
+};
 }
 
 var electronConfig=merge({
@@ -122,12 +122,12 @@ appId:appId,
 directories:{
 app:appFolder,
 buildResources:_path.default.join(appFolder,'resources'),
-output:_path.default.join(appFolder,'build/release')},
-
+output:_path.default.join(appFolder,'build/release')
+},
 files:[
-'!build/release']},
+'!build/release']
 
-macConfig);
+},macConfig);
 
 var electronConfigExt=(0,_common.getConfigProp)(c,platform,'electronConfig');
 
@@ -146,7 +146,7 @@ var buildElectron=function buildElectron(c,platform){
 return(0,_web.buildWeb)(c,platform);
 };exports.buildElectron=buildElectron;
 
-var exportElectron=function exportElectron(c,platform){var maxErrorLength,appFolder,buildPath;return _regenerator.default.async(function exportElectron$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var exportElectron=function exportElectron(c,platform){var maxErrorLength,appFolder,buildPath;return _regenerator.default.async(function exportElectron$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("exportElectron:"+platform);
 maxErrorLength=c.program.maxErrorLength;
 appFolder=(0,_common.getAppFolder)(c,platform);
@@ -159,10 +159,10 @@ console.log("removing old build "+buildPath);_context2.next=8;return _regenerato
 
 (0,_exec.executeAsync)(c,"npx electron-builder --config "+_path.default.join(appFolder,'electronConfig.json')));case 10:
 
-(0,_logger.logSuccess)("Your Exported App is located in "+_chalk.default.white(_path.default.join(appFolder,'build/release'))+" .");case 11:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.exportElectron=exportElectron;
+(0,_logger.logSuccess)("Your Exported App is located in "+_chalk.default.white(_path.default.join(appFolder,'build/release'))+" .");case 11:case"end":return _context2.stop();}},null,null,null,Promise);};exports.exportElectron=exportElectron;
 
 
-var runElectron=function runElectron(c,platform,port){var bundleIsDev,bundleAssets,isPortActive;return _regenerator.default.async(function runElectron$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var runElectron=function runElectron(c,platform,port){var bundleIsDev,bundleAssets,isPortActive;return _regenerator.default.async(function runElectron$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)("runElectron:"+platform);
 
 bundleIsDev=(0,_common.getConfigProp)(c,platform,'bundleIsDev')===true;
@@ -186,12 +186,12 @@ catch(_logger.logError);_context3.next=18;return _regenerator.default.awrap(
 runElectronDevServer(c,platform,port));case 18:_context3.next=24;break;case 20:_context3.next=22;return _regenerator.default.awrap(
 
 (0,_common.confirmActiveBundler)(c));case 22:_context3.next=24;return _regenerator.default.awrap(
-_runElectronSimulator(c,platform));case 24:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.runElectron=runElectron;
+_runElectronSimulator(c,platform));case 24:case"end":return _context3.stop();}},null,null,null,Promise);};exports.runElectron=runElectron;
 
 
 
 
-var _runElectronSimulator=function _runElectronSimulator(c){var appFolder,elc,child;return _regenerator.default.async(function _runElectronSimulator$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _runElectronSimulator=function _runElectronSimulator(c){var appFolder,elc,child;return _regenerator.default.async(function _runElectronSimulator$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)("_runElectronSimulator:"+c.platform);
 appFolder=(0,_common.getAppFolder)(c,c.platform);
 elc=(0,_common.resolveNodeModulePath)(c,'electron/cli.js');
@@ -199,18 +199,18 @@ elc=(0,_common.resolveNodeModulePath)(c,'electron/cli.js');
 child=(0,_child_process.spawn)('node',[elc,_path.default.join(appFolder,'/main.js')],{
 detached:true,
 env:process.env,
-stdio:'inherit'}).
-
+stdio:'inherit'
+}).
 on('close',function(code){return process.exit(code);}).
 on('error',function(spawnError){return console.error(spawnError);});
 
-child.unref();case 5:case"end":return _context4.stop();}}},null,null,null,Promise);};
+child.unref();case 5:case"end":return _context4.stop();}},null,null,null,Promise);};
 
 
-var runElectronDevServer=function runElectronDevServer(c,platform,port){return _regenerator.default.async(function runElectronDevServer$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var runElectronDevServer=function runElectronDevServer(c,platform,port){return _regenerator.default.async(function runElectronDevServer$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)("runElectronDevServer:"+platform);return _context5.abrupt("return",
 
-(0,_web.runWeb)(c,platform,port));case 2:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.runElectronDevServer=runElectronDevServer;
+(0,_web.runWeb)(c,platform,port));case 2:case"end":return _context5.stop();}},null,null,null,Promise);};exports.runElectronDevServer=runElectronDevServer;
 
 
 var _generateICNS=function _generateICNS(c,platform){return new Promise(function(resolve,reject){

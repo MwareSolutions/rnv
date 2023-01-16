@@ -28,8 +28,8 @@ var output={
 asString:'',
 asArray:[],
 plugins:[],
-allPlugins:{}};
-
+allPlugins:{}
+};
 
 var i=1;
 
@@ -83,7 +83,7 @@ return com;
 return output;
 };
 
-var rnvPluginAdd=function rnvPluginAdd(c){var o,_await$inquirer$promp,plugin,installMessage,selectedPlugins,questionPlugins,pluginKeys,i,pluginKey,_plugin,pluginProps,finalProps,i2,_await$inquirer$promp2,propValue,spinner;return _regenerator.default.async(function rnvPluginAdd$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var rnvPluginAdd=function rnvPluginAdd(c){var o,_await$inquirer$promp,plugin,installMessage,selectedPlugins,questionPlugins,pluginKeys,i,pluginKey,_plugin,pluginProps,finalProps,i2,_await$inquirer$promp2,propValue,spinner;return _regenerator.default.async(function rnvPluginAdd$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('rnvPluginAdd');
 
 o=_getPluginList(c);_context.next=4;return _regenerator.default.awrap(
@@ -93,8 +93,8 @@ name:'plugin',
 type:'rawlist',
 message:'Select the plugins you want to add',
 choices:o.asArray,
-pageSize:50}));case 4:_await$inquirer$promp=_context.sent;plugin=_await$inquirer$promp.plugin;
-
+pageSize:50
+}));case 4:_await$inquirer$promp=_context.sent;plugin=_await$inquirer$promp.plugin;
 
 installMessage=[];
 selectedPlugins={};
@@ -123,8 +123,8 @@ i2=0;case 20:if(!(i2<pluginProps.length)){_context.next=29;break;}_context.next=
 _inquirer.default.prompt({
 name:'propValue',
 type:'input',
-message:pluginKey+": Add value for "+pluginProps[i2]+" (You can do this later in ./renative.json file)"}));case 23:_await$inquirer$promp2=_context.sent;propValue=_await$inquirer$promp2.propValue;
-
+message:pluginKey+": Add value for "+pluginProps[i2]+" (You can do this later in ./renative.json file)"
+}));case 23:_await$inquirer$promp2=_context.sent;propValue=_await$inquirer$promp2.propValue;
 finalProps[pluginProps[i2]]=propValue;case 26:i2++;_context.next=20;break;case 29:
 
 c.files.project.config.plugins[pluginKey]={};
@@ -135,7 +135,7 @@ spinner=(0,_ora.default)("Installing: "+installMessage.join(', ')).start();
 
 (0,_fileutils.writeFileSync)(c.paths.project.config,c.files.project.config);
 spinner.succeed('All plugins installed!');
-(0,_logger.logSuccess)('Plugins installed successfully!');case 38:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvPluginAdd=rnvPluginAdd;
+(0,_logger.logSuccess)('Plugins installed successfully!');case 38:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvPluginAdd=rnvPluginAdd;
 
 
 var _checkAndAddDependantPlugins=function _checkAndAddDependantPlugins(c,plugin){
@@ -152,7 +152,7 @@ c.buildConfig.plugins[v]=templatePlugins[v];
 }
 };
 
-var rnvPluginUpdate=function rnvPluginUpdate(c){var o,_await$inquirer$promp3,confirm,plugins;return _regenerator.default.async(function rnvPluginUpdate$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var rnvPluginUpdate=function rnvPluginUpdate(c){var o,_await$inquirer$promp3,confirm,plugins;return _regenerator.default.async(function rnvPluginUpdate$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)('rnvPluginUpdate');
 
 o=_getPluginList(c,true);
@@ -162,8 +162,8 @@ console.log(o.asString);_context2.next=5;return _regenerator.default.awrap(
 _inquirer.default.prompt({
 name:'confirm',
 type:'confirm',
-message:'Above installed plugins will be updated with RNV'}));case 5:_await$inquirer$promp3=_context2.sent;confirm=_await$inquirer$promp3.confirm;
-
+message:'Above installed plugins will be updated with RNV'
+}));case 5:_await$inquirer$promp3=_context2.sent;confirm=_await$inquirer$promp3.confirm;
 
 if(confirm){
 plugins=c.buildConfig.plugins;
@@ -175,7 +175,7 @@ c.files.project.config.plugins[key]=o.json[key];
 (0,_fileutils.writeFileSync)(c.paths.project.config,c.files.project.config);
 
 (0,_logger.logSuccess)('Plugins updated successfully!');
-}case 8:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.rnvPluginUpdate=rnvPluginUpdate;
+}case 8:case"end":return _context2.stop();}},null,null,null,Promise);};exports.rnvPluginUpdate=rnvPluginUpdate;
 
 
 var getMergedPlugin=function getMergedPlugin(c,key,plugins){var _c$files$rnv$pluginTe,_c$files$rnv$pluginTe2,_c$files$rnv$pluginTe3;var noMerge=arguments.length>3&&arguments[3]!==undefined?arguments[3]:false;
@@ -346,11 +346,11 @@ webpack:{
 modulePaths:[],
 moduleAliases:{
 renative:{
-projectPath:'packages/renative'}}}};};exports.getLocalRenativePlugin=getLocalRenativePlugin;var _default=
-
-
-
-
+projectPath:'packages/renative'
+}
+}
+}
+};};exports.getLocalRenativePlugin=getLocalRenativePlugin;var _default=
 
 
 

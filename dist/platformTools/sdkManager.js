@@ -50,15 +50,15 @@ _path.default.join('usr/local/tizen-studio'),
 _path.default.join(homedir,'tizen-studio')],
 
 webos:[
-_path.default.join('/opt/webOS_TV_SDK')]};
+_path.default.join('/opt/webOS_TV_SDK')]
 
-
+};
 
 var _logSdkWarning=function _logSdkWarning(c){
 (0,_logger.logWarning)("Your "+c.paths.workspace.config+" is missing SDK configuration object");
 };
 
-var checkAndConfigureAndroidSdks=function checkAndConfigureAndroidSdks(c){var _c$files$workspace$co,_c$files$workspace$co2;var sdk;return _regenerator.default.async(function checkAndConfigureAndroidSdks$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var checkAndConfigureAndroidSdks=function checkAndConfigureAndroidSdks(c){var _c$files$workspace$co,_c$files$workspace$co2;var sdk;return _regenerator.default.async(function checkAndConfigureAndroidSdks$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("checkAndConfigureAndroidSdks:"+c.platform);
 sdk=(_c$files$workspace$co=c.files.workspace.config)==null?void 0:(_c$files$workspace$co2=_c$files$workspace$co.sdks)==null?void 0:_c$files$workspace$co2.ANDROID_SDK;
 if(sdk){
@@ -68,10 +68,10 @@ c.cli[_constants.CLI_ANDROID_AVDMANAGER]=(0,_fileutils.getRealPath)(c,_path.defa
 c.cli[_constants.CLI_ANDROID_SDKMANAGER]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"tools/bin/sdkmanager"+(_utils.isSystemWin?'.bat':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context.stop();}}},null,null,null,Promise);};exports.checkAndConfigureAndroidSdks=checkAndConfigureAndroidSdks;
+}case 3:case"end":return _context.stop();}},null,null,null,Promise);};exports.checkAndConfigureAndroidSdks=checkAndConfigureAndroidSdks;
 
 
-var checkAndConfigureTizenSdks=function checkAndConfigureTizenSdks(c){var _c$files$workspace$co3,_c$files$workspace$co4;var sdk;return _regenerator.default.async(function checkAndConfigureTizenSdks$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var checkAndConfigureTizenSdks=function checkAndConfigureTizenSdks(c){var _c$files$workspace$co3,_c$files$workspace$co4;var sdk;return _regenerator.default.async(function checkAndConfigureTizenSdks$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("checkAndConfigureTizenSdks:"+c.platform);
 sdk=(_c$files$workspace$co3=c.files.workspace.config)==null?void 0:(_c$files$workspace$co4=_c$files$workspace$co3.sdks)==null?void 0:_c$files$workspace$co4.TIZEN_SDK;
 if(sdk){
@@ -80,10 +80,10 @@ c.cli[_constants.CLI_TIZEN]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,
 c.cli[_constants.CLI_SDB_TIZEN]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"tools/sdb"+(_utils.isSystemWin?'.exe':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.checkAndConfigureTizenSdks=checkAndConfigureTizenSdks;
+}case 3:case"end":return _context2.stop();}},null,null,null,Promise);};exports.checkAndConfigureTizenSdks=checkAndConfigureTizenSdks;
 
 
-var checkAndConfigureWebosSdks=function checkAndConfigureWebosSdks(c){var _c$files$workspace$co5,_c$files$workspace$co6;var sdk;return _regenerator.default.async(function checkAndConfigureWebosSdks$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var checkAndConfigureWebosSdks=function checkAndConfigureWebosSdks(c){var _c$files$workspace$co5,_c$files$workspace$co6;var sdk;return _regenerator.default.async(function checkAndConfigureWebosSdks$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)("checkAndConfigureWebosSdks:"+c.platform);
 sdk=(_c$files$workspace$co5=c.files.workspace.config)==null?void 0:(_c$files$workspace$co6=_c$files$workspace$co5.sdks)==null?void 0:_c$files$workspace$co6.WEBOS_SDK;
 if(sdk){
@@ -96,10 +96,10 @@ c.cli[_constants.CLI_WEBOS_ARES_DEVICE_INFO]=(0,_fileutils.getRealPath)(c,_path.
 c.cli[_constants.CLI_WEBOS_ARES_NOVACOM]=(0,_fileutils.getRealPath)(c,_path.default.join(sdk,"CLI/bin/ares-novacom"+(_utils.isSystemWin?'.cmd':'')));
 }else{
 _logSdkWarning(c);
-}case 3:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.checkAndConfigureWebosSdks=checkAndConfigureWebosSdks;
+}case 3:case"end":return _context3.stop();}},null,null,null,Promise);};exports.checkAndConfigureWebosSdks=checkAndConfigureWebosSdks;
 
 
-var checkAndConfigureSdks=function checkAndConfigureSdks(c){return _regenerator.default.async(function checkAndConfigureSdks$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var checkAndConfigureSdks=function checkAndConfigureSdks(c){return _regenerator.default.async(function checkAndConfigureSdks$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)("checkAndConfigureSdks:"+c.platform);_context4.t0=
 
 c.platform;_context4.next=_context4.t0===
@@ -114,7 +114,7 @@ _constants.TIZEN_WATCH?5:_context4.t0===
 _constants.WEBOS?6:7;break;case 4:return _context4.abrupt("return",checkAndConfigureAndroidSdks(c));case 5:return _context4.abrupt("return",checkAndConfigureTizenSdks(c));case 6:return _context4.abrupt("return",
 checkAndConfigureWebosSdks(c));case 7:return _context4.abrupt("return",
 
-true);case 8:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.checkAndConfigureSdks=checkAndConfigureSdks;
+true);case 8:case"end":return _context4.stop();}},null,null,null,Promise);};exports.checkAndConfigureSdks=checkAndConfigureSdks;
 
 
 
@@ -130,15 +130,15 @@ var sdkPath=_getCurrentSdkPath(c,c.platform);
 return _fs.default.existsSync((0,_fileutils.getRealPath)(c,sdkPath));
 };
 
-var _attemptAutoFix=function _attemptAutoFix(c,engine){var result,_await$inquirer$promp,confirm,setupInstance;return _regenerator.default.async(function _attemptAutoFix$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var _attemptAutoFix=function _attemptAutoFix(c,engine){var result,_await$inquirer$promp,confirm,setupInstance;return _regenerator.default.async(function _attemptAutoFix$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 result=SDK_LOACTIONS[engine].find(function(v){return _fs.default.existsSync(v);});if(!
 result){_context5.next=19;break;}
 (0,_logger.logSuccess)("Found existing "+c.platform+" SDK location at "+_chalk.default.white(result));_context5.next=5;return _regenerator.default.awrap(
 _inquirer.default.prompt({
 type:'confirm',
 name:'confirm',
-message:'Do you want to use it?'}));case 5:_await$inquirer$promp=_context5.sent;confirm=_await$inquirer$promp.confirm;if(!
-
+message:'Do you want to use it?'
+}));case 5:_await$inquirer$promp=_context5.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 confirm){_context5.next=19;break;}_context5.prev=8;
 
@@ -154,11 +154,11 @@ true);case 19:
 
 
 setupInstance=(0,_setupTools.default)(c);return _context5.abrupt("return",
-setupInstance.askToInstallSDK(engine));case 21:case"end":return _context5.stop();}}},null,null,[[8,15]],Promise);};
+setupInstance.askToInstallSDK(engine));case 21:case"end":return _context5.stop();}},null,null,[[8,15]],Promise);};
 
 
 
-var checkSdk=function checkSdk(c){return _regenerator.default.async(function checkSdk$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var checkSdk=function checkSdk(c){return _regenerator.default.async(function checkSdk$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)('checkSdk');if(
 _isSdkInstalled(c)){_context6.next=10;break;}
 (0,_logger.logWarning)(c.platform+" requires SDK to be installed. Your SDK path in "+_chalk.default.white(c.paths.workspace.config)+" does not exist: "+_chalk.default.white(_getCurrentSdkPath(c)));_context6.t0=
@@ -178,5 +178,5 @@ _attemptAutoFix(c,'webos'));case 9:return _context6.abrupt("return",
 true);case 10:return _context6.abrupt("return",
 
 
-true);case 11:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.checkSdk=checkSdk;
+true);case 11:case"end":return _context6.stop();}},null,null,null,Promise);};exports.checkSdk=checkSdk;
 //# sourceMappingURL=sdkManager.js.map

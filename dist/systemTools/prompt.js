@@ -5,7 +5,7 @@ var _config=_interopRequireDefault(require("../config"));
 
 var highlight=_chalk.default.grey.bold;
 
-var inquirerPrompt=function inquirerPrompt(params){var c,msg,type,name,result;return _regenerator.default.async(function inquirerPrompt$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var inquirerPrompt=function inquirerPrompt(params){var c,msg,type,name,result;return _regenerator.default.async(function inquirerPrompt$(_context){while(1)switch(_context.prev=_context.next){case 0:
 c=_config.default.getConfig();
 msg=params.logMessage||params.warningMessage||params.message;if(!
 c.program.ci){_context.next=4;break;}throw(
@@ -19,7 +19,7 @@ type=params.type,name=params.name;
 if(type==='confirm'&&!name)params.name='confirm';_context.next=10;return _regenerator.default.awrap(
 
 _inquirer.default.prompt(params));case 10:result=_context.sent;return _context.abrupt("return",
-result);case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.inquirerPrompt=inquirerPrompt;
+result);case 12:case"end":return _context.stop();}},null,null,null,Promise);};exports.inquirerPrompt=inquirerPrompt;
 
 
 var generateOptions=function generateOptions(inputData){var isMultiChoice=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;var mapping=arguments.length>2?arguments[2]:undefined;var renderMethod=arguments.length>3?arguments[3]:undefined;

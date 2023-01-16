@@ -17,7 +17,7 @@ var _index=require("./index");
 var _provisionParser=require("./provisionParser");
 var _fileutils=require("../../systemTools/fileutils");
 
-var parseXcodeProject=function parseXcodeProject(c,platform){var result,eligibleProfile,_await$inquirerPrompt,autoFix;return _regenerator.default.async(function parseXcodeProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var parseXcodeProject=function parseXcodeProject(c,platform){var result,eligibleProfile,_await$inquirerPrompt,autoFix;return _regenerator.default.async(function parseXcodeProject$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('parseXcodeProject');
 
 c.runtime.xcodeProj={};
@@ -49,8 +49,8 @@ eligibleProfile){_context.next=24;break;}_context.next=19;return _regenerator.de
 type:'confirm',
 name:'autoFix',
 message:"Found following eligible provisioning profile on your system: "+eligibleProfile.Entitlements['application-identifier']+". Do you want ReNative to fix your app confing?",
-warningMessage:'No provisionProfileSpecifier configured in appConfig despite setting provisioningStyle to manual'}));case 19:_await$inquirerPrompt=_context.sent;autoFix=_await$inquirerPrompt.autoFix;
-
+warningMessage:'No provisionProfileSpecifier configured in appConfig despite setting provisioningStyle to manual'
+}));case 19:_await$inquirerPrompt=_context.sent;autoFix=_await$inquirerPrompt.autoFix;
 if(autoFix){
 c.runtime.xcodeProj.provisionProfileSpecifier=eligibleProfile.Name;
 c.files.appConfig.config.platforms[platform].buildSchemes[c.program.scheme].provisionProfileSpecifier=eligibleProfile.Name;
@@ -61,7 +61,7 @@ c.files.appConfig.config.platforms[platform].buildSchemes[c.program.scheme].prov
 
 
 
-_parseXcodeProject(c,platform));case 27:case"end":return _context.stop();}}},null,null,null,Promise);};exports.parseXcodeProject=parseXcodeProject;
+_parseXcodeProject(c,platform));case 27:case"end":return _context.stop();}},null,null,null,Promise);};exports.parseXcodeProject=parseXcodeProject;
 
 
 var _parseXcodeProject=function _parseXcodeProject(c,platform){return new Promise(function(resolve,reject){
@@ -153,8 +153,8 @@ xcodeprojObj.buildPhases.forEach(function(v){
 xcodeProj.addBuildPhase([],'PBXShellScriptBuildPhase','ShellScript',null,{
 shellPath:v.shellPath||'/bin/sh',
 shellScript:v.shellScript,
-inputPaths:v.inputPaths||['"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"']});
-
+inputPaths:v.inputPaths||['"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"']
+});
 });
 }
 if(xcodeprojObj.frameworks){
@@ -166,13 +166,13 @@ fPath=_path.default.join(appFolder,k.replace('./',''));
 opts={
 customFramework:true,
 embed:true,
-link:true};
-
+link:true
+};
 }else{
 fPath=_path.default.join('System/Library/Frameworks',k);
 opts={
-embed:true};
-
+embed:true
+};
 }
 xcodeProj.addFramework(fPath,opts);
 }

@@ -4,7 +4,7 @@ var _common=require("../common");
 var _config=_interopRequireDefault(require("../config"));
 var _setupTools=_interopRequireDefault(require("../setupTools"));
 
-var rnvFastlane=function rnvFastlane(){var args,setupInstance,c,appFolder,fastlaneArgs;return _regenerator.default.async(function rnvFastlane$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var rnvFastlane=function rnvFastlane(){var args,setupInstance,c,appFolder,fastlaneArgs;return _regenerator.default.async(function rnvFastlane$(_context){while(1)switch(_context.prev=_context.next){case 0:
 args=_config.default.rnvArguments;
 args.shift();if(
 
@@ -22,5 +22,6 @@ fastlaneArgs=fastlaneArgs.slice(3);return _context.abrupt("return",
 (0,_exec.executeAsync)(c,"fastlane "+fastlaneArgs.join(' '),{
 interactive:true,
 env:process.env,
-cwd:appFolder}));case 11:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvFastlane=rnvFastlane;
+cwd:appFolder
+}));case 11:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvFastlane=rnvFastlane;
 //# sourceMappingURL=fastlane.js.map

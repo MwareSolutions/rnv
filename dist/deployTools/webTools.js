@@ -18,7 +18,7 @@ var DEPLOY_TARGET_FTP='ftp';exports.DEPLOY_TARGET_FTP=DEPLOY_TARGET_FTP;
 var DEPLOY_TARGET_NOW='now';exports.DEPLOY_TARGET_NOW=DEPLOY_TARGET_NOW;
 var DEPLOY_TARGET_NONE='none';exports.DEPLOY_TARGET_NONE=DEPLOY_TARGET_NONE;
 
-var _runDeployment=function _runDeployment(c,platform,deployType){var rnvPath,deployToDocker;return _regenerator.default.async(function _runDeployment$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.t0=
+var _runDeployment=function _runDeployment(c,platform,deployType){var rnvPath,deployToDocker;return _regenerator.default.async(function _runDeployment$(_context){while(1)switch(_context.prev=_context.next){case 0:_context.t0=
 deployType;_context.next=_context.t0===
 DEPLOY_TARGET_FTP?3:_context.t0===
 
@@ -32,7 +32,7 @@ deployToDocker=(0,_common.importPackageFromProject)('@rnv/deploy-docker');
 deployToDocker.setRNVPath(rnvPath);return _context.abrupt("return",
 deployToDocker.doDeploy());case 10:return _context.abrupt("return",
 
-Promise.reject(new Error("Deploy Type not supported "+deployType)));case 11:case"end":return _context.stop();}}},null,null,null,Promise);};
+Promise.reject(new Error("Deploy Type not supported "+deployType)));case 11:case"end":return _context.stop();}},null,null,null,Promise);};
 
 
 
@@ -48,7 +48,7 @@ return Promise.reject(new Error("Deploy Type not supported "+deployType));}
 
 };
 
-var selectToolAndExecute=function selectToolAndExecute(_ref){var c,platform,choices,configFunction,executeFunction,_ref$isDeploy,isDeploy,argv,type,targetConfig,_await$inquirer$promp,selectedTarget;return _regenerator.default.async(function selectToolAndExecute$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var selectToolAndExecute=function selectToolAndExecute(_ref){var c,platform,choices,configFunction,executeFunction,_ref$isDeploy,isDeploy,argv,type,targetConfig,_await$inquirer$promp,selectedTarget;return _regenerator.default.async(function selectToolAndExecute$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 c=_ref.c,platform=_ref.platform,choices=_ref.choices,configFunction=_ref.configFunction,executeFunction=_ref.executeFunction,_ref$isDeploy=_ref.isDeploy,isDeploy=_ref$isDeploy===void 0?true:_ref$isDeploy;
 
 argv=(0,_minimist.default)(c.process.argv.slice(2));
@@ -63,13 +63,13 @@ _inquirer.default.prompt({
 name:'selectedTarget',
 type:'list',
 choices:choices,
-message:"Which type of "+(isDeploy?'deploy':'export')+" option would you like to use for "+_chalk.default.white(platform)+"?"}));case 10:_await$inquirer$promp=_context2.sent;selectedTarget=_await$inquirer$promp.selectedTarget;_context2.next=14;return _regenerator.default.awrap(
-
+message:"Which type of "+(isDeploy?'deploy':'export')+" option would you like to use for "+_chalk.default.white(platform)+"?"
+}));case 10:_await$inquirer$promp=_context2.sent;selectedTarget=_await$inquirer$promp.selectedTarget;_context2.next=14;return _regenerator.default.awrap(
 
 configFunction(selectedTarget));case 14:
 
 (0,_logger.logInfo)("Setting your appconfig for "+_chalk.default.white(platform)+" to include "+(isDeploy?'deploy':'export')+" type: "+_chalk.default.white(selectedTarget)+" at "+_chalk.default.white(c.paths.appConfig.config));return _context2.abrupt("return",
-executeFunction(c,platform,selectedTarget));case 16:case"end":return _context2.stop();}}},null,null,null,Promise);};
+executeFunction(c,platform,selectedTarget));case 16:case"end":return _context2.stop();}},null,null,null,Promise);};
 
 
 var selectWebToolAndDeploy=function selectWebToolAndDeploy(c,platform){return selectToolAndExecute({
@@ -77,8 +77,8 @@ c:c,
 platform:platform,
 choices:[DEPLOY_TARGET_DOCKER,DEPLOY_TARGET_FTP,DEPLOY_TARGET_NOW,DEPLOY_TARGET_NONE],
 configFunction:_configure.configureDeploymentIfRequired,
-executeFunction:_runDeployment});};exports.selectWebToolAndDeploy=selectWebToolAndDeploy;
-
+executeFunction:_runDeployment
+});};exports.selectWebToolAndDeploy=selectWebToolAndDeploy;
 
 var selectWebToolAndExport=function selectWebToolAndExport(c,platform){return selectToolAndExecute({
 c:c,
@@ -86,5 +86,6 @@ platform:platform,
 choices:[DEPLOY_TARGET_DOCKER],
 configFunction:_configure.configureExportIfRequired,
 executeFunction:_runExport,
-isDeploy:false});};exports.selectWebToolAndExport=selectWebToolAndExport;
+isDeploy:false
+});};exports.selectWebToolAndExport=selectWebToolAndExport;
 //# sourceMappingURL=webTools.js.map

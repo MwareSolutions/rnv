@@ -31,8 +31,8 @@ c.files.project.config.templates=c.files.project.config.templates||{};
 
 if(!c.files.project.config.templates[template]){
 c.files.project.config.templates[template]={
-version:'latest'};
-
+version:'latest'
+};
 }
 
 _writeObjectSync(c,c.paths.project.config,c.files.project.config);
@@ -68,7 +68,7 @@ _writeObjectSync(c,c.paths.project.package,c.files.project.package);
 resolve();
 });};exports.checkIfTemplateInstalled=checkIfTemplateInstalled;
 
-var applyTemplate=function applyTemplate(c,selectedTemplate){var opts,_await$inquirer$promp,template;return _regenerator.default.async(function applyTemplate$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var applyTemplate=function applyTemplate(c,selectedTemplate){var opts,_await$inquirer$promp,template;return _regenerator.default.async(function applyTemplate$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("applyTemplate:"+c.buildConfig.currentTemplate+"=>"+selectedTemplate+":");
 c.runtime.selectedTemplate=selectedTemplate;if(
 
@@ -80,8 +80,8 @@ _inquirer.default.prompt({
 type:'list',
 name:'template',
 message:'Pick which template to apply',
-choices:opts.keysAsArray}));case 7:_await$inquirer$promp=_context.sent;template=_await$inquirer$promp.template;
-
+choices:opts.keysAsArray
+}));case 7:_await$inquirer$promp=_context.sent;template=_await$inquirer$promp.template;
 
 c.buildConfig.currentTemplate=template;
 c.files.project.config.currentTemplate=template;
@@ -93,7 +93,7 @@ _configureSrc(c));case 16:_context.next=18;return _regenerator.default.awrap(
 _configureAppConfigs(c));case 18:_context.next=20;return _regenerator.default.awrap(
 _configureProjectConfig(c));case 20:_context.next=22;return _regenerator.default.awrap(
 _configureRenativeConfig(c));case 22:_context.next=24;return _regenerator.default.awrap(
-configureEntryPoints(c));case 24:case"end":return _context.stop();}}},null,null,null,Promise);};exports.applyTemplate=applyTemplate;
+configureEntryPoints(c));case 24:case"end":return _context.stop();}},null,null,null,Promise);};exports.applyTemplate=applyTemplate;
 
 
 var _cleanProjectTemplateSync=function _cleanProjectTemplateSync(c){
@@ -111,7 +111,7 @@ var filesToRemove=c.buildConfig.defaults.supportedPlatforms.map(function(p){retu
 (0,_fileutils.removeFilesSync)(filesToRemove);
 };
 
-var _applyTemplate=function _applyTemplate(c){return _regenerator.default.async(function _applyTemplate$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _applyTemplate=function _applyTemplate(c){return _regenerator.default.async(function _applyTemplate$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("_applyTemplate:"+c.runtime.selectedTemplate);
 
 if(c.runtime.selectedTemplate){
@@ -145,7 +145,7 @@ c.runtime.requiresForcedTemplateApply=true;
 (0,_configParser.setAppConfig)(c,c.runtime.appId));case 13:
 (0,_configParser.generateLocalConfig)(c,!!c.runtime.selectedTemplate);return _context2.abrupt("return",
 
-true);case 15:case"end":return _context2.stop();}}},null,null,null,Promise);};
+true);case 15:case"end":return _context2.stop();}},null,null,null,Promise);};
 
 
 var _configureSrc=function _configureSrc(c){return new Promise(function(resolve,reject){
@@ -159,7 +159,7 @@ resolve();
 });};
 
 
-var _configureAppConfigs=function _configureAppConfigs(c){var appConfigIds,_c$files$project,_c$files$project$defa,supPlats,pk;return _regenerator.default.async(function _configureAppConfigs$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var _configureAppConfigs=function _configureAppConfigs(c){var appConfigIds,_c$files$project,_c$files$project$defa,supPlats,pk;return _regenerator.default.async(function _configureAppConfigs$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 
 (0,_logger.logTask)('configureProject:check appConfigs',_chalk.default.grey);if(
 
@@ -202,7 +202,7 @@ delete appConfig.platforms[pk];
 }_context3.next=11;return _regenerator.default.awrap(
 (0,_configParser.updateConfig)(c,true));case 11:_context3.next=16;break;case 13:_context3.prev=13;_context3.t0=_context3["catch"](5);
 
-(0,_logger.logError)(_context3.t0);case 16:case"end":return _context3.stop();}}},null,null,[[5,13]],Promise);};
+(0,_logger.logError)(_context3.t0);case 16:case"end":return _context3.stop();}},null,null,[[5,13]],Promise);};
 
 
 
@@ -319,7 +319,7 @@ var opts=getTemplateOptions(c);
 resolve();
 });};exports.rnvTemplateList=rnvTemplateList;
 
-var rnvTemplateAdd=function rnvTemplateAdd(c){var opts,_await$inquirer$promp2,template;return _regenerator.default.async(function rnvTemplateAdd$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var rnvTemplateAdd=function rnvTemplateAdd(c){var opts,_await$inquirer$promp2,template;return _regenerator.default.async(function rnvTemplateAdd$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)('rnvTemplateAdd');
 
 opts=getTemplateOptions(c);_context4.next=4;return _regenerator.default.awrap(
@@ -328,13 +328,13 @@ _inquirer.default.prompt({
 type:'list',
 message:'Pick which template to install',
 name:'template',
-choices:opts.keysAsArray}));case 4:_await$inquirer$promp2=_context4.sent;template=_await$inquirer$promp2.template;
+choices:opts.keysAsArray
+}));case 4:_await$inquirer$promp2=_context4.sent;template=_await$inquirer$promp2.template;
+
+addTemplate(c,template);case 7:case"end":return _context4.stop();}},null,null,null,Promise);};exports.rnvTemplateAdd=rnvTemplateAdd;
 
 
-addTemplate(c,template);case 7:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.rnvTemplateAdd=rnvTemplateAdd;
-
-
-var rnvTemplateApply=function rnvTemplateApply(c){var opts,_await$inquirer$promp3,template;return _regenerator.default.async(function rnvTemplateApply$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var rnvTemplateApply=function rnvTemplateApply(c){var opts,_await$inquirer$promp3,template;return _regenerator.default.async(function rnvTemplateApply$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)("rnvTemplateApply:"+c.program.template);if(!
 
 c.program.template){_context5.next=3;break;}return _context5.abrupt("return",
@@ -346,8 +346,8 @@ _inquirer.default.prompt({
 type:'list',
 message:'Pick which template to install',
 name:'template',
-choices:opts.keysAsArray}));case 6:_await$inquirer$promp3=_context5.sent;template=_await$inquirer$promp3.template;
+choices:opts.keysAsArray
+}));case 6:_await$inquirer$promp3=_context5.sent;template=_await$inquirer$promp3.template;
 
-
-applyTemplate(c,template);case 9:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.rnvTemplateApply=rnvTemplateApply;
+applyTemplate(c,template);case 9:case"end":return _context5.stop();}},null,null,null,Promise);};exports.rnvTemplateApply=rnvTemplateApply;
 //# sourceMappingURL=index.js.map

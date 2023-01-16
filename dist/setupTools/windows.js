@@ -30,23 +30,23 @@ this.scoopInstalled=true;
 }
 }},{key:"installSoftware",value:
 
-function installSoftware(software){return _regenerator.default.async(function installSoftware$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
+function installSoftware(software){return _regenerator.default.async(function installSoftware$(_context){while(1)switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
 _shelljs.default.exec((0,_fileutils.replaceHomeFolder)("~/scoop/shims/scoop install "+software)));case 2:_context.next=4;return _regenerator.default.awrap(
 this.reloadPathEnv());case 4:return _context.abrupt("return",
-true);case 5:case"end":return _context.stop();}}},null,this,null,Promise);}},{key:"addScoopBucket",value:
+true);case 5:case"end":return _context.stop();}},null,this,null,Promise);}},{key:"addScoopBucket",value:
 
 
 function addScoopBucket(bucket){
 return _shelljs.default.exec((0,_fileutils.replaceHomeFolder)("~/scoop/shims/scoop bucket add "+bucket));
 }},{key:"reloadPathEnv",value:
 
-function reloadPathEnv(){return _regenerator.default.async(function reloadPathEnv$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
+function reloadPathEnv(){return _regenerator.default.async(function reloadPathEnv$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:_context2.next=2;return _regenerator.default.awrap(
 _shelljs.default.exec((0,_getInstalledPath.getInstalledPathSync)('rnv')+"/scripts/resetPath.vbs"));case 2:_context2.next=4;return _regenerator.default.awrap(
 _shelljs.default.exec('%TEMP%/resetvars.bat'));case 4:return _context2.abrupt("return",
-true);case 5:case"end":return _context2.stop();}}},null,null,null,Promise);}},{key:"installPrereqs",value:
+true);case 5:case"end":return _context2.stop();}},null,null,null,Promise);}},{key:"installPrereqs",value:
 
 
-function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:if(
+function installPrereqs(){return _regenerator.default.async(function installPrereqs$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:if(
 this.scoopInstalled){_context3.next=6;break;}
 (0,_logger.logInfo)('Installing Scoop...');_context3.next=4;return _regenerator.default.awrap(
 _shelljs.default.exec("powershell -executionpolicy remotesigned \"& \"\""+(0,_getInstalledPath.getInstalledPathSync)('rnv')+"/scripts/installPackageManager.ps1\"\"\""));case 4:_context3.next=6;return _regenerator.default.awrap(
@@ -70,17 +70,17 @@ this.addScoopBucket('java'));case 21:_context3.next=23;return _regenerator.defau
 this.installSoftware('ojdkbuild8'));case 23:return _context3.abrupt("return",
 
 
-true);case 24:case"end":return _context3.stop();}}},null,this,null,Promise);}},{key:"installSdksAndEmulator",value:
+true);case 24:case"end":return _context3.stop();}},null,this,null,Promise);}},{key:"installSdksAndEmulator",value:
 
 
-function installSdksAndEmulator(){return _regenerator.default.async(function installSdksAndEmulator$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+function installSdksAndEmulator(){return _regenerator.default.async(function installSdksAndEmulator$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logDebug)('Accepting licenses');_context4.next=3;return _regenerator.default.awrap(
 (0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat --licenses"));case 3:
 (0,_logger.logDebug)('Installing SDKs',this.sdksToInstall);_context4.next=6;return _regenerator.default.awrap(
-(0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat "+this.sdksToInstall));case 6:case"end":return _context4.stop();}}},null,this,null,Promise);}},{key:"installTizenSdk",value:
+(0,_exec.executeAsync)({},this.androidSdkLocation+"/tools/bin/sdkmanager.bat "+this.sdksToInstall));case 6:case"end":return _context4.stop();}},null,this,null,Promise);}},{key:"installTizenSdk",value:
 
 
-function installTizenSdk(){var downloadDir,res;return _regenerator.default.async(function installTizenSdk$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+function installTizenSdk(){var downloadDir,res;return _regenerator.default.async(function installTizenSdk$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 downloadDir=_config.default.tizen.downloadLocation.split('/');
 downloadDir.pop();
 downloadDir=downloadDir.join('/');
@@ -95,8 +95,8 @@ default:'C:\\tizen-studio',
 validate:function validate(value){
 if(_fs.default.existsSync(value))return true;
 return'Path does not exist';
-}}));case 7:res=_context5.sent;_context5.next=10;return _regenerator.default.awrap(
-
+}
+}));case 7:res=_context5.sent;_context5.next=10;return _regenerator.default.awrap(
 
 _inquirer.default.prompt({
 type:'confirm',
@@ -104,13 +104,13 @@ name:'toolsInstalled',
 message:'Please open Package Manager and install: Tizen SDK Tools (Main SDK), TV Extensions-* (Extension SDK). Continue after you finished installing them.',
 validate:function validate(){
 return _fs.default.existsSync(_path.default.join(res.sdkPath,'tools/ide/bin/tizen.bat'))||'This does not look like a Tizen SDK path';
-}}));case 10:
+}
+}));case 10:
+
+this.tizenSdkPath=res.sdkPath;case 11:case"end":return _context5.stop();}},null,this,null,Promise);}},{key:"installWebosSdk",value:
 
 
-this.tizenSdkPath=res.sdkPath;case 11:case"end":return _context5.stop();}}},null,this,null,Promise);}},{key:"installWebosSdk",value:
-
-
-function installWebosSdk(){var downloadLink,res;return _regenerator.default.async(function installWebosSdk$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+function installWebosSdk(){var downloadLink,res;return _regenerator.default.async(function installWebosSdk$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 downloadLink=_config.default.webos.downloadLink;
 (0,_logger.logInfo)("Opening "+downloadLink+". Please download and install the SDK then continue after it finished installing. Make sure you also install the CLI and Emulator components");
 (0,_child_process.exec)(_exec.openCommand+" "+downloadLink);_context6.next=5;return _regenerator.default.awrap(
@@ -122,8 +122,8 @@ default:'C:\\webOS_TV_SDK',
 validate:function validate(value){
 if(_fs.default.existsSync(value))return true;
 return'Path does not exist';
-}}));case 5:res=_context6.sent;_context6.next=8;return _regenerator.default.awrap(
-
+}
+}));case 5:res=_context6.sent;_context6.next=8;return _regenerator.default.awrap(
 
 _inquirer.default.prompt({
 type:'confirm',
@@ -131,10 +131,10 @@ name:'toolsInstalled',
 message:'Are the CLI and Emulator components installed?',
 validate:function validate(){
 return _fs.default.existsSync(_path.default.join(res.sdkPath,'tools/ide/bin/tizen.bat'))||'This does not look like a Tizen SDK path';
-}}));case 8:
+}
+}));case 8:
 
-
-this.webosSdkPath=res.sdkPath;case 9:case"end":return _context6.stop();}}},null,this,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
+this.webosSdkPath=res.sdkPath;case 9:case"end":return _context6.stop();}},null,this,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
 
 
 

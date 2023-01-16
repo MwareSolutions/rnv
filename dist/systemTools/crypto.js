@@ -20,8 +20,8 @@ var envVar=("CRYPTO_"+p1+"_"+p2).toUpperCase();
 return envVar;
 };
 
-var rnvCryptoUpdateProfile=function rnvCryptoUpdateProfile(c){return _regenerator.default.async(function rnvCryptoUpdateProfile$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
-(0,_fastlane.updateProfile)(c));case 2:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvCryptoUpdateProfile=rnvCryptoUpdateProfile;
+var rnvCryptoUpdateProfile=function rnvCryptoUpdateProfile(c){return _regenerator.default.async(function rnvCryptoUpdateProfile$(_context){while(1)switch(_context.prev=_context.next){case 0:_context.next=2;return _regenerator.default.awrap(
+(0,_fastlane.updateProfile)(c));case 2:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvCryptoUpdateProfile=rnvCryptoUpdateProfile;
 
 
 var rnvCryptoEncrypt=function rnvCryptoEncrypt(c){return new Promise(function(resolve,reject){var _c$files$project$conf,_c$files$project$conf2,_c$files$project$conf3;
@@ -45,8 +45,8 @@ _tar.default.c(
 {
 gzip:true,
 file:destTemp,
-cwd:c.paths.workspace.dir},
-
+cwd:c.paths.workspace.dir
+},
 [source]).
 
 then(function(){return(0,_exec.executeAsync)(c,_getOpenSllPath(c)+" enc -aes-256-cbc -md md5 -salt -in "+destTemp+" -out "+dest+" -k "+key,{privateParams:[key]});}).
@@ -65,7 +65,7 @@ resolve();
 }
 });};exports.rnvCryptoEncrypt=rnvCryptoEncrypt;
 
-var rnvCryptoDecrypt=function rnvCryptoDecrypt(c){var _c$files$project$conf4,_c$files$project$conf5,_c$files$project$conf6;var sourceRaw,source,ts,destFolder,destTemp,envVar,wsPath,options,_await$inquirerPrompt,option,key;return _regenerator.default.async(function rnvCryptoDecrypt$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var rnvCryptoDecrypt=function rnvCryptoDecrypt(c){var _c$files$project$conf4,_c$files$project$conf5,_c$files$project$conf6;var sourceRaw,source,ts,destFolder,destTemp,envVar,wsPath,options,_await$inquirerPrompt,option,key;return _regenerator.default.async(function rnvCryptoDecrypt$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)('rnvCryptoDecrypt');
 
 sourceRaw=(_c$files$project$conf4=c.files.project.config)==null?void 0:(_c$files$project$conf5=_c$files$project$conf4.crypto)==null?void 0:(_c$files$project$conf6=_c$files$project$conf5.decrypt)==null?void 0:_c$files$project$conf6.source;if(!
@@ -89,8 +89,8 @@ options=[
 name:'option',
 type:'list',
 choices:options,
-message:"How to decrypt to "+_chalk.default.white(destFolder)+" ?"}));case 13:_await$inquirerPrompt=_context2.sent;option=_await$inquirerPrompt.option;if(!(
-
+message:"How to decrypt to "+_chalk.default.white(destFolder)+" ?"
+}));case 13:_await$inquirerPrompt=_context2.sent;option=_await$inquirerPrompt.option;if(!(
 option===options[0])){_context2.next=20;break;}_context2.next=18;return _regenerator.default.awrap(
 (0,_fileutils2.cleanFolder)(wsPath));case 18:_context2.next=22;break;case 20:if(!(
 option===options[2])){_context2.next=22;break;}return _context2.abrupt("return",
@@ -113,8 +113,8 @@ Promise.reject("Can't decrypt. "+_chalk.default.white(source)+" is missing!"));c
 
 _tar.default.x({
 file:destTemp,
-cwd:c.paths.workspace.dir}));case 35:
-
+cwd:c.paths.workspace.dir
+}));case 35:
 
 (0,_fileutils.removeFilesSync)([destTemp]);
 if(_fs.default.existsSync(ts)){
@@ -123,7 +123,7 @@ if(_fs.default.existsSync(ts)){
 (0,_logger.logSuccess)("Files succesfully extracted into "+destFolder);_context2.next=42;break;case 40:
 
 (0,_logger.logWarning)("You don't have {{ crypto.encrypt.dest }} specificed in "+_chalk.default.white(c.paths.projectConfig));return _context2.abrupt("return",
-true);case 42:case"end":return _context2.stop();}}},null,null,null,Promise);};exports.rnvCryptoDecrypt=rnvCryptoDecrypt;
+true);case 42:case"end":return _context2.stop();}},null,null,null,Promise);};exports.rnvCryptoDecrypt=rnvCryptoDecrypt;
 
 
 
@@ -194,7 +194,7 @@ resolve();
 });};exports.rnvCryptoInstallCerts=rnvCryptoInstallCerts;
 
 
-var rnvCryptoUpdateProfiles=function rnvCryptoUpdateProfiles(c){var appId;return _regenerator.default.async(function rnvCryptoUpdateProfiles$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var rnvCryptoUpdateProfiles=function rnvCryptoUpdateProfiles(c){var appId;return _regenerator.default.async(function rnvCryptoUpdateProfiles$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)('rnvCryptoUpdateProfiles');_context3.t0=
 c.platform;_context3.next=_context3.t0===
 _constants.IOS?4:_context3.t0===
@@ -205,7 +205,7 @@ _updateProfiles(c));case 7:_context3.next=9;return _regenerator.default.awrap(
 
 true);case 10:return _context3.abrupt("return",
 
-Promise.reject("updateProfiles: Platform "+c.platform+" not supported"));case 11:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.rnvCryptoUpdateProfiles=rnvCryptoUpdateProfiles;
+Promise.reject("updateProfiles: Platform "+c.platform+" not supported"));case 11:case"end":return _context3.stop();}},null,null,null,Promise);};exports.rnvCryptoUpdateProfiles=rnvCryptoUpdateProfiles;
 
 
 var _updateProfiles=function _updateProfiles(c){
@@ -224,7 +224,7 @@ then(function(){return resolve();}).
 catch(function(e){return reject(e);});
 });};
 
-var checkCrypto=function checkCrypto(c){var _c$files$project$conf7,_c$files$project$conf8,_c$files$project$conf9,_c$files$project$conf10,_c$files$project$conf11,_c$files$project$conf12;var sourceRaw,source,destRaw,_source,tsProjectPath,wsPath,tsWorkspacePath,tsWorkspace,tsProject;return _regenerator.default.async(function checkCrypto$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var checkCrypto=function checkCrypto(c){var _c$files$project$conf7,_c$files$project$conf8,_c$files$project$conf9,_c$files$project$conf10,_c$files$project$conf11,_c$files$project$conf12;var sourceRaw,source,destRaw,_source,tsProjectPath,wsPath,tsWorkspacePath,tsWorkspace,tsProject;return _regenerator.default.async(function checkCrypto$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)('checkCrypto');if(!
 
 c.program.ci){_context4.next=3;break;}return _context4.abrupt("return");case 3:
@@ -260,5 +260,5 @@ rnvCryptoDecrypt(c));case 24:return _context4.abrupt("return");case 25:
 
 if(tsProject<tsWorkspace){
 (0,_logger.logWarning)("Your "+tsWorkspacePath+" is newer than your project one.");
-}case 26:case"end":return _context4.stop();}}},null,null,null,Promise);};exports.checkCrypto=checkCrypto;
+}case 26:case"end":return _context4.stop();}},null,null,null,Promise);};exports.checkCrypto=checkCrypto;
 //# sourceMappingURL=crypto.js.map

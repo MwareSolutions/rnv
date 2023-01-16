@@ -77,7 +77,7 @@ return reject(e);
 });};exports.packageAndroid=packageAndroid;
 
 
-var runAndroid=function runAndroid(c,platform,defaultTarget){var target,outputAab,devicesAndEmulators,activeDevices,inactiveDevices,askWhereToRun,foundDevice,device,dv,_foundDevice,_device;return _regenerator.default.async(function runAndroid$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var runAndroid=function runAndroid(c,platform,defaultTarget){var target,outputAab,devicesAndEmulators,activeDevices,inactiveDevices,askWhereToRun,foundDevice,device,dv,_foundDevice,_device;return _regenerator.default.async(function runAndroid$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 target=c.program.target;
 (0,_logger.logTask)("runAndroid:"+platform+":"+target+":"+defaultTarget);
 
@@ -101,7 +101,7 @@ Promise.reject(_context2.t0));case 19:
 activeDevices=devicesAndEmulators.filter(function(d){return d.isActive;});
 inactiveDevices=devicesAndEmulators.filter(function(d){return!d.isActive;});
 
-askWhereToRun=function askWhereToRun(){var devicesString,choices,response,devices,_devicesString,_choices,_response,dev,_devices;return _regenerator.default.async(function askWhereToRun$(_context){while(1){switch(_context.prev=_context.next){case 0:if(!(
+askWhereToRun=function askWhereToRun(){var devicesString,choices,response,devices,_devicesString,_choices,_response,dev,_devices;return _regenerator.default.async(function askWhereToRun$(_context){while(1)switch(_context.prev=_context.next){case 0:if(!(
 activeDevices.length===0&&inactiveDevices.length>0)){_context.next=16;break;}
 
 devicesString=(0,_deviceManager.composeDevicesString)(inactiveDevices,true);
@@ -110,8 +110,8 @@ _inquirer.default.prompt([{
 name:'chosenEmulator',
 type:'list',
 message:'What emulator would you like to start?',
-choices:choices}]));case 5:response=_context.sent;if(!
-
+choices:choices
+}]));case 5:response=_context.sent;if(!
 response.chosenEmulator){_context.next=14;break;}_context.next=9;return _regenerator.default.awrap(
 (0,_deviceManager.launchAndroidSimulator)(c,platform,response.chosenEmulator,true));case 9:_context.next=11;return _regenerator.default.awrap(
 (0,_deviceManager.checkForActiveEmulator)(c,platform));case 11:devices=_context.sent;_context.next=14;return _regenerator.default.awrap(
@@ -124,8 +124,8 @@ _inquirer.default.prompt([{
 name:'chosenEmulator',
 type:'list',
 message:'Where would you like to run your app?',
-choices:_choices}]));case 21:_response=_context.sent;if(!
-
+choices:_choices
+}]));case 21:_response=_context.sent;if(!
 _response.chosenEmulator){_context.next=26;break;}
 dev=activeDevices.find(function(d){return d.name===_response.chosenEmulator;});_context.next=26;return _regenerator.default.awrap(
 _runGradleApp(c,platform,dev));case 26:_context.next=35;break;case 28:_context.next=30;return _regenerator.default.awrap(
@@ -133,7 +133,7 @@ _runGradleApp(c,platform,dev));case 26:_context.next=35;break;case 28:_context.n
 
 (0,_deviceManager.askForNewEmulator)(c,platform));case 30:_context.next=32;return _regenerator.default.awrap(
 (0,_deviceManager.checkForActiveEmulator)(c,platform));case 32:_devices=_context.sent;_context.next=35;return _regenerator.default.awrap(
-_runGradleApp(c,platform,_devices));case 35:case"end":return _context.stop();}}},null,null,null,Promise);};if(!
+_runGradleApp(c,platform,_devices));case 35:case"end":return _context.stop();}},null,null,null,Promise);};if(!
 
 
 
@@ -172,12 +172,12 @@ _runGradleApp(c,platform,_device));case 67:_context2.next=72;break;case 69:
 
 
 (0,_logger.logDebug)('Target not provided, asking where to run');_context2.next=72;return _regenerator.default.awrap(
-askWhereToRun());case 72:case"end":return _context2.stop();}}},null,null,[[10,16]],Promise);};exports.runAndroid=runAndroid;
+askWhereToRun());case 72:case"end":return _context2.stop();}},null,null,[[10,16]],Promise);};exports.runAndroid=runAndroid;
 
 
 
 
-var _checkSigningCerts=function _checkSigningCerts(c){var _c$files$workspace$ap;var signingConfig,isRelease,privateConfig,_await$inquirer$promp,confirm,confirmCopy,platCandidate,_await$inquirerPrompt,confirmNewKeystore,platCandidates,resultCopy,storeFile,result,_await$inquirer$promp2,storePassword,keyAlias,keyPassword,keystorePath,keytoolCmd;return _regenerator.default.async(function _checkSigningCerts$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var _checkSigningCerts=function _checkSigningCerts(c){var _c$files$workspace$ap;var signingConfig,isRelease,privateConfig,_await$inquirer$promp,confirm,confirmCopy,platCandidate,_await$inquirerPrompt,confirmNewKeystore,platCandidates,resultCopy,storeFile,result,_await$inquirer$promp2,storePassword,keyAlias,keyPassword,keystorePath,keytoolCmd;return _regenerator.default.async(function _checkSigningCerts$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)('_checkSigningCerts');
 signingConfig=(0,_common.getConfigProp)(c,c.platform,'signingConfig','Debug');
 isRelease=signingConfig==='Release';
@@ -189,8 +189,8 @@ isRelease&&!privateConfig)){_context3.next=54;break;}
 _inquirer.default.prompt({
 type:'confirm',
 name:'confirm',
-message:'Do you want to configure it now?'}));case 8:_await$inquirer$promp=_context3.sent;confirm=_await$inquirer$promp.confirm;if(!
-
+message:'Do you want to configure it now?'
+}));case 8:_await$inquirer$promp=_context3.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 confirm){_context3.next=53;break;}
 confirmCopy=false;_context3.next=14;return _regenerator.default.awrap(
@@ -198,8 +198,8 @@ confirmCopy=false;_context3.next=14;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
 name:'confirmNewKeystore',
-message:'Do you want to generate new keystore as well?'}));case 14:_await$inquirerPrompt=_context3.sent;confirmNewKeystore=_await$inquirerPrompt.confirmNewKeystore;if(!
-
+message:'Do you want to generate new keystore as well?'
+}));case 14:_await$inquirerPrompt=_context3.sent;confirmNewKeystore=_await$inquirerPrompt.confirmNewKeystore;if(!
 
 c.files.workspace.appConfig.configPrivate){_context3.next=24;break;}
 platCandidates=[_constants.ANDROID_WEAR,_constants.ANDROID_TV,_constants.ANDROID];
@@ -213,8 +213,8 @@ platCandidate){_context3.next=24;break;}_context3.next=22;return _regenerator.de
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
 name:'confirmCopy',
-message:"Found existing keystore configuration for "+platCandidate+". do you want to reuse it?"}));case 22:resultCopy=_context3.sent;
-
+message:"Found existing keystore configuration for "+platCandidate+". do you want to reuse it?"
+}));case 22:resultCopy=_context3.sent;
 confirmCopy=resultCopy.confirmCopy;case 24:if(!
 
 
@@ -229,8 +229,8 @@ confirmNewKeystore){_context3.next=33;break;}_context3.next=31;return _regenerat
 (0,_prompt.inquirerPrompt)({
 type:'input',
 name:'storeFile',
-message:"Paste asolute or relative path to "+_chalk.default.white(c.paths.workspace.appConfig.dir)+" of your existing "+_chalk.default.white('release.keystore')+" file"}));case 31:result=_context3.sent;
-
+message:"Paste asolute or relative path to "+_chalk.default.white(c.paths.workspace.appConfig.dir)+" of your existing "+_chalk.default.white('release.keystore')+" file"
+}));case 31:result=_context3.sent;
 storeFile=result.storeFile;case 33:_context3.next=35;return _regenerator.default.awrap(
 
 
@@ -238,18 +238,18 @@ _inquirer.default.prompt([
 {
 type:'password',
 name:'storePassword',
-message:'storePassword'},
-
+message:'storePassword'
+},
 {
 type:'input',
 name:'keyAlias',
-message:'keyAlias'},
-
+message:'keyAlias'
+},
 {
 type:'password',
 name:'keyPassword',
-message:'keyPassword'}]));case 35:_await$inquirer$promp2=_context3.sent;storePassword=_await$inquirer$promp2.storePassword;keyAlias=_await$inquirer$promp2.keyAlias;keyPassword=_await$inquirer$promp2.keyPassword;if(!
-
+message:'keyPassword'
+}]));case 35:_await$inquirer$promp2=_context3.sent;storePassword=_await$inquirer$promp2.storePassword;keyAlias=_await$inquirer$promp2.keyAlias;keyPassword=_await$inquirer$promp2.keyPassword;if(!
 
 
 
@@ -261,8 +261,8 @@ keytoolCmd="keytool -genkey -v -keystore "+keystorePath+" -alias "+keyAlias+" -k
 env:process.env,
 shell:true,
 stdio:'inherit',
-silent:true}));case 45:
-
+silent:true
+}));case 45:
 storeFile='./release.keystore';case 46:
 
 
@@ -278,12 +278,12 @@ c.files.workspace.appConfig.configPrivate[c.platform]={storeFile:storeFile,store
 (0,_logger.logSuccess)("Successfully updated private config file at "+_chalk.default.white(c.paths.workspace.appConfig.dir)+".");_context3.next=51;return _regenerator.default.awrap(
 configureProject(c,c.platform));case 51:_context3.next=54;break;case 53:return _context3.abrupt("return",
 
-Promise.reject('You selected no. Can\'t proceed'));case 54:case"end":return _context3.stop();}}},null,null,null,Promise);};
+Promise.reject('You selected no. Can\'t proceed'));case 54:case"end":return _context3.stop();}},null,null,null,Promise);};
 
 
 
 
-var _runGradleApp=function _runGradleApp(c,platform,device){var signingConfig,appFolder,bundleId,outputAab,outputFolder,arch,name,stacktrace,aabPath,apkPath,_e$message,_await$inquirerPrompt2,confirm;return _regenerator.default.async(function _runGradleApp$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _runGradleApp=function _runGradleApp(c,platform,device){var signingConfig,appFolder,bundleId,outputAab,outputFolder,arch,name,stacktrace,aabPath,apkPath,_e$message,_await$inquirerPrompt2,confirm;return _regenerator.default.async(function _runGradleApp$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)("_runGradleApp:"+platform);
 
 signingConfig=(0,_common.getConfigProp)(c,platform,'signingConfig','Debug');
@@ -316,8 +316,8 @@ apkPath=_path.default.join(appFolder,"app/build/outputs/apk/"+outputFolder+"/app
 _context4.t0!=null&&_context4.t0.includes('INSTALL_FAILED')||_context4.t0!=null&&(_e$message=_context4.t0.message)!=null&&_e$message.includes('INSTALL_FAILED'))){_context4.next=41;break;}_context4.next=31;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:'It seems you already have the app installed but RNV can\'t update it. Uninstall that one and try again?'}));case 31:_await$inquirerPrompt2=_context4.sent;confirm=_await$inquirerPrompt2.confirm;if(
-
+message:'It seems you already have the app installed but RNV can\'t update it. Uninstall that one and try again?'
+}));case 31:_await$inquirerPrompt2=_context4.sent;confirm=_await$inquirerPrompt2.confirm;if(
 
 confirm){_context4.next=35;break;}throw new Error('User canceled');case 35:_context4.next=37;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" uninstall "+bundleId));case 37:_context4.next=39;return _regenerator.default.awrap(
@@ -327,7 +327,7 @@ new Error(_context4.t0));case 42:if(
 
 
 
-outputAab){_context4.next=45;break;}_context4.next=45;return _regenerator.default.awrap((0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" shell am start -n "+bundleId+"/.MainActivity"));case 45:case"end":return _context4.stop();}}},null,null,[[21,26]],Promise);};
+outputAab){_context4.next=45;break;}_context4.next=45;return _regenerator.default.awrap((0,_exec.execCLI)(c,_constants.CLI_ANDROID_ADB,"-s "+device.udid+" shell am start -n "+bundleId+"/.MainActivity"));case 45:case"end":return _context4.stop();}},null,null,[[21,26]],Promise);};
 
 
 var buildAndroid=function buildAndroid(c,platform){return new Promise(function(resolve,reject){
@@ -369,7 +369,7 @@ sdkDir);
 resolve();
 });};exports.configureAndroidProperties=configureAndroidProperties;
 
-var configureGradleProject=function configureGradleProject(c){var platform;return _regenerator.default.async(function configureGradleProject$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var configureGradleProject=function configureGradleProject(c){var platform;return _regenerator.default.async(function configureGradleProject$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 platform=c.platform;
 (0,_logger.logTask)("configureGradleProject:"+platform);if(
 
@@ -378,7 +378,7 @@ platform=c.platform;
 (0,_projectParser.copyAssetsFolder)(c,platform));case 6:_context5.next=8;return _regenerator.default.awrap(
 configureAndroidProperties(c,platform));case 8:_context5.next=10;return _regenerator.default.awrap(
 configureProject(c,platform));case 10:return _context5.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 11:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.configureGradleProject=configureGradleProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 11:case"end":return _context5.stop();}},null,null,null,Promise);};exports.configureGradleProject=configureGradleProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){
@@ -429,8 +429,8 @@ buildGradleBuildScriptDexOptions:'',
 appBuildGradleSigningConfigs:'',
 appBuildGradleImplementations:'',
 resourceStrings:[],
-appBuildGradleAfterEvaluate:''};
-
+appBuildGradleAfterEvaluate:''
+};
 
 
 (0,_pluginTools.parsePlugins)(c,platform,function(plugin,pluginPlat,key){
@@ -480,7 +480,7 @@ resolve();
 });};exports.configureProject=configureProject;
 
 
-var runAndroidLog=function runAndroidLog(c){var filter,child;return _regenerator.default.async(function runAndroidLog$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var runAndroidLog=function runAndroidLog(c){var filter,child;return _regenerator.default.async(function runAndroidLog$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)('runAndroidLog');
 filter=c.program.filter||'';
 child=_execa.default.command(c.cli[_constants.CLI_ANDROID_ADB]+" logcat");
@@ -497,5 +497,5 @@ console.log(v);
 }
 });
 });return _context6.abrupt("return",
-child.then(function(res){return res.stdout;}).catch(function(err){return Promise.reject("Error: "+err);}));case 5:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.runAndroidLog=runAndroidLog;
+child.then(function(res){return res.stdout;}).catch(function(err){return Promise.reject("Error: "+err);}));case 5:case"end":return _context6.stop();}},null,null,null,Promise);};exports.runAndroidLog=runAndroidLog;
 //# sourceMappingURL=index.js.map

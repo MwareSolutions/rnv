@@ -172,8 +172,8 @@ prms+="\n   <uses-permission android:name=\""+pc[_k3].key+"\" />";
 var key=pc[_k3].key||_k3;
 baseManifestFile.children.push({
 tag:'uses-permission',
-'android:name':key});
-
+'android:name':key
+});
 }
 }
 }else{
@@ -183,8 +183,8 @@ prms+="\n   <uses-permission android:name=\""+pc[v].key+"\" />";
 var _key=pc[v].key||k;
 baseManifestFile.children.push({
 tag:'uses-permission',
-'android:name':_key});
-
+'android:name':_key
+});
 }
 });
 }
@@ -197,8 +197,8 @@ includedFeatures.forEach(function(key){
 baseManifestFile.children.push({
 tag:'uses-feature',
 'android:name':key,
-'android:required':true});
-
+'android:required':true
+});
 });
 }
 
@@ -208,8 +208,8 @@ excludedFeatures.forEach(function(key){
 baseManifestFile.children.push({
 tag:'uses-feature',
 'android:name':key,
-'android:required':false});
-
+'android:required':false
+});
 });
 }
 

@@ -38,8 +38,8 @@ localDir:_path.default.resolve('./node_modules/.bin'),
 preferLocal:true,
 all:true,
 maxErrorLength:(_c$program=c.program)==null?void 0:_c$program.maxErrorLength,
-mono:(_c$program2=c.program)==null?void 0:_c$program2.mono};
-
+mono:(_c$program2=c.program)==null?void 0:_c$program2.mono
+};
 
 if(opts.interactive){
 defaultOpts.silent=true;
@@ -401,7 +401,7 @@ _path.default.join(c.paths.rnv.nodeModulesDir,'react-navigation/node_modules/rea
 then(function(){return resolve();}).catch(function(e){return reject(e);});
 });};exports.cleanNodeModules=cleanNodeModules;
 
-var npmInstall=function npmInstall(){var failOnError,c,_args=arguments;return _regenerator.default.async(function npmInstall$(_context){while(1){switch(_context.prev=_context.next){case 0:failOnError=_args.length>0&&_args[0]!==undefined?_args[0]:false;
+var npmInstall=function npmInstall(){var failOnError,c,_args=arguments;return _regenerator.default.async(function npmInstall$(_context){while(1)switch(_context.prev=_context.next){case 0:failOnError=_args.length>0&&_args[0]!==undefined?_args[0]:false;
 (0,_logger.logTask)('npmInstall');
 c=_config.default.getConfig();return _context.abrupt("return",
 
@@ -415,7 +415,7 @@ return(0,_logger.logError)(e);
 return cleanNodeModules(_config.default.getConfig()).
 then(function(){return npmInstall(true);}).
 catch(function(f){return(0,_logger.logError)(f);});
-}));case 4:case"end":return _context.stop();}}},null,null,null,Promise);};exports.npmInstall=npmInstall;
+}));case 4:case"end":return _context.stop();}},null,null,null,Promise);};exports.npmInstall=npmInstall;
 
 
 
@@ -427,5 +427,6 @@ var openCommand=process.platform==='darwin'?'open':process.platform==='win32'?'s
 executeAsync:executeAsync,
 execCLI:execCLI,
 openCommand:openCommand,
-executeTelnet:executeTelnet};exports.default=_default;
+executeTelnet:executeTelnet
+};exports.default=_default;
 //# sourceMappingURL=exec.js.map

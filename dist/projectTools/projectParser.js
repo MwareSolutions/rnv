@@ -36,11 +36,11 @@ var pkgJson={};
 pkgJson.name=packageName;
 pkgJson.version=version;
 pkgJson.dependencies={
-renative:rnvVersion};
-
+renative:rnvVersion
+};
 pkgJson.devDependencies={
-rnv:rnvVersion};
-
+rnv:rnvVersion
+};
 pkgJson.devDependencies[templateName]=rnvVersion;
 var pkgJsonStringClean=JSON.stringify(pkgJson,null,2);
 _fs.default.writeFileSync(c.paths.project.package,pkgJsonStringClean);
@@ -207,10 +207,10 @@ firefoxtv:'',
 firefoxos:'',
 windows:'',
 macos:'',
-web:'public'};
+web:'public'
+};
 
-
-var copyAssetsFolder=function copyAssetsFolder(c,platform,customFn){var destPath,hasAssetFolder,sourcePath;return _regenerator.default.async(function copyAssetsFolder$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var copyAssetsFolder=function copyAssetsFolder(c,platform,customFn){var destPath,hasAssetFolder,sourcePath;return _regenerator.default.async(function copyAssetsFolder$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("copyAssetsFolder:"+platform);if(
 
 (0,_platformTools.isPlatformActive)(c,platform)){_context.next=3;break;}return _context.abrupt("return");case 3:if(!
@@ -236,24 +236,24 @@ sourcePath=_path.default.join(c.paths.appConfig.dir,"assets/"+platform);if(
 _fs.default.existsSync(sourcePath)){_context.next=18;break;}_context.next=18;return _regenerator.default.awrap(
 generateDefaultAssets(c,platform,sourcePath));case 18:
 
-(0,_fileutils.copyFolderContentsRecursiveSync)(sourcePath,destPath);case 19:case"end":return _context.stop();}}},null,null,null,Promise);};exports.copyAssetsFolder=copyAssetsFolder;
+(0,_fileutils.copyFolderContentsRecursiveSync)(sourcePath,destPath);case 19:case"end":return _context.stop();}},null,null,null,Promise);};exports.copyAssetsFolder=copyAssetsFolder;
 
 
 
-var generateDefaultAssets=function generateDefaultAssets(c,platform,sourcePath){var confirmAssets,_await$inquirerPrompt,confirm;return _regenerator.default.async(function generateDefaultAssets$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var generateDefaultAssets=function generateDefaultAssets(c,platform,sourcePath){var confirmAssets,_await$inquirerPrompt,confirm;return _regenerator.default.async(function generateDefaultAssets$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("generateDefaultAssets:"+platform);
 confirmAssets=true;if(!(
 c.program.ci===false)){_context2.next=8;break;}_context2.next=5;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:"It seems you don't have assets configured in "+_chalk.default.white(sourcePath)+" do you want generate default ones?"}));case 5:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;
-
+message:"It seems you don't have assets configured in "+_chalk.default.white(sourcePath)+" do you want generate default ones?"
+}));case 5:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;
 confirmAssets=confirm;case 8:
 
 
 if(confirmAssets){
 (0,_fileutils.copyFolderContentsRecursiveSync)(_path.default.join(c.paths.rnv.dir,"projectTemplate/assets/"+platform),sourcePath);
-}case 9:case"end":return _context2.stop();}}},null,null,null,Promise);};
+}case 9:case"end":return _context2.stop();}},null,null,null,Promise);};
 
 
 var copyBuildsFolder=function copyBuildsFolder(c,platform){return new Promise(function(resolve,reject){
@@ -360,10 +360,10 @@ resolve();
 }
 });};exports.configureNodeModules=configureNodeModules;
 
-var cleanPlaformAssets=function cleanPlaformAssets(c){return _regenerator.default.async(function cleanPlaformAssets$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var cleanPlaformAssets=function cleanPlaformAssets(c){return _regenerator.default.async(function cleanPlaformAssets$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)('cleanPlaformAssets');_context3.next=3;return _regenerator.default.awrap(
 
 (0,_fileutils.cleanFolder)(c.paths.project.assets.dir));case 3:
 (0,_fileutils.mkdirSync)(c.paths.project.assets.runtimeDir);return _context3.abrupt("return",
-true);case 5:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.cleanPlaformAssets=cleanPlaformAssets;
+true);case 5:case"end":return _context3.stop();}},null,null,null,Promise);};exports.cleanPlaformAssets=cleanPlaformAssets;
 //# sourceMappingURL=projectParser.js.map

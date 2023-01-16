@@ -7,16 +7,16 @@ function LinuxPlatformSetup(){(0,_classCallCheck2.default)(this,LinuxPlatformSet
 'darwin');
 }(0,_createClass2.default)(LinuxPlatformSetup,[{key:"installFastlane",value:
 
-function installFastlane(){var c;return _regenerator.default.async(function installFastlane$(_context){while(1){switch(_context.prev=_context.next){case 0:
+function installFastlane(){var c;return _regenerator.default.async(function installFastlane$(_context){while(1)switch(_context.prev=_context.next){case 0:
 c=_config.default.getConfig();if(!
 (0,_exec.commandExistsSync)('brew')){_context.next=3;break;}return _context.abrupt("return",
 (0,_exec.executeAsync)(c,'brew cask install fastlane',{interactive:true}));case 3:return _context.abrupt("return",
 
-(0,_exec.executeAsync)(c,'sudo gem install fastlane -NV',{interactive:true}));case 4:case"end":return _context.stop();}}},null,null,null,Promise);}},{key:"installDocker",value:
+(0,_exec.executeAsync)(c,'sudo gem install fastlane -NV',{interactive:true}));case 4:case"end":return _context.stop();}},null,null,null,Promise);}},{key:"installDocker",value:
 
 
-function installDocker(){return _regenerator.default.async(function installDocker$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:throw(
-new Error('Automated Docker install is not supported on this platform. Please go to https://hub.docker.com/editions/community/docker-ce-desktop-mac and install it manually. Then rerun this command'));case 1:case"end":return _context2.stop();}}},null,null,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
+function installDocker(){return _regenerator.default.async(function installDocker$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:throw(
+new Error('Automated Docker install is not supported on this platform. Please go to https://hub.docker.com/editions/community/docker-ce-desktop-mac and install it manually. Then rerun this command'));case 1:case"end":return _context2.stop();}},null,null,null,Promise);}}]);return LinuxPlatformSetup;}(_base.default);var _default=
 
 
 

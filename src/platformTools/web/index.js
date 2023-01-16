@@ -202,7 +202,7 @@ const runWebDevServer = (c, platform, port) => new Promise((resolve, reject) => 
         debugVariables += `DEBUG=true DEBUG_IP=${debugIp || ip.address()}`;
     }
 
-    const command = `npx cross-env PLATFORM=${platform} ${debugVariables} webpack-dev-server -d --devtool source-map --config ${wpConfig}  --inline --hot --colors --content-base ${wpPublic} --history-api-fallback --port ${port} --mode=development`;
+    const command = `npx cross-env PLATFORM=${platform} ${debugVariables} webpack-dev-server -d --devtool source-map --config ${wpConfig}  --inline --hot --colors --content-base ${wpPublic} --history-api-fallback --port ${port} --mode=development --https`;
     executeAsync(c, command, { stdio: 'inherit', silent: true })
         .then(() => {
             logDebug('runWebDevServer: running');

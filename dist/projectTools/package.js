@@ -31,10 +31,10 @@ if(_fs.default.existsSync(renativePkgPath)){
 (0,_fileutils.updateObjectSync)(pluginTemplates.config,{
 pluginTemplates:{
 renative:{
-version:version}}});
-
-
-
+version:version
+}
+}
+});
 }
 }
 };
@@ -52,7 +52,7 @@ return(0,_exec.executeAsync)('npm i',{cwd:pkgPath});
 return true;
 };
 
-var rnvPkg=function rnvPkg(){var args,firstArg,secondArg;return _regenerator.default.async(function rnvPkg$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var rnvPkg=function rnvPkg(){var args,firstArg,secondArg;return _regenerator.default.async(function rnvPkg$(_context){while(1)switch(_context.prev=_context.next){case 0:
 args=(0,_toConsumableArray2.default)(_config.default.getConfig().program.rawArgs);
 args=args.slice(3);
 
@@ -68,7 +68,7 @@ firstArg;_context.next=_context.t0===
 'publish'?12:13;break;case 7:if(secondArg){_context.next=9;break;}return _context.abrupt("return",(0,_logger.logError)('No version specified',false,true));case 9:if(_semver.default.valid(secondArg)){_context.next=11;break;}return _context.abrupt("return",(0,_logger.logError)("Invalid version specified "+secondArg,false,true));case 11:return _context.abrupt("return",bumpVersions(secondArg));case 12:return _context.abrupt("return",
 publishAll());case 13:
 
-(0,_logger.logError)("Unknown argument "+firstArg,false,true);return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}},null,null,null,Promise);};var _default=
+(0,_logger.logError)("Unknown argument "+firstArg,false,true);return _context.abrupt("break",15);case 15:case"end":return _context.stop();}},null,null,null,Promise);};var _default=
 
 
 

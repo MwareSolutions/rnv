@@ -71,74 +71,74 @@ pluginBgColor+"\n        v.frame = vc.view.bounds\n        self.window?.rootView
 
 
 render:function render(v){return""+v;},
-end:'return true'},
+end:'return true'
 
-
+},
 applicationDidBecomeActive:{
 func:'func applicationDidBecomeActive(_ application: UIApplication) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null},
-
+end:null
+},
 open:{
 func:'func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {',
 begin:'var handled = false',
 render:function render(v){return"if(!handled) { handled = "+v+" }";},
-end:'return handled'},
+end:'return handled'
 
-
+},
 supportedInterfaceOrientationsFor:{
 func:'func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {',
 begin:null,
 render:function render(v){return"return "+v;},
-end:null},
+end:null
 
-
+},
 didReceiveRemoteNotification:{
 func:'func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null},
+end:null
 
-
+},
 didFailToRegisterForRemoteNotificationsWithError:{
 func:'func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null},
+end:null
 
-
+},
 didReceive:{
 func:'func application(_ application: UIApplication, didReceive notification: UILocalNotification) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null},
+end:null
 
-
+},
 didRegister:{
 func:'func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null},
+end:null
 
-
+},
 didRegisterForRemoteNotificationsWithDeviceToken:{
 func:'func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null}},
+end:null
 
-
-
+}
+},
 userNotificationCenter:{
 willPresent:{
 func:'func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {',
 begin:null,
 render:function render(v){return""+v;},
-end:null}}};
-
-
-
+end:null
+}
+}
+};
 
 var constructMethod=function constructMethod(lines,method){
 var output='';
@@ -173,12 +173,12 @@ _path.default.join(appFolder,appFolderName,appDelegate),
 {pattern:'{{BACKGROUND_COLOR}}',override:pluginBgColor},
 {
 pattern:'{{APPDELEGATE_IMPORTS}}',
-override:c.pluginConfigiOS.pluginAppDelegateImports},
-
+override:c.pluginConfigiOS.pluginAppDelegateImports
+},
 {
 pattern:'{{APPDELEGATE_METHODS}}',
-override:c.pluginConfigiOS.pluginAppDelegateMethods}]);
-
+override:c.pluginConfigiOS.pluginAppDelegateMethods
+}]);
 
 
 resolve();
@@ -203,8 +203,8 @@ c.pluginConfigiOS.pluginAppDelegateImports+="import "+appDelegateImport+"\n";
 
 var appDelegateMethods=(0,_common.getFlavouredProp)(c,plugin,'appDelegateMethods');
 if(appDelegateMethods){
-for(var _key in appDelegateMethods){var _loop=function _loop(
-key2){
+for(var _key in appDelegateMethods){var _loop=function _loop()
+{
 var plugArr=c.pluginConfigiOS.appDelegateMethods[_key][key2];
 var plugVal=appDelegateMethods[_key][key2];
 if(plugVal){
@@ -213,8 +213,8 @@ if(!plugArr.includes(v)){
 plugArr.push(v);
 }
 });
-}};for(var key2 in appDelegateMethods[_key]){_loop(key2);
 }
+};for(var key2 in appDelegateMethods[_key]){_loop();}
 }
 }
 };exports.injectPluginSwiftSync=injectPluginSwiftSync;

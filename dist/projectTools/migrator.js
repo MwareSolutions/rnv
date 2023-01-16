@@ -11,7 +11,7 @@ var _constants=require("../constants");
 var _projectParser=require("./projectParser");
 var _prompt=require("../systemTools/prompt");
 
-var checkAndMigrateProject=function checkAndMigrateProject(c){var prjDir,paths,_await$inquirer$promp,confirm;return _regenerator.default.async(function checkAndMigrateProject$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var checkAndMigrateProject=function checkAndMigrateProject(c){var prjDir,paths,_await$inquirer$promp,confirm;return _regenerator.default.async(function checkAndMigrateProject$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('checkAndMigrateProject');
 prjDir=c.paths.project.dir;
 
@@ -30,8 +30,8 @@ plugins:_path.default.join(prjDir,'projectConfig/plugins.json'),
 permissions:_path.default.join(prjDir,'projectConfig/permissions.json'),
 appConfigs:_path.default.join(prjDir,'appConfigs'),
 metroConfig:_path.default.join(prjDir,'rn-cli.config.js'),
-metroConfigNew:_path.default.join(prjDir,_constants.RN_CLI_CONFIG_NAME)};
-
+metroConfigNew:_path.default.join(prjDir,_constants.RN_CLI_CONFIG_NAME)
+};
 
 try{
 paths.appConfigDirs=(0,_configParser.listAppConfigsFoldersSync)(c).map(function(v){return prjDir+"/appConfigs/"+v+"/config.json";});
@@ -46,8 +46,8 @@ Promise.reject('Your project has been created with previous version of ReNative'
 _inquirer.default.prompt({
 name:'confirm',
 type:'confirm',
-message:'Your project has been created with previous version of ReNative. Do you want to migrate it to new format? Backing up project is recommended!'}));case 9:_await$inquirer$promp=_context.sent;confirm=_await$inquirer$promp.confirm;if(!
-
+message:'Your project has been created with previous version of ReNative. Do you want to migrate it to new format? Backing up project is recommended!'
+}));case 9:_await$inquirer$promp=_context.sent;confirm=_await$inquirer$promp.confirm;if(!
 
 confirm){_context.next=22;break;}
 c.program.reset=true;_context.next=15;return _regenerator.default.awrap(
@@ -60,7 +60,7 @@ true);case 22:_context.next=26;break;case 24:_context.next=26;return _regenerato
 
 _migrateProjectSoft(c,paths));case 26:return _context.abrupt("return",
 
-true);case 27:case"end":return _context.stop();}}},null,null,null,Promise);};exports.checkAndMigrateProject=checkAndMigrateProject;
+true);case 27:case"end":return _context.stop();}},null,null,null,Promise);};exports.checkAndMigrateProject=checkAndMigrateProject;
 
 
 var PATH_PROPS=[
@@ -73,14 +73,14 @@ var PATH_PROPS=[
 {oldKey:'projectConfigFolder',newKey:'projectConfigDir'}];
 
 
-var _migrateProjectSoft=function _migrateProjectSoft(c,paths){var files,_files$configNew,_files$configNew2,_files$configNew3,requiresSave,packageString,metroConfig,_await$inquirerPrompt,confirm;return _regenerator.default.async(function _migrateProjectSoft$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _migrateProjectSoft=function _migrateProjectSoft(c,paths){var files,_files$configNew,_files$configNew2,_files$configNew3,requiresSave,packageString,metroConfig,_await$inquirerPrompt,confirm;return _regenerator.default.async(function _migrateProjectSoft$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)('_migrateProjectSoft');_context2.prev=1;
 
 
 requiresSave=false;
 files={
-configNew:_fs.default.existsSync(paths.configNew)?(0,_fileutils.readObjectSync)(paths.configNew):null};
-
+configNew:_fs.default.existsSync(paths.configNew)?(0,_fileutils.readObjectSync)(paths.configNew):null
+};
 
 if((_files$configNew=files.configNew)!=null&&_files$configNew.paths){
 PATH_PROPS.forEach(function(v){
@@ -146,8 +146,8 @@ if(requiresSave)(0,_fileutils.writeFileSync)(paths.configNew,files.configNew);if
 _fs.default.existsSync(paths.projectConfigDir)){_context2.next=24;break;}_context2.next=15;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'confirm',
-message:'in RNV 0.28.12+ ./projectConfig has been migrated to ./appConfigs/base. confirm to migrate to new structure. (having a backup or clean git status is recommended)'}));case 15:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;if(!
-
+message:'in RNV 0.28.12+ ./projectConfig has been migrated to ./appConfigs/base. confirm to migrate to new structure. (having a backup or clean git status is recommended)'
+}));case 15:_await$inquirerPrompt=_context2.sent;confirm=_await$inquirerPrompt.confirm;if(!
 
 confirm){_context2.next=23;break;}
 (0,_fileutils.copyFolderContentsRecursiveSync)(paths.projectConfigDir,c.paths.project.projectConfig.dir);_context2.next=21;return _regenerator.default.awrap(
@@ -161,7 +161,7 @@ confirm){_context2.next=23;break;}
 
 
 
-(0,_logger.logError)("Migration not successfull. "+_context2.t0);case 29:case"end":return _context2.stop();}}},null,null,[[1,26]],Promise);};
+(0,_logger.logError)("Migration not successfull. "+_context2.t0);case 29:case"end":return _context2.stop();}},null,null,[[1,26]],Promise);};
 
 
 
@@ -187,8 +187,8 @@ var files={
 config:(0,_fileutils.readObjectSync)(paths.config),
 package:(0,_fileutils.readObjectSync)(paths.package),
 plugins:(0,_fileutils.readObjectSync)(paths.plugins),
-permissions:(0,_fileutils.readObjectSync)(paths.permissions)};
-
+permissions:(0,_fileutils.readObjectSync)(paths.permissions)
+};
 
 (0,_logger.logDebug)("paths to migrate: \n "+paths);
 
@@ -210,8 +210,8 @@ newConfig.templates={};
 
 if(newConfig.defaults.template){
 newConfig.templates[newConfig.defaults.template]={
-version:c.files.rnv.package.version};
-
+version:c.files.rnv.package.version
+};
 }
 
 delete newConfig.defaults.template;

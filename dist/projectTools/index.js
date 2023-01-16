@@ -43,7 +43,7 @@ var _configParser=require("../configTools/configParser");
 var _config=_interopRequireDefault(require("../config"));
 var _exec=require("../systemTools/exec");
 
-var rnvConfigure=function rnvConfigure(c){var p,ptDirs,i,originalPlatform;return _regenerator.default.async(function rnvConfigure$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var rnvConfigure=function rnvConfigure(c){var p,ptDirs,i,originalPlatform;return _regenerator.default.async(function rnvConfigure$(_context){while(1)switch(_context.prev=_context.next){case 0:
 p=c.platform||'all';
 (0,_logger.logTask)("rnvConfigure:"+c.platform+":"+p);if(!(
 
@@ -79,13 +79,13 @@ _configurePlatform(c,p,_constants.FIREFOX_TV,_firefox.configureKaiOSProject));ca
 _configurePlatform(c,p,_constants.IOS,_apple.configureXcodeProject));case 52:_context.next=54;return _regenerator.default.awrap(
 _configurePlatform(c,p,_constants.TVOS,_apple.configureXcodeProject));case 54:
 
-c.platform=originalPlatform;case 55:case"end":return _context.stop();}}},null,null,null,Promise);};exports.rnvConfigure=rnvConfigure;
+c.platform=originalPlatform;case 55:case"end":return _context.stop();}},null,null,null,Promise);};exports.rnvConfigure=rnvConfigure;
 
 
-var _configurePlatform=function _configurePlatform(c,p,platform,method){return _regenerator.default.async(function _configurePlatform$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:if(!
+var _configurePlatform=function _configurePlatform(c,p,platform,method){return _regenerator.default.async(function _configurePlatform$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:if(!
 _isOK(c,p,[platform])){_context2.next=4;break;}
 c.platform=platform;_context2.next=4;return _regenerator.default.awrap(
-method(c,platform));case 4:case"end":return _context2.stop();}}},null,null,null,Promise);};
+method(c,platform));case 4:case"end":return _context2.stop();}},null,null,null,Promise);};
 
 
 
@@ -130,7 +130,7 @@ return result;
 };
 
 
-var _checkAndCreatePlatforms=function _checkAndCreatePlatforms(c,platform){var appFolder,platforms,ks,i,k,_appFolder;return _regenerator.default.async(function _checkAndCreatePlatforms$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var _checkAndCreatePlatforms=function _checkAndCreatePlatforms(c,platform){var appFolder,platforms,ks,i,k,_appFolder;return _regenerator.default.async(function _checkAndCreatePlatforms$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)("_checkAndCreatePlatforms:"+platform);if(
 
 _fs.default.existsSync(c.paths.project.builds.dir)){_context3.next=6;break;}
@@ -138,8 +138,8 @@ _fs.default.existsSync(c.paths.project.builds.dir)){_context3.next=6;break;}
 (0,_cli.default)(c,{
 command:'platform',
 subCommand:'configure',
-program:{appConfig:c.runtime.appId,platform:platform}}));case 5:return _context3.abrupt("return");case 6:if(!
-
+program:{appConfig:c.runtime.appId,platform:platform}
+}));case 5:return _context3.abrupt("return");case 6:if(!
 
 
 platform){_context3.next=14;break;}
@@ -149,8 +149,8 @@ _fs.default.existsSync(appFolder)){_context3.next=12;break;}
 (0,_cli.default)(c,{
 command:'platform',
 subCommand:'configure',
-program:{appConfig:c.runtime.appId,platform:platform}}));case 12:_context3.next=30;break;case 14:
-
+program:{appConfig:c.runtime.appId,platform:platform}
+}));case 12:_context3.next=30;break;case 14:
 
 
 platforms=c.buildConfig.platforms;if(
@@ -168,8 +168,8 @@ _fs.default.existsSync(_appFolder)){_context3.next=27;break;}
 command:'platform',
 subCommand:'configure',
 platform:k,
-program:{appConfig:c.runtime.appId,platform:k}}));case 27:i++;_context3.next=20;break;case 30:case"end":return _context3.stop();}}},null,null,null,Promise);};
-
+program:{appConfig:c.runtime.appId,platform:k}
+}));case 27:i++;_context3.next=20;break;case 30:case"end":return _context3.stop();}},null,null,null,Promise);};
 
 
 

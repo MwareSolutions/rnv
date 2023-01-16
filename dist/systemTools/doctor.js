@@ -66,5 +66,6 @@ return output;
 
 
 {
-fixPackageJson:fixPackageJson,fixPackageObject:fixPackageObject};exports.default=_default;
+fixPackageJson:fixPackageJson,fixPackageObject:fixPackageObject
+};exports.default=_default;
 //# sourceMappingURL=doctor.js.map

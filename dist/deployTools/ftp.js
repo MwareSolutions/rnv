@@ -53,8 +53,8 @@ remoteRoot:c.buildConfig.platforms[platform].deploy[_webTools.DEPLOY_TARGET_FTP]
 include:c.buildConfig.platforms[platform].deploy[_webTools.DEPLOY_TARGET_FTP].include||['*','**/*'],
 exclude:c.buildConfig.platforms[platform].deploy[_webTools.DEPLOY_TARGET_FTP].exclude||[],
 deleteRemote:c.buildConfig.platforms[platform].deploy[_webTools.DEPLOY_TARGET_FTP].exclude.deleteRemote||false,
-forcePasv:true};
-
+forcePasv:true
+};
 return config;
 }).
 then(function(config){
@@ -64,7 +64,7 @@ return ftpDeploy.deploy(config);
 }).catch(reject);
 });};
 
-var _createEnvFtpConfig=function _createEnvFtpConfig(configFilePath){var previousContent,envContent,_await$inquirer$promp,host,user,password,port,_args=arguments;return _regenerator.default.async(function _createEnvFtpConfig$(_context){while(1){switch(_context.prev=_context.next){case 0:previousContent=_args.length>1&&_args[1]!==undefined?_args[1]:'';
+var _createEnvFtpConfig=function _createEnvFtpConfig(configFilePath){var previousContent,envContent,_await$inquirer$promp,host,user,password,port,_args=arguments;return _regenerator.default.async(function _createEnvFtpConfig$(_context){while(1)switch(_context.prev=_context.next){case 0:previousContent=_args.length>1&&_args[1]!==undefined?_args[1]:'';
 envContent=previousContent||'';_context.next=4;return _regenerator.default.awrap(
 
 _inquirer.default.prompt([
@@ -72,26 +72,26 @@ _inquirer.default.prompt([
 name:'host',
 type:'input',
 message:'Type your FTP host',
-validate:function validate(i){return!!i||'No FTP server provided';}},
-
+validate:function validate(i){return!!i||'No FTP server provided';}
+},
 {
 name:'port',
 type:'number',
 message:'Type your FTP port',
 default:21,
-validate:function validate(i){return!!i||'No FTP server provided';}},
-
+validate:function validate(i){return!!i||'No FTP server provided';}
+},
 {
 name:'user',
 message:'Type your FTP user',
 type:'input',
-validate:function validate(i){return!!i||'No FTP user provided';}},
-
+validate:function validate(i){return!!i||'No FTP user provided';}
+},
 {
 name:'password',
 message:'Type your FTP password (or press ENTER for prompting every time)',
-type:'password'}]));case 4:_await$inquirer$promp=_context.sent;host=_await$inquirer$promp.host;user=_await$inquirer$promp.user;password=_await$inquirer$promp.password;port=_await$inquirer$promp.port;
-
+type:'password'
+}]));case 4:_await$inquirer$promp=_context.sent;host=_await$inquirer$promp.host;user=_await$inquirer$promp.user;password=_await$inquirer$promp.password;port=_await$inquirer$promp.port;
 
 
 envContent+="RNV_DEPLOY_WEB_FTP_SERVER="+host+"\n";
@@ -100,10 +100,10 @@ envContent+="RNV_DEPLOY_WEB_FTP_PASSWORD="+password+"\n";
 envContent+="RNV_DEPLOY_WEB_FTP_PORT="+port;
 
 _fs.default.writeFileSync(configFilePath,envContent);
-(0,_logger.logInfo)("Writing .env config to "+configFilePath);case 15:case"end":return _context.stop();}}},null,null,null,Promise);};
+(0,_logger.logInfo)("Writing .env config to "+configFilePath);case 15:case"end":return _context.stop();}},null,null,null,Promise);};
 
 
-var _createDeployConfig=function _createDeployConfig(c,platform){var deploy,_await$inquirer$promp2,remoteRoot,deleteRemote,include,exclude,excludeSourcemaps;return _regenerator.default.async(function _createDeployConfig$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _createDeployConfig=function _createDeployConfig(c,platform){var deploy,_await$inquirer$promp2,remoteRoot,deleteRemote,include,exclude,excludeSourcemaps;return _regenerator.default.async(function _createDeployConfig$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("_createDeployConfig:"+platform);
 
 deploy=c.buildConfig.platforms[platform].deploy||{};
@@ -117,30 +117,30 @@ _inquirer.default.prompt([
 name:'remoteRoot',
 type:'input',
 message:'Folder on the ftp to upload the project',
-default:'/'},
-
+default:'/'
+},
 {
 name:'deleteRemote',
 type:'confirm',
-message:'Delete all contents of that folder when deploying versions?'},
-
+message:'Delete all contents of that folder when deploying versions?'
+},
 {
 name:'include',
 type:'input',
 message:'Included files pattern, comma separated',
-default:'\'*\',\'**/*\''},
-
+default:'\'*\',\'**/*\''
+},
 {
 name:'exclude',
 type:'input',
 message:'Excluded files pattern, comma separated',
-default:'[]'},
-
+default:'[]'
+},
 {
 name:'excludeSourcemaps',
 type:'confirm',
-message:'Exclude sourcemaps?'}]));case 7:_await$inquirer$promp2=_context2.sent;remoteRoot=_await$inquirer$promp2.remoteRoot;deleteRemote=_await$inquirer$promp2.deleteRemote;include=_await$inquirer$promp2.include;exclude=_await$inquirer$promp2.exclude;excludeSourcemaps=_await$inquirer$promp2.excludeSourcemaps;
-
+message:'Exclude sourcemaps?'
+}]));case 7:_await$inquirer$promp2=_context2.sent;remoteRoot=_await$inquirer$promp2.remoteRoot;deleteRemote=_await$inquirer$promp2.deleteRemote;include=_await$inquirer$promp2.include;exclude=_await$inquirer$promp2.exclude;excludeSourcemaps=_await$inquirer$promp2.excludeSourcemaps;
 
 
 deploy[_webTools.DEPLOY_TARGET_FTP].remoteRoot=remoteRoot||'/';
@@ -155,7 +155,7 @@ c.paths.appConfig.config+"\n                ");
 
 
 c.files.appConfig.config.platforms[platform].deploy=deploy;
-(0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);case 21:case"end":return _context2.stop();}}},null,null,null,Promise);};
+(0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);case 21:case"end":return _context2.stop();}},null,null,null,Promise);};
 
 
 var deployToFtp=function deployToFtp(c,platform){var _targetConfig$deploy,_targetConfig$deploy$;

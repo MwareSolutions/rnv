@@ -27,13 +27,13 @@ function captureEvent(e){
 var defaultProps={
 fingerprint:(0,_nodeMachineId.machineIdSync)(),
 os:_os.default.platform(),
-rnvVersion:_package.default.version};
-
+rnvVersion:_package.default.version
+};
 return _axios.default.post(_constants.REDASH_URL,_objectSpread(_objectSpread({},e),defaultProps),{
 headers:{
-'x-api-key':_constants.REDASH_KEY}}).
-
-catch(function(){return true;});
+'x-api-key':_constants.REDASH_KEY
+}
+}).catch(function(){return true;});
 }}]);return Redash;}();var
 
 
@@ -65,9 +65,9 @@ frame.filename=frame.filename.split("rnv"+_path.default.sep+"src"+_path.default.
 frame.filename="node_modules/"+frame.filename.split(_path.default.sep+"node_modules"+_path.default.sep)[1];
 }
 return frame;
-}})]});
-
-
+}
+})]
+});
 
 
 this.knowItAll=new Redash();
@@ -89,11 +89,11 @@ _this.errorFixer.captureException(new Error(sanitizeError(e)));
 }
 }},{key:"captureEvent",value:
 
-function captureEvent(e){return _regenerator.default.async(function captureEvent$(_context){while(1){switch(_context.prev=_context.next){case 0:if(!(
+function captureEvent(e){return _regenerator.default.async(function captureEvent$(_context){while(1)switch(_context.prev=_context.next){case 0:if(!(
 _config.default.isAnalyticsEnabled&&this.knowItAll)){_context.next=2;break;}return _context.abrupt("return",
 this.knowItAll.captureEvent(e));case 2:return _context.abrupt("return",
 
-true);case 3:case"end":return _context.stop();}}},null,this,null,Promise);}},{key:"teardown",value:
+true);case 3:case"end":return _context.stop();}},null,this,null,Promise);}},{key:"teardown",value:
 
 
 function teardown(){var _this2=this;

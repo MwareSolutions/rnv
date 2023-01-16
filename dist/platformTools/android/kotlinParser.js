@@ -17,14 +17,14 @@ var JS_BUNDLE_DEFAULTS={
 android:'"super.getJSBundleFile()"',
 androidtv:'"super.getJSBundleFile()"',
 
-androidwear:'"assets://index.androidwear.bundle"'};
-
+androidwear:'"assets://index.androidwear.bundle"'
+};
 
 var JS_BUNDLE_DEFAULTS_BUNDLED={
 android:'"assets://index.android.bundle"',
 androidtv:'"assets://index.android.bundle"',
-androidwear:'"assets://index.android.bundle"'};
-
+androidwear:'"assets://index.android.bundle"'
+};
 
 var parseMainApplicationSync=function parseMainApplicationSync(c,platform){
 var appFolder=(0,_common.getAppFolder)(c,platform);

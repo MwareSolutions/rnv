@@ -31,7 +31,7 @@ reject("Method name "+_chalk.default.white(c.program.exeMethod)+" does not exist
 catch(function(e){return reject(e);});
 });};exports.rnvHooksRun=rnvHooksRun;
 
-var executePipe=function executePipe(c,key){var pipe;return _regenerator.default.async(function executePipe$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var executePipe=function executePipe(c,key){var pipe;return _regenerator.default.async(function executePipe$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("executePipe:"+key);_context.next=3;return _regenerator.default.awrap(
 
 buildHooks(c));case 3:
@@ -41,7 +41,7 @@ pipe=c.buildPipes?c.buildPipes[key]:null;if(!
 Array.isArray(pipe)){_context.next=9;break;}_context.next=7;return _regenerator.default.awrap(
 pipe.reduce(function(accumulatorPromise,next){return accumulatorPromise.then(function(){return next(c);});},Promise.resolve()));case 7:_context.next=12;break;case 9:if(!
 pipe){_context.next=12;break;}_context.next=12;return _regenerator.default.awrap(
-pipe(c));case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.executePipe=executePipe;
+pipe(c));case 12:case"end":return _context.stop();}},null,null,null,Promise);};exports.executePipe=executePipe;
 
 
 
@@ -55,8 +55,8 @@ return;
 }
 
 (0,_exec.executeAsync)(c,"babel --no-babelrc --plugins @babel/plugin-proposal-optional-chaining,@babel/plugin-proposal-nullish-coalescing-operator "+c.paths.buildHooks.dir+" -d "+c.paths.buildHooks.dist.dir+" --presets=@babel/env",{
-cwd:c.paths.buildHooks.dir}).
-
+cwd:c.paths.buildHooks.dir
+}).
 then(function(){
 var h=require(c.paths.buildHooks.dist.index);
 c.buildHooks=h.hooks;

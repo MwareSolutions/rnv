@@ -65,218 +65,218 @@ _chalk.default.bold.white('OPTIONS:')+"\n\n'-i, --info', 'Show full debug info'\
 var COMMANDS={
 start:{
 fn:_runner.rnvStart,
-platforms:_constants.SUPPORTED_PLATFORMS},
-
+platforms:_constants.SUPPORTED_PLATFORMS
+},
 config:{
 fn:_config.rnvConfigHandler,
-desc:'Edit or display RNV configs'},
-
+desc:'Edit or display RNV configs'
+},
 run:{
 desc:'Run your app on target device or emulator',
-fn:_runner.rnvRun},
-
+fn:_runner.rnvRun
+},
 package:{
 desc:'Package JS Code',
 platforms:[_constants.IOS,_constants.ANDROID,_constants.ANDROID_TV,_constants.ANDROID_WEAR,_constants.TVOS],
-fn:_runner.rnvPackage},
-
+fn:_runner.rnvPackage
+},
 deploy:{
 desc:'Deploy whole app via preconfigured or custom integration',
-fn:_runner.rnvDeploy},
-
+fn:_runner.rnvDeploy
+},
 build:{
 desc:'Build your app',
-fn:_runner.rnvBuild},
-
+fn:_runner.rnvBuild
+},
 export:{
 desc:'Export your app (ios only)',
 platforms:[_constants.IOS,_constants.TVOS,_constants.MACOS,_constants.WINDOWS,_constants.WEB,_constants.ANDROID,_constants.ANDROID_TV,_constants.ANDROID_WEAR],
-fn:_runner.rnvExport},
-
+fn:_runner.rnvExport
+},
 log:{
 desc:'Attach logger to device or emulator and print out logs',
 platforms:[_constants.IOS,_constants.ANDROID,_constants.ANDROID_TV,_constants.ANDROID_WEAR,_constants.TVOS],
-fn:_runner.rnvLog},
-
+fn:_runner.rnvLog
+},
 new:{
 fn:_projectGenerator.createNewProject,
 desc:'Creates new project',
-params:['mono','ci']},
-
+params:['mono','ci']
+},
 help:{
 desc:'Displays help',
-fn:rnvHelp},
-
+fn:rnvHelp
+},
 configure:{
 desc:'Configures app config',
 fn:_projectTools.rnvConfigure,
-params:['appConfigID','mono','ci']},
-
+params:['appConfigID','mono','ci']
+},
 switch:{
 desc:'Switches to app confing without rebuilding',
 fn:_projectTools.rnvSwitch,
-params:['appConfigID','mono','ci']},
-
+params:['appConfigID','mono','ci']
+},
 link:{
 desc:'Local dependency linking of your project',
-fn:_projectTools.rnvLink},
-
+fn:_projectTools.rnvLink
+},
 platform:{
 desc:'Manages native platform projects',
 subCommands:{
 eject:{
-fn:_platformTools.rnvPlatformEject},
-
+fn:_platformTools.rnvPlatformEject
+},
 list:{
-fn:_platformTools.rnvPlatformList},
-
+fn:_platformTools.rnvPlatformList
+},
 connect:{
-fn:_platformTools.rnvPlatformConnect},
-
+fn:_platformTools.rnvPlatformConnect
+},
 configure:{
-fn:_platformTools.rnvPlatformConfigure},
-
+fn:_platformTools.rnvPlatformConfigure
+},
 setup:{
-fn:_platformTools.rnvPlatformSetup}}},
-
-
-
+fn:_platformTools.rnvPlatformSetup
+}
+}
+},
 target:{
 desc:'Manages simulators and emulators',
 platforms:[_constants.IOS,_constants.ANDROID,_constants.ANDROID_TV,_constants.ANDROID_WEAR,_constants.TIZEN,_constants.TIZEN_MOBILE,_constants.TVOS,_constants.WEBOS,_constants.TIZEN_WATCH],
 subCommands:{
 launch:{
-fn:_target.rnvTargetLaunch},
-
+fn:_target.rnvTargetLaunch
+},
 list:{
-fn:_target.rnvTargetList}}},
-
-
-
+fn:_target.rnvTargetList
+}
+}
+},
 plugin:{
 desc:'Manages all plugins',
 subCommands:{
 add:{
-fn:_pluginTools.rnvPluginAdd},
-
+fn:_pluginTools.rnvPluginAdd
+},
 list:{
-fn:_pluginTools.rnvPluginList},
-
+fn:_pluginTools.rnvPluginList
+},
 update:{
-fn:_pluginTools.rnvPluginUpdate}}},
-
-
-
+fn:_pluginTools.rnvPluginUpdate
+}
+}
+},
 hooks:{
 desc:'Manages project based build hooks. This allows you to extend functionality of RNV CLI',
 subCommands:{
 run:{
-fn:_buildHooks.rnvHooksRun},
-
+fn:_buildHooks.rnvHooksRun
+},
 list:{
-fn:_buildHooks.rnvHooksList},
-
+fn:_buildHooks.rnvHooksList
+},
 pipes:{
-fn:_buildHooks.rnvHooksPipes}}},
-
-
-
+fn:_buildHooks.rnvHooksPipes
+}
+}
+},
 status:{
 desc:'Prints out summary of your project',
-fn:_logger.rnvStatus},
-
+fn:_logger.rnvStatus
+},
 clean:{
 desc:'Automatically removes all node_modules and lock in your project and its dependencies',
-fn:_cleaner.rnvClean},
-
+fn:_cleaner.rnvClean
+},
 template:{
 desc:'Manages rnv and project templates',
 subCommands:{
 add:{
-fn:_templateTools.rnvTemplateAdd},
-
+fn:_templateTools.rnvTemplateAdd
+},
 list:{
-fn:_templateTools.rnvTemplateList},
-
+fn:_templateTools.rnvTemplateList
+},
 apply:{
-fn:_templateTools.rnvTemplateApply}}},
-
-
-
+fn:_templateTools.rnvTemplateApply
+}
+}
+},
 crypto:{
 desc:'Utility to manage encrytped files in your project, provisioning profiles, kestores and other sensitive information',
 subCommands:{
 encrypt:{
-fn:_crypto.rnvCryptoEncrypt},
-
+fn:_crypto.rnvCryptoEncrypt
+},
 decrypt:{
-fn:_crypto.rnvCryptoDecrypt},
-
+fn:_crypto.rnvCryptoDecrypt
+},
 installCerts:{
 platforms:[_constants.IOS,_constants.TVOS],
-fn:_crypto.rnvCryptoInstallCerts},
-
+fn:_crypto.rnvCryptoInstallCerts
+},
 updateProfile:{
 requiredParams:['scheme','platform'],
 platforms:[_constants.IOS,_constants.TVOS],
-fn:_crypto.rnvCryptoUpdateProfile},
-
+fn:_crypto.rnvCryptoUpdateProfile
+},
 updateProfiles:{
 platforms:[_constants.IOS,_constants.TVOS],
-fn:_crypto.rnvCryptoUpdateProfiles},
-
+fn:_crypto.rnvCryptoUpdateProfiles
+},
 installProfiles:{
 platforms:[_constants.IOS,_constants.TVOS],
-fn:_crypto.rnvCryptoInstallProfiles}}},
-
-
-
+fn:_crypto.rnvCryptoInstallProfiles
+}
+}
+},
 workspace:{
 desc:'Manages global workspaces for ReNative projects',
 subCommands:{
 add:{
-fn:_workspace.rnvWorkspaceAdd},
-
+fn:_workspace.rnvWorkspaceAdd
+},
 connect:{
-fn:_workspace.rnvWorkspaceConnect},
-
+fn:_workspace.rnvWorkspaceConnect
+},
 list:{
-fn:_workspace.rnvWorkspaceList},
-
+fn:_workspace.rnvWorkspaceList
+},
 update:{
-fn:_workspace.rnvWorkspaceUpdate}}},
-
-
-
+fn:_workspace.rnvWorkspaceUpdate
+}
+}
+},
 fastlane:{
 desc:'Run fastlane commands on currectly active app/platform directly via rnv command',
 platforms:[_constants.IOS,_constants.ANDROID,_constants.ANDROID_TV,_constants.ANDROID_WEAR,_constants.TVOS],
-fn:_fastlane.rnvFastlane},
-
+fn:_fastlane.rnvFastlane
+},
 publish:{
 desc:'Provides help deploying a new version, like tagging a commit, pushing it, etc',
-fn:_publish.default},
-
+fn:_publish.default
+},
 pkg:{
 desc:'Provides help deploying a new version, like tagging a commit, pushing it, etc',
-fn:_package.default}};
-
-
+fn:_package.default
+}
+};
 var NO_OP_COMMANDS=['fix','clean','tool','status','log','new','target','help','config'];exports.NO_OP_COMMANDS=NO_OP_COMMANDS;
 var SKIP_APP_CONFIG_CHECK=['crypto','config'];exports.SKIP_APP_CONFIG_CHECK=SKIP_APP_CONFIG_CHECK;
 
-var _handleUnknownPlatform=function _handleUnknownPlatform(c,platforms){var _await$inquirerPrompt,platform;return _regenerator.default.async(function _handleUnknownPlatform$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var _handleUnknownPlatform=function _handleUnknownPlatform(c,platforms){var _await$inquirerPrompt,platform;return _regenerator.default.async(function _handleUnknownPlatform$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)('_handleUnknownPlatform');_context.next=3;return _regenerator.default.awrap(
 (0,_prompt.inquirerPrompt)({
 type:'list',
 name:'platform',
 message:'pick one of the following',
 choices:platforms,
-logMessage:"cli: Command "+_chalk.default.grey(c.command)+" does not support platform "+_chalk.default.grey(c.platform)+". "}));case 3:_await$inquirerPrompt=_context.sent;platform=_await$inquirerPrompt.platform;
-
+logMessage:"cli: Command "+_chalk.default.grey(c.command)+" does not support platform "+_chalk.default.grey(c.platform)+". "
+}));case 3:_await$inquirerPrompt=_context.sent;platform=_await$inquirerPrompt.platform;
 
 c.platform=platform;return _context.abrupt("return",
-run(c));case 7:case"end":return _context.stop();}}},null,null,null,Promise);};
+run(c));case 7:case"end":return _context.stop();}},null,null,null,Promise);};
 
 
 
@@ -284,7 +284,7 @@ run(c));case 7:case"end":return _context.stop();}}},null,null,null,Promise);};
 
 
 var _builderStarted=false;
-var _startBuilder=function _startBuilder(c){var _await$inquirerPrompt2,command;return _regenerator.default.async(function _startBuilder$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var _startBuilder=function _startBuilder(c){var _await$inquirerPrompt2,command;return _regenerator.default.async(function _startBuilder$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("_startBuilder:"+_builderStarted);if(!
 
 _builderStarted){_context2.next=3;break;}return _context2.abrupt("return");case 3:
@@ -303,8 +303,8 @@ name:'command',
 message:'Pick a command',
 choices:NO_OP_COMMANDS.sort(),
 pageSize:15,
-logMessage:'You need to tell rnv what to do. NOTE: your current directory is not ReNative project. RNV options will be limited'}));case 12:_await$inquirerPrompt2=_context2.sent;command=_await$inquirerPrompt2.command;
-
+logMessage:'You need to tell rnv what to do. NOTE: your current directory is not ReNative project. RNV options will be limited'
+}));case 12:_await$inquirerPrompt2=_context2.sent;command=_await$inquirerPrompt2.command;
 c.command=command;case 15:if(!
 
 
@@ -330,10 +330,10 @@ c);case 19:_context2.next=21;return _regenerator.default.awrap(
 SKIP_APP_CONFIG_CHECK.includes(c.command)){_context2.next=46;break;}_context2.next=46;return _regenerator.default.awrap(
 (0,_configParser.updateConfig)(c,c.runtime.appId));case 46:_context2.next=48;return _regenerator.default.awrap(
 
-(0,_logger.logAppInfo)(c));case 48:case"end":return _context2.stop();}}},null,null,null,Promise);};exports._startBuilder=_startBuilder;
+(0,_logger.logAppInfo)(c));case 48:case"end":return _context2.stop();}},null,null,null,Promise);};exports._startBuilder=_startBuilder;
 
 
-var _execCommandHep=function _execCommandHep(c,cmd){var opts,subCommands;return _regenerator.default.async(function _execCommandHep$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var _execCommandHep=function _execCommandHep(c,cmd){var opts,subCommands;return _regenerator.default.async(function _execCommandHep$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 opts='';
 subCommands='';
 
@@ -356,10 +356,10 @@ subCommands+"\n"+
 opts+"\nMore info at "+
 _chalk.default.grey("https://renative.org/docs/rnv-"+c.command)+"\n");return _context3.abrupt("return",
 
-Promise.resolve());case 6:case"end":return _context3.stop();}}},null,null,null,Promise);};
+Promise.resolve());case 6:case"end":return _context3.stop();}},null,null,null,Promise);};
 
 
-var _handleUnknownSubCommand=function _handleUnknownSubCommand(c){var _COMMANDS$c$command;var cmds,_await$inquirerPrompt3,subCommand;return _regenerator.default.async(function _handleUnknownSubCommand$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _handleUnknownSubCommand=function _handleUnknownSubCommand(c){var _COMMANDS$c$command;var cmds,_await$inquirerPrompt3,subCommand;return _regenerator.default.async(function _handleUnknownSubCommand$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)('_handleUnknownSubCommand');
 cmds=(_COMMANDS$c$command=COMMANDS[c.command])==null?void 0:_COMMANDS$c$command.subCommands;_context4.next=4;return _regenerator.default.awrap(
 
@@ -368,14 +368,14 @@ type:'list',
 name:'subCommand',
 message:'Pick a subCommand',
 choices:Object.keys(cmds),
-logMessage:"cli: Command "+_chalk.default.bold(c.command)+" does not support method "+_chalk.default.bold(c.subCommand)+"!"}));case 4:_await$inquirerPrompt3=_context4.sent;subCommand=_await$inquirerPrompt3.subCommand;
-
+logMessage:"cli: Command "+_chalk.default.bold(c.command)+" does not support method "+_chalk.default.bold(c.subCommand)+"!"
+}));case 4:_await$inquirerPrompt3=_context4.sent;subCommand=_await$inquirerPrompt3.subCommand;
 
 c.subCommand=subCommand;return _context4.abrupt("return",
-run(c));case 8:case"end":return _context4.stop();}}},null,null,null,Promise);};
+run(c));case 8:case"end":return _context4.stop();}},null,null,null,Promise);};
 
 
-var _handleUnknownCommand=function _handleUnknownCommand(c){var _await$inquirerPrompt4,command;return _regenerator.default.async(function _handleUnknownCommand$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var _handleUnknownCommand=function _handleUnknownCommand(c){var _await$inquirerPrompt4,command;return _regenerator.default.async(function _handleUnknownCommand$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)('_handleUnknownCommand');
 
 c.program.scheme=true;_context5.next=4;return _regenerator.default.awrap(
@@ -386,10 +386,10 @@ name:'command',
 message:'Pick a command',
 pageSize:7,
 choices:Object.keys(COMMANDS).sort(),
-logMessage:"cli: Command "+_chalk.default.bold(c.command)+" not supported!"}));case 4:_await$inquirerPrompt4=_context5.sent;command=_await$inquirerPrompt4.command;
-
+logMessage:"cli: Command "+_chalk.default.bold(c.command)+" not supported!"
+}));case 4:_await$inquirerPrompt4=_context5.sent;command=_await$inquirerPrompt4.command;
 c.command=command;return _context5.abrupt("return",
-run(c));case 8:case"end":return _context5.stop();}}},null,null,null,Promise);};
+run(c));case 8:case"end":return _context5.stop();}},null,null,null,Promise);};
 
 
 
@@ -427,7 +427,7 @@ return newCommand;
 
 
 
-var run=function run(c,spawnC,skipStartBuilder){var _cmd$subCommands;var oldC,cmd,cmdFn,subCmd,subCmdFn;return _regenerator.default.async(function run$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var run=function run(c,spawnC,skipStartBuilder){var _cmd$subCommands;var oldC,cmd,cmdFn,subCmd,subCmdFn;return _regenerator.default.async(function run$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)('cli');if(
 
 skipStartBuilder){_context6.next=4;break;}_context6.next=4;return _regenerator.default.awrap(_startBuilder(c));case 4:
@@ -461,12 +461,12 @@ _execute(c,subCmdFn,cmd));case 29:_context6.next=33;break;case 31:_context6.next
 _handleUnknownSubCommand(c));case 33:_context6.next=37;break;case 35:_context6.next=37;return _regenerator.default.awrap(
 
 
-_handleUnknownCommand(c));case 37:case"end":return _context6.stop();}}},null,null,null,Promise);};
+_handleUnknownCommand(c));case 37:case"end":return _context6.stop();}},null,null,null,Promise);};
 
 
 
 
-var _execute=function _execute(c,cmdFn,cmd){var _c$buildConfig,_c$buildConfig$defaul,_c$buildConfig$defaul2,_PLATFORMS$c$platform;var subCmd,_cmd$subCommands2,_cmd$subCommands2$c$s,requiredPlatforms,pipeEnabled;return _regenerator.default.async(function _execute$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
+var _execute=function _execute(c,cmdFn,cmd){var _c$buildConfig,_c$buildConfig$defaul,_c$buildConfig$defaul2,_PLATFORMS$c$platform;var subCmd,_cmd$subCommands2,_cmd$subCommands2$c$s,requiredPlatforms,pipeEnabled;return _regenerator.default.async(function _execute$(_context7){while(1)switch(_context7.prev=_context7.next){case 0:
 (0,_logger.logTask)("_execute:"+c.command+":"+c.subCommand);if(!(
 cmd.platforms&&!cmd.platforms.includes(c.platform))){_context7.next=5;break;}_context7.next=4;return _regenerator.default.awrap(
 _handleUnknownPlatform(c,cmd.platforms));case 4:return _context7.abrupt("return");case 5:
@@ -505,7 +505,7 @@ c.runtime.localhost=_utils.isSystemWin?'127.0.0.1':'0.0.0.0';
 pipeEnabled=!NO_OP_COMMANDS.includes(c.command)&&!SKIP_APP_CONFIG_CHECK.includes(c.command);if(!
 pipeEnabled){_context7.next=21;break;}_context7.next=21;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":before"));case 21:_context7.next=23;return _regenerator.default.awrap(
 cmdFn(c));case 23:if(!
-pipeEnabled){_context7.next=26;break;}_context7.next=26;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":after"));case 26:case"end":return _context7.stop();}}},null,null,null,Promise);};var _default=
+pipeEnabled){_context7.next=26;break;}_context7.next=26;return _regenerator.default.awrap((0,_buildHooks.executePipe)(c,""+c.command+subCmd+":after"));case 26:case"end":return _context7.stop();}},null,null,null,Promise);};var _default=
 
 
 

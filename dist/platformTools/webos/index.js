@@ -55,7 +55,7 @@ return(0,_runner.rnvStart)(c);
 
 var parseDevices=function parseDevices(c,devicesResponse){
 var linesArray=devicesResponse.split('\n').slice(2).map(function(line){return line.trim();}).filter(function(line){return line!=='';});
-return Promise.all(linesArray.map(function _callee(line){var _line$split$map$filte,_line$split$map$filte2,name,device,connection,profile,deviceInfo;return _regenerator.default.async(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_line$split$map$filte=
+return Promise.all(linesArray.map(function _callee(line){var _line$split$map$filte,_line$split$map$filte2,name,device,connection,profile,deviceInfo;return _regenerator.default.async(function _callee$(_context){while(1)switch(_context.prev=_context.next){case 0:_line$split$map$filte=
 line.split(' ').map(function(word){return word.trim();}).filter(function(word){return word!=='';}),_line$split$map$filte2=(0,_slicedToArray2.default)(_line$split$map$filte,4),name=_line$split$map$filte2[0],device=_line$split$map$filte2[1],connection=_line$split$map$filte2[2],profile=_line$split$map$filte2[3];
 deviceInfo='';_context.prev=2;_context.next=5;return _regenerator.default.awrap(
 
@@ -70,12 +70,12 @@ device:device,
 connection:connection,
 profile:profile,
 isDevice:!device.includes(c.runtime.localhost),
-active:!deviceInfo.includes('ERR!')});case 12:case"end":return _context.stop();}}},null,null,[[2,8]],Promise);}));
-
+active:!deviceInfo.includes('ERR!')
+});case 12:case"end":return _context.stop();}},null,null,[[2,8]],Promise);}));
 
 };
 
-var installAndLaunchApp=function installAndLaunchApp(c,target,appPath,tId){var hosted,platform,isHosted,toReturn;return _regenerator.default.async(function installAndLaunchApp$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.prev=0;_context2.next=3;return _regenerator.default.awrap(
+var installAndLaunchApp=function installAndLaunchApp(c,target,appPath,tId){var hosted,platform,isHosted,toReturn;return _regenerator.default.async(function installAndLaunchApp$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:_context2.prev=0;_context2.next=3;return _regenerator.default.awrap(
 
 (0,_exec.execCLI)(c,_constants.CLI_WEBOS_ARES_INSTALL,"--device "+target+" "+appPath));case 3:_context2.next=9;break;case 5:_context2.prev=5;_context2.t0=_context2["catch"](0);_context2.next=9;return _regenerator.default.awrap(
 
@@ -92,14 +92,14 @@ toReturn=startHostedServerIfRequired(c);_context2.next=17;return _regenerator.de
 (0,_common.waitForWebpack)(c));case 17:_context2.next=19;return _regenerator.default.awrap(
 
 (0,_exec.execCLI)(c,_constants.CLI_WEBOS_ARES_LAUNCH,"--device "+target+" "+tId));case 19:return _context2.abrupt("return",
-toReturn);case 20:case"end":return _context2.stop();}}},null,null,[[0,5]],Promise);};
+toReturn);case 20:case"end":return _context2.stop();}},null,null,[[0,5]],Promise);};
 
 
 var buildDeviceChoices=function buildDeviceChoices(devices){return devices.map(function(device){return{
-key:device.name,name:device.name+" - "+device.device,value:device.name};});};
+key:device.name,name:device.name+" - "+device.device,value:device.name
+};});};
 
-
-var listWebOSTargets=function listWebOSTargets(c){var devicesResponse,devices,deviceArray;return _regenerator.default.async(function listWebOSTargets$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:_context3.next=2;return _regenerator.default.awrap(
+var listWebOSTargets=function listWebOSTargets(c){var devicesResponse,devices,deviceArray;return _regenerator.default.async(function listWebOSTargets$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:_context3.next=2;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,'-D'));case 2:devicesResponse=_context3.sent;_context3.next=5;return _regenerator.default.awrap(
 parseDevices(c,devicesResponse));case 5:devices=_context3.sent;
 
@@ -107,19 +107,19 @@ deviceArray=devices.map(function(device,i){return" ["+(i+1)+"]> "+_chalk.default
 
 (0,_logger.logToSummary)("WebOS Targets:\n"+deviceArray.join('\n'));return _context3.abrupt("return",
 
-true);case 9:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.listWebOSTargets=listWebOSTargets;
+true);case 9:case"end":return _context3.stop();}},null,null,null,Promise);};exports.listWebOSTargets=listWebOSTargets;
 
 
-var waitForEmulatorToBeReady=function waitForEmulatorToBeReady(c){var devicesResponse,devices,emulator;return _regenerator.default.async(function waitForEmulatorToBeReady$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:_context4.next=2;return _regenerator.default.awrap(
+var waitForEmulatorToBeReady=function waitForEmulatorToBeReady(c){var devicesResponse,devices,emulator;return _regenerator.default.async(function waitForEmulatorToBeReady$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:_context4.next=2;return _regenerator.default.awrap(
 (0,_exec.execCLI)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,'-D'));case 2:devicesResponse=_context4.sent;_context4.next=5;return _regenerator.default.awrap(
 parseDevices(c,devicesResponse));case 5:devices=_context4.sent;
 emulator=devices.filter(function(d){return!d.isDevice;})[0];if(
 emulator){_context4.next=9;break;}throw new Error('No WebOS emulator configured');case 9:return _context4.abrupt("return",
 
-(0,_common.waitForEmulator)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,"-d "+emulator.name,function(res){return res.includes('modelName');}));case 10:case"end":return _context4.stop();}}},null,null,null,Promise);};
+(0,_common.waitForEmulator)(c,_constants.CLI_WEBOS_ARES_DEVICE_INFO,"-d "+emulator.name,function(res){return res.includes('modelName');}));case 10:case"end":return _context4.stop();}},null,null,null,Promise);};
 
 
-var runWebOS=function runWebOS(c,platform,target){var _c$program,device,hosted,isHosted,tDir,tOut,tSim,configFilePath,cnfg,tId,appPath,isPortActive,devicesResponse,devices,activeDevices,actualDevices,response,newDeviceResponse,dev,actualDev,newDevice,tv,choices,_response;return _regenerator.default.async(function runWebOS$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var runWebOS=function runWebOS(c,platform,target){var _c$program,device,hosted,isHosted,tDir,tOut,tSim,configFilePath,cnfg,tId,appPath,isPortActive,devicesResponse,devices,activeDevices,actualDevices,response,newDeviceResponse,dev,actualDev,newDevice,tv,choices,_response;return _regenerator.default.async(function runWebOS$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 (0,_logger.logTask)("runWebOS:"+platform+":"+target);_c$program=
 
 c.program,device=_c$program.device,hosted=_c$program.hosted;
@@ -164,8 +164,8 @@ _inquirer.default.prompt([{
 type:'confirm',
 name:'setupDevice',
 message:'Looks like you want to deploy on a device but have none configured. Do you want to configure one?',
-default:false}]));case 37:response=_context5.sent;if(!
-
+default:false
+}]));case 37:response=_context5.sent;if(!
 
 response.setupDevice){_context5.next=55;break;}
 
@@ -203,8 +203,8 @@ _inquirer.default.prompt([{
 name:'chosenDevice',
 type:'list',
 message:'What device would you like to start the app?',
-choices:choices}]));case 69:_response=_context5.sent;if(!
-
+choices:choices
+}]));case 69:_response=_context5.sent;if(!
 _response.chosenDevice){_context5.next=72;break;}return _context5.abrupt("return",
 installAndLaunchApp(c,_response.chosenDevice,appPath,tId));case 72:_context5.next=79;break;case 74:_context5.next=76;return _regenerator.default.awrap(
 
@@ -215,7 +215,7 @@ installAndLaunchApp(c,tSim,appPath,tId));case 79:_context5.next=82;break;case 81
 
 
 
-installAndLaunchApp(c,c.program.target,appPath,tId));case 82:case"end":return _context5.stop();}}},null,null,null,Promise);};exports.runWebOS=runWebOS;
+installAndLaunchApp(c,c.program.target,appPath,tId));case 82:case"end":return _context5.stop();}},null,null,null,Promise);};exports.runWebOS=runWebOS;
 
 
 
@@ -235,7 +235,7 @@ return resolve();
 catch(reject);
 });};exports.buildWebOSProject=buildWebOSProject;
 
-var configureWebOSProject=function configureWebOSProject(c,platform){return _regenerator.default.async(function configureWebOSProject$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var configureWebOSProject=function configureWebOSProject(c,platform){return _regenerator.default.async(function configureWebOSProject$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)('configureWebOSProject');if(
 
 (0,_.isPlatformActive)(c,platform)){_context6.next=3;break;}return _context6.abrupt("return");case 3:_context6.next=5;return _regenerator.default.awrap(
@@ -243,7 +243,7 @@ var configureWebOSProject=function configureWebOSProject(c,platform){return _reg
 (0,_projectParser.copyAssetsFolder)(c,platform));case 5:_context6.next=7;return _regenerator.default.awrap(
 (0,_web.configureCoreWebProject)(c,platform));case 7:_context6.next=9;return _regenerator.default.awrap(
 configureProject(c,platform));case 9:return _context6.abrupt("return",
-(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context6.stop();}}},null,null,null,Promise);};exports.configureWebOSProject=configureWebOSProject;
+(0,_projectParser.copyBuildsFolder)(c,platform));case 10:case"end":return _context6.stop();}},null,null,null,Promise);};exports.configureWebOSProject=configureWebOSProject;
 
 
 var configureProject=function configureProject(c,platform){return new Promise(function(resolve,reject){

@@ -10,7 +10,7 @@ var _logger=require("../../systemTools/logger");
 
 var _index=require("./index");
 
-var parseXcscheme=function parseXcscheme(c,platform){var allowProvisioningUpdates,provisioningStyle,runScheme,poisxSpawn,appFolder,appFolderName,appTemplateFolder,debuggerId,launcherId,schemePath;return _regenerator.default.async(function parseXcscheme$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var parseXcscheme=function parseXcscheme(c,platform){var allowProvisioningUpdates,provisioningStyle,runScheme,poisxSpawn,appFolder,appFolderName,appTemplateFolder,debuggerId,launcherId,schemePath;return _regenerator.default.async(function parseXcscheme$(_context){while(1)switch(_context.prev=_context.next){case 0:
 (0,_logger.logTask)("parseXcscheme:"+platform);
 
 allowProvisioningUpdates=(0,_common.getConfigProp)(c,platform,'allowProvisioningUpdates',true);
@@ -28,5 +28,5 @@ launcherId=poisxSpawn?'Xcode.IDEFoundation.Launcher.PosixSpawn':'Xcode.DebuggerF
 schemePath=appFolderName+".xcodeproj/xcshareddata/xcschemes/"+appFolderName+".xcscheme";
 (0,_common.writeCleanFile)(_path.default.join(appTemplateFolder,schemePath),_path.default.join(appFolder,schemePath),[
 {pattern:'{{PLUGIN_DEBUGGER_ID}}',override:debuggerId},
-{pattern:'{{PLUGIN_LAUNCHER_ID}}',override:launcherId}]);case 12:case"end":return _context.stop();}}},null,null,null,Promise);};exports.parseXcscheme=parseXcscheme;
+{pattern:'{{PLUGIN_LAUNCHER_ID}}',override:launcherId}]);case 12:case"end":return _context.stop();}},null,null,null,Promise);};exports.parseXcscheme=parseXcscheme;
 //# sourceMappingURL=xcschemeParser.js.map

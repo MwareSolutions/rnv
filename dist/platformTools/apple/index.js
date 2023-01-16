@@ -31,7 +31,7 @@ var _logger=require("../../systemTools/logger");
 
 
 
-var checkIfPodsIsRequired=function checkIfPodsIsRequired(c){var appFolder,podChecksumPath,podChecksum,podContentChecksum;return _regenerator.default.async(function checkIfPodsIsRequired$(_context){while(1){switch(_context.prev=_context.next){case 0:
+var checkIfPodsIsRequired=function checkIfPodsIsRequired(c){var appFolder,podChecksumPath,podChecksum,podContentChecksum;return _regenerator.default.async(function checkIfPodsIsRequired$(_context){while(1)switch(_context.prev=_context.next){case 0:
 appFolder=(0,_common.getAppFolder)(c,c.platform);
 podChecksumPath=_path.default.join(appFolder,'Podfile.checksum');if(
 _fs.default.existsSync(podChecksumPath)){_context.next=4;break;}return _context.abrupt("return",true);case 4:
@@ -43,7 +43,7 @@ podChecksum!==podContentChecksum)){_context.next=9;break;}
 true);case 9:
 
 (0,_logger.logInfo)('Pods do not seem like they need to be updated. If you want to update them manually run the same command with "-u" parameter');return _context.abrupt("return",
-false);case 11:case"end":return _context.stop();}}},null,null,null,Promise);};
+false);case 11:case"end":return _context.stop();}},null,null,null,Promise);};
 
 
 var updatePodsChecksum=function updatePodsChecksum(c){
@@ -63,7 +63,7 @@ return true;
 return _fs.default.writeFileSync(podChecksumPath,podContentChecksum);
 };
 
-var runPod=function runPod(c,platform){var appFolder,podsRequired,s,isGenericError;return _regenerator.default.async(function runPod$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:
+var runPod=function runPod(c,platform){var appFolder,podsRequired,s,isGenericError;return _regenerator.default.async(function runPod$(_context2){while(1)switch(_context2.prev=_context2.next){case 0:
 (0,_logger.logTask)("runPod:"+platform);
 
 appFolder=(0,_common.getAppFolder)(c,platform);if(
@@ -79,8 +79,8 @@ podsRequired){_context2.next=28;break;}if(
 
 (0,_exec.executeAsync)(c,'pod install',{
 cwd:appFolder,
-env:process.env}));case 16:_context2.next=26;break;case 18:_context2.prev=18;_context2.t1=_context2["catch"](13);
-
+env:process.env
+}));case 16:_context2.next=26;break;case 18:_context2.prev=18;_context2.t1=_context2["catch"](13);
 
 s=_context2.t1!=null&&_context2.t1.toString?_context2.t1.toString():'';
 isGenericError=s.includes('No provisionProfileSpecifier configured')||s.includes('TypeError:')||s.includes('ReferenceError:')||s.includes('find gem cocoapods');if(!
@@ -92,7 +92,7 @@ catch(function(er){return Promise.reject(er);}));case 26:
 
 
 updatePodsChecksum(c);return _context2.abrupt("return",
-true);case 28:case"end":return _context2.stop();}}},null,null,[[13,18]],Promise);};exports.runPod=runPod;
+true);case 28:case"end":return _context2.stop();}},null,null,[[13,18]],Promise);};exports.runPod=runPod;
 
 
 
@@ -110,7 +110,7 @@ _fs.default.writeFileSync(_path.default.join(appFolder,'main.jsbundle'),'{}');
 resolve();
 });};exports.copyAppleAssets=copyAppleAssets;
 
-var runXcodeProject=function runXcodeProject(c){var appPath,device,scheme,runScheme,bundleIsDev,bundleAssets,p,devicesArr,run,selectedDevice,devices,_await$inquirer$promp,sim,_devices,_await$inquirer$promp2,_sim,allowProvisioningUpdates;return _regenerator.default.async(function runXcodeProject$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:
+var runXcodeProject=function runXcodeProject(c){var appPath,device,scheme,runScheme,bundleIsDev,bundleAssets,p,devicesArr,run,selectedDevice,devices,_await$inquirer$promp,sim,_devices,_await$inquirer$promp2,_sim,allowProvisioningUpdates;return _regenerator.default.async(function runXcodeProject$(_context3){while(1)switch(_context3.prev=_context3.next){case 0:
 (0,_logger.logTask)("runXcodeProject:"+c.platform+":"+c.runtime.target);
 
 appPath=(0,_common.getAppFolder)(c,c.platform);
@@ -177,8 +177,8 @@ _inquirer.default.prompt({
 name:'sim',
 message:'Select the device you want to launch on',
 type:'list',
-choices:devices}));case 35:_await$inquirer$promp=_context3.sent;sim=_await$inquirer$promp.sim;if(!
-
+choices:devices
+}));case 35:_await$inquirer$promp=_context3.sent;sim=_await$inquirer$promp.sim;if(!
 
 sim){_context3.next=39;break;}return _context3.abrupt("return",
 run(sim));case 39:_context3.next=42;break;case 41:return _context3.abrupt("return",
@@ -195,8 +195,8 @@ _inquirer.default.prompt({
 name:'sim',
 message:'Select the device you want to launch on',
 type:'list',
-choices:_devices}));case 52:_await$inquirer$promp2=_context3.sent;_sim=_await$inquirer$promp2.sim;
-
+choices:_devices
+}));case 52:_await$inquirer$promp2=_context3.sent;_sim=_await$inquirer$promp2.sim;
 c.runtime.target=_sim.name;
 p="--simulator "+c.runtime.target.replace(/(\s+)/g,'\\$1');_context3.next=59;break;case 58:
 
@@ -212,10 +212,10 @@ packageBundleForXcode(c,c.platform,bundleIsDev).then(function(){return _checkLoc
 
 _checkLockAndExec(c,appPath,scheme,runScheme,p));case 64:return _context3.abrupt("return",
 
-Promise.reject('Missing options for react-native command!'));case 65:case"end":return _context3.stop();}}},null,null,null,Promise);};exports.runXcodeProject=runXcodeProject;
+Promise.reject('Missing options for react-native command!'));case 65:case"end":return _context3.stop();}},null,null,null,Promise);};exports.runXcodeProject=runXcodeProject;
 
 
-var _checkLockAndExec=function _checkLockAndExec(c,appPath,scheme,runScheme,p){var cmd,isDeviceLocked,isDeviceNotRegistered,_await$inquirer$promp3,confirm,isDevelopmentTeamMissing,_c$paths$appConfig,loc,_await$inquirer$promp4,_confirm,isAutomaticSigningDisabled,isProvisioningMissing;return _regenerator.default.async(function _checkLockAndExec$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:
+var _checkLockAndExec=function _checkLockAndExec(c,appPath,scheme,runScheme,p){var cmd,isDeviceLocked,isDeviceNotRegistered,_await$inquirer$promp3,confirm,isDevelopmentTeamMissing,_c$paths$appConfig,loc,_await$inquirer$promp4,_confirm,isAutomaticSigningDisabled,isProvisioningMissing;return _regenerator.default.async(function _checkLockAndExec$(_context4){while(1)switch(_context4.prev=_context4.next){case 0:
 (0,_logger.logTask)("_checkLockAndExec:"+scheme+":"+runScheme);
 cmd="react-native run-ios --project-path "+appPath+" --scheme "+scheme+" --configuration "+runScheme+" "+p;_context4.prev=2;_context4.next=5;return _regenerator.default.awrap(
 
@@ -234,8 +234,8 @@ isDeviceNotRegistered){_context4.next=27;break;}
 _inquirer.default.prompt({
 name:'confirm',
 message:'Do you want to register it?',
-type:'confirm'}));case 21:_await$inquirer$promp3=_context4.sent;confirm=_await$inquirer$promp3.confirm;if(!
-
+type:'confirm'
+}));case 21:_await$inquirer$promp3=_context4.sent;confirm=_await$inquirer$promp3.confirm;if(!
 confirm){_context4.next=27;break;}_context4.next=26;return _regenerator.default.awrap(
 (0,_fastlane.registerDevice)(c));case 26:return _context4.abrupt("return",
 Promise.reject('Updated. Re-run your last command'));case 27:
@@ -253,8 +253,8 @@ _chalk.default.white('https://developer.apple.com/account/#/overview/YOUR-TEAM-I
 _inquirer.default.prompt({
 name:'confirm',
 message:"Type in your Apple Team ID to be used (will be saved to "+((_c$paths$appConfig=c.paths.appConfig)==null?void 0:_c$paths$appConfig.config)+")",
-type:'input'}));case 34:_await$inquirer$promp4=_context4.sent;_confirm=_await$inquirer$promp4.confirm;if(!
-
+type:'input'
+}));case 34:_await$inquirer$promp4=_context4.sent;_confirm=_await$inquirer$promp4.confirm;if(!
 _confirm){_context4.next=40;break;}_context4.next=39;return _regenerator.default.awrap(
 _setDevelopmentTeam(c,_confirm));case 39:return _context4.abrupt("return",
 Promise.reject('Updated. Re-run your last command'));case 40:
@@ -271,11 +271,11 @@ isProvisioningMissing=_context4.t0.includes('requires a provisioning profile');i
 isProvisioningMissing){_context4.next=46;break;}return _context4.abrupt("return",
 _handleProvisioningIssues(c,_context4.t0,'Your iOS App requires a provisioning profile'));case 46:return _context4.abrupt("return",
 
-Promise.reject(_context4.t0));case 47:case"end":return _context4.stop();}}},null,null,[[2,8]],Promise);};
+Promise.reject(_context4.t0));case 47:case"end":return _context4.stop();}},null,null,[[2,8]],Promise);};
 
 
 
-var _handleProvisioningIssues=function _handleProvisioningIssues(c,e,msg){var provisioningStyle,isProvAutomatic,proAutoText,fixCommand,workspacePath,_await$inquirer$promp5,confirmAuto;return _regenerator.default.async(function _handleProvisioningIssues$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:
+var _handleProvisioningIssues=function _handleProvisioningIssues(c,e,msg){var provisioningStyle,isProvAutomatic,proAutoText,fixCommand,workspacePath,_await$inquirer$promp5,confirmAuto;return _regenerator.default.async(function _handleProvisioningIssues$(_context5){while(1)switch(_context5.prev=_context5.next){case 0:
 provisioningStyle=(0,_common.getConfigProp)(c,c.platform,'provisioningStyle');
 
 isProvAutomatic=provisioningStyle==='Automatic';
@@ -292,18 +292,18 @@ isProvAutomatic){_context5.next=9;break;}return _context5.abrupt("return",false)
 _inquirer.default.prompt({
 name:'confirmAuto',
 message:'Switch to automatic signing?',
-type:'confirm'}));case 11:_await$inquirer$promp5=_context5.sent;confirmAuto=_await$inquirer$promp5.confirmAuto;if(!
-
+type:'confirm'
+}));case 11:_await$inquirer$promp5=_context5.sent;confirmAuto=_await$inquirer$promp5.confirmAuto;if(!
 confirmAuto){_context5.next=17;break;}_context5.next=16;return _regenerator.default.awrap(
 _setAutomaticSigning(c));case 16:return _context5.abrupt("return",
-Promise.reject('Updated. Re-run your last command'));case 17:case"end":return _context5.stop();}}},null,null,null,Promise);};
+Promise.reject('Updated. Re-run your last command'));case 17:case"end":return _context5.stop();}},null,null,null,Promise);};
 
 
 
 
 
 
-var _setAutomaticSigning=function _setAutomaticSigning(c){var _c$files$appConfig,_c$files$appConfig$co,_c$files$appConfig$co2,_c$files$appConfig$co3,_c$files$appConfig$co4;var scheme,_c$paths$appConfig2;return _regenerator.default.async(function _setAutomaticSigning$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:
+var _setAutomaticSigning=function _setAutomaticSigning(c){var _c$files$appConfig,_c$files$appConfig$co,_c$files$appConfig$co2,_c$files$appConfig$co3,_c$files$appConfig$co4;var scheme,_c$paths$appConfig2;return _regenerator.default.async(function _setAutomaticSigning$(_context6){while(1)switch(_context6.prev=_context6.next){case 0:
 (0,_logger.logTask)("_setAutomaticSigning:"+c.platform);
 
 scheme=(_c$files$appConfig=c.files.appConfig)==null?void 0:(_c$files$appConfig$co=_c$files$appConfig.config)==null?void 0:(_c$files$appConfig$co2=_c$files$appConfig$co.platforms)==null?void 0:(_c$files$appConfig$co3=_c$files$appConfig$co2[c.platform])==null?void 0:(_c$files$appConfig$co4=_c$files$appConfig$co3.buildSchemes)==null?void 0:_c$files$appConfig$co4[c.runtime.scheme];if(!
@@ -312,11 +312,11 @@ scheme.provisioningStyle='Automatic';
 (0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);
 (0,_logger.logSuccess)("Succesfully updated "+c.paths.appConfig.config);_context6.next=9;break;case 8:return _context6.abrupt("return",
 
-Promise.reject("Failed to update "+((_c$paths$appConfig2=c.paths.appConfig)==null?void 0:_c$paths$appConfig2.config)+".\"platforms\": { \""+c.platform+"\": { buildSchemes: { \""+c.runtime.scheme+"\" ... Object is null. Try update file manually"));case 9:case"end":return _context6.stop();}}},null,null,null,Promise);};
+Promise.reject("Failed to update "+((_c$paths$appConfig2=c.paths.appConfig)==null?void 0:_c$paths$appConfig2.config)+".\"platforms\": { \""+c.platform+"\": { buildSchemes: { \""+c.runtime.scheme+"\" ... Object is null. Try update file manually"));case 9:case"end":return _context6.stop();}},null,null,null,Promise);};
 
 
 
-var _setDevelopmentTeam=function _setDevelopmentTeam(c,teamID){var _c$files$appConfig2,_c$files$appConfig2$c,_c$files$appConfig2$c2;var plat,_c$paths$appConfig3;return _regenerator.default.async(function _setDevelopmentTeam$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:
+var _setDevelopmentTeam=function _setDevelopmentTeam(c,teamID){var _c$files$appConfig2,_c$files$appConfig2$c,_c$files$appConfig2$c2;var plat,_c$paths$appConfig3;return _regenerator.default.async(function _setDevelopmentTeam$(_context7){while(1)switch(_context7.prev=_context7.next){case 0:
 (0,_logger.logTask)("_setDevelopmentTeam:"+teamID);
 
 plat=(_c$files$appConfig2=c.files.appConfig)==null?void 0:(_c$files$appConfig2$c=_c$files$appConfig2.config)==null?void 0:(_c$files$appConfig2$c2=_c$files$appConfig2$c.platforms)==null?void 0:_c$files$appConfig2$c2[c.platform];if(!
@@ -325,7 +325,7 @@ plat.teamID=teamID;
 (0,_fileutils.writeFileSync)(c.paths.appConfig.config,c.files.appConfig.config);
 (0,_logger.logSuccess)("Succesfully updated "+c.paths.appConfig.config);_context7.next=9;break;case 8:return _context7.abrupt("return",
 
-Promise.reject("Failed to update "+((_c$paths$appConfig3=c.paths.appConfig)==null?void 0:_c$paths$appConfig3.config)+".\"platforms\": { \""+c.platform+"\" ... Object is null. Try update file manually"));case 9:case"end":return _context7.stop();}}},null,null,null,Promise);};
+Promise.reject("Failed to update "+((_c$paths$appConfig3=c.paths.appConfig)==null?void 0:_c$paths$appConfig3.config)+".\"platforms\": { \""+c.platform+"\" ... Object is null. Try update file manually"));case 9:case"end":return _context7.stop();}},null,null,null,Promise);};
 
 
 
@@ -506,7 +506,7 @@ console.log(d);
 });
 });};exports.runAppleLog=runAppleLog;
 
-var configureXcodeProject=function configureXcodeProject(c,platform,ip,port){var device,bundlerIp,appFolder,appFolderName,bundleAssets,tId;return _regenerator.default.async(function configureXcodeProject$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:
+var configureXcodeProject=function configureXcodeProject(c,platform,ip,port){var device,bundlerIp,appFolder,appFolderName,bundleAssets,tId;return _regenerator.default.async(function configureXcodeProject$(_context8){while(1)switch(_context8.prev=_context8.next){case 0:
 (0,_logger.logTask)("configureXcodeProject:"+platform);
 device=c.program.device;
 bundlerIp=device?(0,_common.getIP)():'localhost';
@@ -531,14 +531,14 @@ didReceiveRemoteNotification:[],
 didFailToRegisterForRemoteNotificationsWithError:[],
 didReceive:[],
 didRegister:[],
-didRegisterForRemoteNotificationsWithDeviceToken:[]},
-
+didRegisterForRemoteNotificationsWithDeviceToken:[]
+},
 userNotificationCenter:{
-willPresent:[]}},
-
-
-podfileSources:[]};
-
+willPresent:[]
+}
+},
+podfileSources:[]
+};
 
 
 (0,_projectParser.parseFonts)(c,function(font,dir){
@@ -583,5 +583,5 @@ copyAppleAssets(c,platform,appFolderName));case 14:_context8.next=16;return _reg
 (0,_projectParser.copyBuildsFolder)(c,platform));case 28:_context8.next=30;return _regenerator.default.awrap(
 runPod(c,platform));case 30:_context8.next=32;return _regenerator.default.awrap(
 (0,_xcodeParser.parseXcodeProject)(c,platform));case 32:return _context8.abrupt("return",
-true);case 33:case"end":return _context8.stop();}}},null,null,null,Promise);};exports.configureXcodeProject=configureXcodeProject;
+true);case 33:case"end":return _context8.stop();}},null,null,null,Promise);};exports.configureXcodeProject=configureXcodeProject;
 //# sourceMappingURL=index.js.map
